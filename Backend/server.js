@@ -1,12 +1,15 @@
 require('dotenv').config(); // Load environment variables from .env file
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const userRoutes = require('./Routes/UserRoutes.js');
 const journalRoutes = require('./Routes/JournalRoutes.js');
 const ScheduleRoutes = require('./Routes/ScheduleRoutes.js');
 const NewsRoutes = require('./Routes/NewsRoutes.js');
 const ChatbotRoutes = require('./Routes/ChatbotRoutes.js');
 const bodyParser = require('body-parser');
+
+app.use(cors());
 
 // Middleware to parse JSON bodies
 app.use(express.json());

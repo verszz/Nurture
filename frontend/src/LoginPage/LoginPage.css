@@ -1,0 +1,99 @@
+#root {
+  padding: 0 !important;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 70%;
+    font-family: Arial, sans-serif;
+  }
+  
+  .login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 206.5vh;
+    background-color: #484848;
+  }
+  
+  header {
+    background-color: #83f569;
+    width: 100%;
+    text-align: left;
+    padding: 20px 0;
+    margin-bottom: 50px;
+  }
+  
+  header h1 {
+    margin: 0;
+    padding-left: 30px;
+    color: #000;
+    font-size: 2em;
+    margin-left: 30px;
+  }
+  
+  .login-box {
+    background-color: #555;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 300px;
+    text-align: center;
+  }
+  
+  .login-box h2 {
+    margin-bottom: 20px;
+    color: #83f569;
+  }
+  
+  .login-box form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-box label {
+    margin-bottom: 10px;
+    color: #83f569;
+    text-align: left;
+  }
+  
+  .login-box label span {
+    color: red;
+  }
+  
+  .login-box input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .login-box input::placeholder {
+    color: #ccc;
+  }
+  
+  .login-button {
+    padding: 10px;
+    background-color: #000;
+    color: #83f569;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .font {
+    color: #83f569;
+  }
+  
+  .register-button {
+    background-color: transparent;
+    border: none;
+    color: #83f569;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
