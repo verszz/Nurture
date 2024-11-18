@@ -1,0 +1,276 @@
+#root {
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+  }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ADDBC0;
+    padding: 20px;
+    height: 100%;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 10px; /* Memberikan sedikit celah antar grid */
+    flex-grow: 1;
+}
+
+.header {
+    grid-column: 1 / 4;
+    background-color: #F0E3C7;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    align-items: center;
+}
+
+.header .menu {
+    background-color: #2A494D;
+    padding: 10px;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.header .profile {
+    background-color: #2A494D;
+    padding: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+}
+
+.box {
+    background-color: #DCCFA4;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.box h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.article-card {
+    background-color: #DCCFA4; /* Card background color */
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+    cursor: pointer; /* Change cursor on hover */
+    transition: transform 0.2s; /* Animation for hover */
+}
+
+.article-card:hover {
+    transform: scale(1.02); /* Scale effect on hover */
+}
+
+.article-card h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.article-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Chatbot Section */
+.chatbot-container {
+    background-color: #FFF3CA;
+    border-radius: 15px;
+    max-height: 326px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chatbot-container h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.chat-bubble {
+    position: relative;
+    background-color: #e1ba89;
+    border-radius: 15px;
+    padding: 10px 20px;
+    max-width: 180px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+    margin-left: auto;
+}
+
+.chat-bubble::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: -6px;
+    transform: rotate(0deg);
+    width: 0;
+    height: 0;
+    border-left: 10px solid #e1ba89;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+.share-button {
+    display: block;
+    background-color: #99a98d;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 10px;
+    max-width: 180px;
+    margin-left: auto;
+}
+
+/* Article Section */
+.article-container {
+    display: flex;
+    background-color: #FFF3CA;
+    flex-direction: column;
+    padding: 20px;
+    max-height: 326px; /* Menentukan tinggi maksimum untuk scroll */
+    overflow-y: auto; /* Mengizinkan scroll */
+}
+
+/* Journal Section */
+.journal-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF3CA;
+    padding: 20px;
+    grid-row: span 2; /* Memperpanjang jurnal ke bawah */
+    height: 100%; /* Menjamin container penuh */
+}
+
+.journal {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    max-height: 65vh; /* Menentukan tinggi maksimal untuk scroll */
+}
+
+.journal .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.journal h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.add-journal {
+    background-color: #99a98d;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.journal-entry {
+    background-color: #DCCFA4;
+    padding: 15px;
+    margin:10px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer; /* Change cursor on hover */
+    transition: transform 0.2s; /* Animation for hover */
+}
+.journal-entry:hover {
+    transform: scale(1.02); /* Scale effect on hover */
+}
+
+.journal-entry h3 {
+    margin-bottom: 5px;
+}
+
+.journal-entry p {
+    font-size: 13px;
+    font-weight: normal;
+}
+
+/* Stress Level Section */
+.stress {
+    background-color: #FFF3CA;
+    grid-row: span 1; /* Mengatur tinggi kotak stress level */
+}
+
+/* Schedule Section */
+.schedule {
+    background-color: #FFF3CA;
+    grid-row: span 1; /* Mengatur tinggi kotak schedule */
+}
+
+/* Footer (optional) */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #99a98d;
+    color: white;
+    margin-top: auto;
+}
+  
+  footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #99a98d;
+    color: white;
+    margin-top: auto;
+  }
+  

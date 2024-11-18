@@ -20,4 +20,17 @@ export const login = async (username, password) => {
       return baseApiResponse(error.response ? error.response.data : error.message, false);
     }
   };
+
+  export const signup = async (username, password) => {
+    try {
+      const response = await axios.post('http://localhost:3000/user/signup', {
+        username: username,
+        password: password
+      });
+      return baseApiResponse(response.data, true);
+    } catch (error) {
+      console.error("Signup failed!:", error);
+      return baseApiResponse(error.response ? error.response.data : error.message, false);
+    }
+  };
   

@@ -1,29 +1,31 @@
 #root {
   padding: 0 !important;
+  width: 100%;
 }
 
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    width: 70%;
-    font-family: Arial, sans-serif;
+    width: 100%;
+    font-family: Inter, sans-serif;
   }
   
   .login-page {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-    width: 206.5vh;
-    background-color: #484848;
+    height: 100%;
+    width: 100%;
+    background-color: #ADDBC0;
   }
   
   header {
-    background-color: #83f569;
+    background-color: #FFF3CA;
     width: 100%;
     text-align: left;
-    padding: 20px 0;
+    padding: 0px;
+    margin-top: -25px;
     margin-bottom: 50px;
   }
   
@@ -36,17 +38,18 @@ body, html {
   }
   
   .login-box {
-    background-color: #555;
+    background-color: #DCCFA4;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 300px;
+    width: 120;
     text-align: center;
+    font-family: 'Inter', sans-serif;
   }
   
   .login-box h2 {
     margin-bottom: 20px;
-    color: #83f569;
+    color: #2A494D;
   }
   
   .login-box form {
@@ -56,8 +59,9 @@ body, html {
   
   .login-box label {
     margin-bottom: 10px;
-    color: #83f569;
+    color: #2A494D;
     text-align: left;
+    font-family: 'Inter', sans-serif;
   }
   
   .login-box label span {
@@ -69,6 +73,7 @@ body, html {
     margin-bottom: 20px;
     border: none;
     border-radius: 5px;
+    font-family: 'Inter', sans-serif;
   }
   
   .login-box input::placeholder {
@@ -77,23 +82,25 @@ body, html {
   
   .login-button {
     padding: 10px;
-    background-color: #000;
-    color: #83f569;
+    background-color: #A5E1BE;
+    color: #2A494D;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
   }
   
   .font {
-    color: #83f569;
+    color: #2A494D;
   }
   
   .register-button {
     background-color: transparent;
     border: none;
-    color: #83f569;
+    color: #2A494D;
     text-decoration: underline;
     cursor: pointer;
+    font-family: 'Inter', sans-serif;
   }
   

@@ -27,12 +27,16 @@ const LoginPage = () => {
         }
     };
 
+    const handleRegister = () => {
+        navigate('/register');
+    };
+
     console.log("Rendering LoginPage component"); // Log saat komponen LoginPage dirender
 
     return (
         <div className="login-page">
             <header>
-                <h1>LET'S DO IT</h1>
+                <h1>NURTURE</h1>
             </header>
             <div className="login-box">
                 <h2>Sign In</h2>
@@ -43,7 +47,7 @@ const LoginPage = () => {
                     <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
                     <button type="submit" className="login-button">LOGIN</button>
                 </form>
-                <p className="font">Don't have an account yet? Register Now</p>
+                <p className="font">Don't have an account yet? <button className="register-button" onClick={handleRegister}>Register Now</button></p>
             </div>
         </div>
     );

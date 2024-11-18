@@ -1,0 +1,104 @@
+#root {
+    padding: 0 !important;
+  }
+  
+  body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: Inter, sans-serif;
+    }
+    
+    .register-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      width: 100%;
+      background-color: #ADDBC0;
+    }
+    
+    header {
+      background-color: #FFF3CA;
+      /* width: 100%; */
+      text-align: left;
+      padding: 20px 0;
+      margin-bottom: 50px;
+    }
+    
+    header h1 {
+      margin: 0;
+      padding-left: 30px;
+      color: #000;
+      font-size: 2em;
+      margin-left: 30px;
+    }
+    
+    .register-box {
+      background-color: #DCCFA4;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      width: 300px;
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .register-box h2 {
+      margin-bottom: 20px;
+      color: #2A494D;
+    }
+    
+    .register-box form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .register-box label {
+      margin-bottom: 10px;
+      color: #2A494D;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .register-box label span {
+      color: red;
+    }
+    
+    .register-box input {
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .register-box input::placeholder {
+      color: #ccc;
+    }
+    
+    .register-button {
+      padding: 10px;
+      background-color: #A5E1BE;
+      color: #2A494D;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .font {
+      color: #2A494D;
+    }
+    
+    .register-button {
+      background-color: transparent;
+      border: none;
+      color: #2A494D;
+      text-decoration: underline;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+    
