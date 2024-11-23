@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../actions/user.action";
-import './LoginPage.css';
+import styles from './LoginPage.module.css'
 
 const LoginPage = () => {
     const [username, setUsername] = useState("");
@@ -34,22 +34,22 @@ const LoginPage = () => {
     console.log("Rendering LoginPage component"); // Log saat komponen LoginPage dirender
 
     return (
-        <div className="login-page">
-            <header>
-                <h1>NURTURE</h1>
-            </header>
-            <div className="login-box">
-                <h2>Sign In</h2>
-                <form onSubmit={handleLogin}>
-                    <label htmlFor="username">Username <span>*</span></label>
-                    <input type="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" required />
-                    <label htmlFor="password">Password <span>*</span></label>
-                    <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
-                    <button type="submit" className="login-button">LOGIN</button>
-                </form>
-                <p className="font">Don't have an account yet? <button className="register-button" onClick={handleRegister}>Register Now</button></p>
-            </div>
+        <div className={styles.loginPage}>
+        <header className={styles.header}>
+            <h1>NURTURE</h1>
+        </header>
+        <div className={styles.loginBox}>
+            <h2>Sign In</h2>
+            <form onSubmit={handleLogin}>
+                <label htmlFor="username">Username <span>*</span></label>
+                <input type="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username" required />
+                <label htmlFor="password">Password <span>*</span></label>
+                <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
+                <button type="submit" className={styles.loginButton}>LOGIN</button>
+            </form>
+            <p className={styles.font}>Don't have an account yet? <button className={styles.loginButton} onClick={handleRegister}>Register Now</button></p>
         </div>
+    </div>
     );
 };
 

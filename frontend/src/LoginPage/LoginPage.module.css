@@ -1,43 +1,36 @@
 #root {
-  padding: 0 !important;
+  padding: 0;
   width: 100%;
 }
 
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    font-family: Inter, sans-serif;
-  }
-  
-  .login-page {
+  .loginPage {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100%;
     width: 100%;
+    padding-left: 0px;
     background-color: #ADDBC0;
   }
   
-  header {
+  .header {
     background-color: #FFF3CA;
     width: 100%;
     text-align: left;
-    padding: 0px;
-    margin-top: -25px;
+    padding: 20px 0;
+    margin-top: 0px;
     margin-bottom: 50px;
   }
   
-  header h1 {
-    margin: 0;
+  .header h1 {
+    margin-top: 0;
     padding-left: 30px;
     color: #000;
     font-size: 2em;
     margin-left: 30px;
   }
   
-  .login-box {
+  .loginBox {
     background-color: #DCCFA4;
     padding: 40px;
     border-radius: 10px;
@@ -47,28 +40,28 @@ body, html {
     font-family: 'Inter', sans-serif;
   }
   
-  .login-box h2 {
+  .loginBox h2 {
     margin-bottom: 20px;
     color: #2A494D;
   }
   
-  .login-box form {
+  .loginBox form {
     display: flex;
     flex-direction: column;
   }
   
-  .login-box label {
+  .loginBox label {
     margin-bottom: 10px;
     color: #2A494D;
     text-align: left;
     font-family: 'Inter', sans-serif;
   }
   
-  .login-box label span {
+  .loginBox label span {
     color: red;
   }
   
-  .login-box input {
+  .loginBox input {
     padding: 10px;
     margin-bottom: 20px;
     border: none;
@@ -76,11 +69,11 @@ body, html {
     font-family: 'Inter', sans-serif;
   }
   
-  .login-box input::placeholder {
+  .loginBox input::placeholder {
     color: #ccc;
   }
   
-  .login-button {
+  .loginButton {
     padding: 10px;
     background-color: #A5E1BE;
     color: #2A494D;
@@ -95,12 +88,4 @@ body, html {
     color: #2A494D;
   }
   
-  .register-button {
-    background-color: transparent;
-    border: none;
-    color: #2A494D;
-    text-decoration: underline;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-  }
   

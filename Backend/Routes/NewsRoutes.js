@@ -5,7 +5,8 @@ const {
   addNews,
   deleteNews,
   editNews,
-  getNews
+  getNews,
+  getAllNews
 } = require("../repositories/Repository.news.js");
 
 router.post('/getNews', async (req, res) => {
@@ -30,6 +31,23 @@ router.post('/getNews', async (req, res) => {
         console.error('Error:', error);
         return res.status(500).json({ error: 'Internal Server Error' }); // Handle errors
     }
+});
+
+router.post('/getAllNews', async (req, res) => {
+  try {
+      const news = await getAllNews(); // Fetch the news using the getNews function
+
+      // Check if any news was returned
+      if (news.length === 0) {
+          return res.status(404).json({ message: 'No news found' });
+      }
+
+      // Return the news as a response
+      return res.json(news);
+  } catch (error) {
+      console.error('Error:', error);
+      return res.status(500).json({ error: 'Internal Server Error' }); // Handle errors
+  }
 });
 
 router.post(

@@ -38,7 +38,7 @@ router.post(
         next();
     },
     journalController.getAllJournal
-)
+);
 router.post(
     "/getSpecificJournal",
     [

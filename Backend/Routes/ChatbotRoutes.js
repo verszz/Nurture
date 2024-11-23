@@ -3,7 +3,7 @@ const axios = require('axios');
 const cors = require('cors');
 const router = express.Router();
 
-router.post('/chat', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const { message } = req.body;
 

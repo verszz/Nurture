@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signup } from "../actions/user.action";
-import './RegisterPage.css';
+import styles from './RegisterPage.module.css';
 
 const RegisterPage = () => {
     const [username, setUsername] = useState("");
@@ -33,11 +33,11 @@ const RegisterPage = () => {
     console.log("Rendering RegisterPage component");
 
     return (
-        <div className="register-page">
-            <header>
+        <div className={styles.registerPage}>
+            <header className={styles.header}>
                 <h1>NURTURE</h1>
             </header>
-            <div className="register-box">
+            <div className={styles.registerBox}>
                 <h2>Sign Up</h2>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="username">Username <span>*</span></label>
@@ -75,7 +75,7 @@ const RegisterPage = () => {
                             {errorMessage}
                         </div>
                     )}
-                    <button type="submit" className="register-button">SIGN UP</button>
+                    <button type="submit" className={styles.registerButton}>SIGN UP</button>
                 </form>
             </div>
         </div>

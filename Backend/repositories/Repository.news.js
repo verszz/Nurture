@@ -56,6 +56,17 @@ const getNews = async (Title, username) => {
   }
 };
 
+const getAllNews = async (Title, username) => {
+  try {
+    const allNews = await pool.query(
+      'SELECT n.id, n.title, n.sources, n.Writer, n.content, n.modified_time, i.image_url FROM nurture_newsletter n LEFT JOIN nurture_newsletter_images i ON n.id = i.newsletter_id');
+    return allNews.rows
+  } catch (error) {
+    console.error('Error fetching news:', error); // Log the error for debugging
+        throw new Error('Error fetching news'); // Throw the error to be handled by the caller
+  }
+};
+
 const editNews = async (id, title, content, sources, writer, images = []) => {
   const client = await pool.connect();
   try {
@@ -94,5 +105,6 @@ module.exports = {
   addNews,
   deleteNews,
   editNews,
-  getNews
+  getNews,
+  getAllNews
 };
