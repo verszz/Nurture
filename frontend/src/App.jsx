@@ -4,6 +4,8 @@ import LoginPage from './LoginPage/LoginPage';
 import RegisterPage from './RegisterPage/RegisterPage';
 import MainPage from './MainPage/MainPage';
 import Chatbot from './ChatBot/ChatBot';
+import StressTrackerChart from './Schedule_Daily/Schedule_Daily'
+import WeeklyStressPage from './SchedulePage/Schedule_Weekly_Page';
 import ProtectedRoute from './ProtectedRoute';
 import './App.css';
 
@@ -24,6 +26,8 @@ function App() {
           <Chatbot/>
         </ProtectedRoute>
           } />
+        <Route path="/WeekStressSched" element={<WeeklyStressPage/>} />
+        <Route path="/DailyStressSched" element={<StressTrackerChart/>} />
       </Routes>
     </Router>
   );

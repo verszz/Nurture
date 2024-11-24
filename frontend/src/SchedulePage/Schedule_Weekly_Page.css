@@ -1,0 +1,110 @@
+/* Prevent body and root container from leaking */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    height: 100%; /* Ensure full height */
+    width: 100%; /* Ensure full width */
+}
+
+#root {
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+    display: flex; /* Ensure layout elements fit flexibly */
+    flex-direction: column;
+}
+
+/* Body Wrapper */
+.body {
+    display: flex;
+    background-color: #ADDBC0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Prevent page leaking */
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0; /* Ensure the sidebar starts flush with the left side */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    transform: translateX(-100%); /* Initially hidden */
+    transition: transform 0.3s ease;
+}
+
+.sidebar.visible {
+    transform: translateX(0); /* Slide in when visible */
+}
+
+.sidebar .close-btn {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; /* Remove default margin */
+}
+
+.sidebar ul li {
+    padding: 10px 0;
+    cursor: pointer;
+    border-bottom: 1px solid #444;
+}
+
+.sidebar ul li:hover {
+    background-color: #444;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 250px; /* Adjust content margin when sidebar is visible */
+    padding: 20px;
+    width: calc(100% - 260px); /* Ensure the content takes up the remaining space */
+    transition: margin-left 0.3s ease, width 0.3s ease;
+    overflow-x: hidden; /* Prevent horizontal scroll in the content */
+    overflow-y: hidden;
+}
+
+.main-content.collapsed {
+    margin-left: -30px !important;
+    margin-top: -35px;
+    width: 99% !important; /* Full width when sidebar is hidden */
+}
+
+/* Card Styles for Chart */
+.chart-card {
+    background-color: #FFF3CA;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Footer (optional) */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #99a98d;
+    color: white;
+    margin-top: auto;
+}
+
