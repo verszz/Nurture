@@ -51,12 +51,16 @@ const WeeklyStressPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [sidebarVisible, setSidebarVisible] = useState(false); // Sidebar state
-  const scheduleOwner = 'rifqi'; // Replace with dynamic value if necessary
+  const storedUsername = localStorage.getItem("username");
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const data = await getStressData(scheduleOwner);
+      if (!storedUsername) {
+        setError("No username found in localStorage.");
+        setLoading(false);
+        return;
+      }      try {
+        const data = await getStressData(storedUsername);
         const preparedData = {
           labels: Object.keys(data),
           datasets: [
@@ -88,7 +92,7 @@ const WeeklyStressPage = () => {
     };
 
     fetchData();
-  }, [scheduleOwner]);
+  }, [storedUsername]);
 
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);

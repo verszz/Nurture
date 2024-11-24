@@ -41,7 +41,9 @@ const StressTrackerChart = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [sidebarVisible, setSidebarVisible] = useState(false);
-  const scheduleOwner = "rifqi"; // Replace with dynamic owner if necessary
+
+  // Retrieve username from localStorage
+  const storedUsername = localStorage.getItem("username");
 
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
@@ -49,8 +51,14 @@ const StressTrackerChart = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      if (!storedUsername) {
+        setError("No username found in localStorage.");
+        setLoading(false);
+        return;
+      }
+
       try {
-        const data = await getStressData(scheduleOwner);
+        const data = await getStressData(storedUsername);
         const preparedData = {
           labels: Object.keys(data[Object.keys(data)[0]]),
           datasets: Object.keys(data).map((day) => ({
@@ -72,7 +80,7 @@ const StressTrackerChart = () => {
     };
 
     fetchData();
-  }, [scheduleOwner]);
+  }, [storedUsername]);  // Dependency array now includes storedUsername
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
@@ -99,7 +107,7 @@ const StressTrackerChart = () => {
           <div className="menu" onClick={toggleSidebar}>
             &#9776;
           </div>
-          <h1>Weekly Stress Tracker</h1>
+          <h1>Daily Stress Tracker</h1>
           <div className="profile">R</div>
         </div>
 
