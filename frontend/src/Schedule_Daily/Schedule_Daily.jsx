@@ -101,7 +101,7 @@ const StressTrackerChart = () => {
       </div>
 
       {/* Main Content */}
-      <div className={`main-content ${sidebarVisible ? "" : "collapsed"}`}>
+      <div className={`main-content-DailyStress ${sidebarVisible ? "" : "collapsed"}`}>
         {/* Header */}
         <div className="header">
           <div className="menu" onClick={toggleSidebar}>

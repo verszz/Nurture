@@ -114,15 +114,15 @@ const WeeklyStressPage = () => {
           &times;
         </div>
         <ul>
-          <li>Home</li> 
-          <li>Weekly Stress</li>
+        <li onClick={() => navigate("/home")}>Home</li>
+        <li onClick={() => navigate("/DailyStressSched")}>Daily Stress</li>        
           <li>Journal</li>
           <li>Settings</li>
         </ul>
       </div>
 
       {/* Main Content */}
-      <div className={`main-content ${sidebarVisible ? '' : 'collapsed'}`}>
+      <div className={`main-content_WeeklyStress ${sidebarVisible ? '' : 'collapsed'}`}>
         {/* Header */}
         <div className="header">
           <div className="menu" onClick={toggleSidebar}>

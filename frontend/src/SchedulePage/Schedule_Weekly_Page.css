@@ -71,7 +71,7 @@ body, html {
 }
 
 /* Main Content */
-.main-content {
+.main-content_WeeklyStress  {
     margin-left: 250px; /* Adjust content margin when sidebar is visible */
     padding: 20px;
     width: calc(100% - 260px); /* Ensure the content takes up the remaining space */
@@ -80,10 +80,10 @@ body, html {
     overflow-y: hidden;
 }
 
-.main-content.collapsed {
-    margin-left: -30px !important;
+.main-content_WeeklyStress.collapsed {
+    margin-left: -30px;
     margin-top: -35px;
-    width: 99% !important; /* Full width when sidebar is hidden */
+    width: 99% ; /* Full width when sidebar is hidden */
 }
 
 /* Card Styles for Chart */
