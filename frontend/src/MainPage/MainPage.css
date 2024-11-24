@@ -35,6 +35,7 @@
     margin-top: 5px;
     margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 10px;
     border-radius: 10px;
     font-size: 24px;
     font-weight: bold;
@@ -67,48 +68,6 @@
     color: white;
     font-size: 24px;
 }
-/* Sidebar Styles */
-.sidebar {
-    position: fixed;
-    top: 0;
-    width: 250px;
-    height: 100%;
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    transform: translateX(-100%); /* Sembunyi dengan transformasi */
-    transition: transform 0.3s ease; /* Tambahkan transisi untuk animasi */
-  }
-  
-  .sidebar.visible {
-    transform: translateX(0); /* Geser ke posisi normal */
-  }
-  
-  .sidebar .close-btn {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    margin-bottom: 20px;
-    text-align: right;
-  }
-  
-  .sidebar ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .sidebar ul li {
-    padding: 10px 0;
-    cursor: pointer;
-    border-bottom: 1px solid #444;
-  }
-  
-  .sidebar ul li:hover {
-    background-color: #444;
-  }
   
 .box {
     background-color: #DCCFA4;
@@ -134,11 +93,15 @@
   }
   
   .article-card {
-    padding: 10px;
+    padding-top: 0px;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-bottom: 15px;
-    background-color: #ffffff;
+    background-color: #DCCFA4;
     border: 1px solid #e0e0e0;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
@@ -149,10 +112,10 @@
   }
   
   .article-image {
-    width: 100%;
+    width: 97%;
     height: auto;
     border-radius: 5px;
-    margin-top: 10px;
+    margin-top: 0px;
   }
   
 
@@ -244,6 +207,7 @@
     display: flex;
     flex-direction: column;
     background-color: #FFF3CA;
+    color: #333;
     padding: 20px;
     grid-row: span 2; /* Memperpanjang jurnal ke bawah */
     height: 89%;
@@ -252,6 +216,7 @@
 .journal {
     flex-grow: 1;
     overflow-y: auto;
+    width: 96%;
     display: flex;
     flex-direction: column;
     max-height: 70vh; /* Menentukan tinggi maksimal untuk scroll */
@@ -298,12 +263,15 @@
     transform: scale(1.02); /* Scale effect on hover */
 }
 
-.journal-entry h3 {
-    margin-bottom: 5px;
+.journal-entry h2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 20px;
 }
 
 .journal-entry p {
-    font-size: 13px;
+    font-size: 15px;
+    margin-top: 10px;
     font-weight: normal;
 }
 

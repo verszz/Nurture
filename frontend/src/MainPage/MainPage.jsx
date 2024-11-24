@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../actions/user.action";
+import { fetchNews } from "../actions/news.action"; // Import fetchNews
+import { getAllJournal } from "../actions/journal.action";
+import Sidebar from "../Sidebar/Sidebar"; // Import Sidebar
 import "./MainPage.css";
 
 const MainPage = () => {
   const [isSidebarVisible, setSidebarVisible] = useState(false); // State untuk sidebar
   const [username, setUsername] = useState(""); // State untuk username
   const [articles, setArticles] = useState([]); // State untuk menyimpan data artikel
+  const [journal, setJournal] = useState([]); // State untuk menyimpan data journal
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,25 +31,36 @@ const MainPage = () => {
   };
 
   useEffect(() => {
-    const fetchNews = async () => {
-      try {
-        const response = await fetch("http://localhost:3000/news/getAllNews", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        const data = await response.json();
-        setArticles(data); // Simpan data artikel ke state
-      } catch (error) {
-        console.error("Error fetching news:", error);
+    const loadNews = async () => {
+      const response = await fetchNews(); // Panggil fungsi fetchNews
+      if (response.success) {
+        setArticles(response.data); // Set state dengan data artikel jika sukses
+      } else {
+        console.error("Failed to load news:", response.data);
       }
     };
 
-    fetchNews();
+    loadNews();
+  }, []);
+  const handleAlert = (message) => {
+    alert(message);
+  };
+
+  useEffect(() => {
+    const loadJournal = async () => {
+      const response = await getAllJournal(username); // Panggil fungsi fetchNews
+      // console.log(username);
+      if (response.success) {
+        setJournal(response.data); // Set state dengan data artikel jika sukses
+      } else {
+        console.error("Failed to load journal:", response.data);
+      }
+    };
+
+    loadJournal();
   }, []);
 
-  const handleAlert = (message) => {
+  const handleJournalAlert = (message) => {
     alert(message);
   };
 
@@ -77,17 +92,12 @@ const MainPage = () => {
       </div>
 
       {/* Sidebar */}
-      <div className={`sidebar ${isSidebarVisible ? "visible" : ""}`}>
-        <div className="close-btn" onClick={toggleSidebar}>
-          ✖
-        </div>
-        <ul>
-          <li onClick={() => navigate("/home")}>Home</li>
-          <li onClick={() => navigate("/profile")}>Profile</li>
-          <li onClick={() => navigate("/settings")}>Settings</li>
-          <li onClick={handleLogout}>Logout</li>
-        </ul>
-      </div>
+      <Sidebar
+        isVisible={isSidebarVisible}
+        toggleSidebar={toggleSidebar}
+        navigate={navigate}
+        handleLogout={handleLogout}
+      />
 
       {/* Main Content */}
       <div className="container">
@@ -135,16 +145,20 @@ const MainPage = () => {
             <div className="add-journal">+</div>
           </div>
           <div className="journal">
-            {Array.from({ length: 7 }).map((_, idx) => (
-              <div
-                className="journal-entry"
-                key={idx}
-                onClick={() => handleAlert(`Journal ${idx + 1} clicked`)}
-              >
-                <h3>Journal {idx + 1}</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div>
-            ))}
+          {journal.length > 0 ? (
+              journal.map((journal) => (
+                <div
+                  className="journal-entry"
+                  key={journal.id}
+                  // onClick={() => window.open(article.sources, "_blank")}
+                >
+                  <h2>{journal.journal_title}</h2>
+                  <p>{journal.journal_content.slice(0, 100)}...</p>
+                </div>
+              ))
+            ) : (
+              <p>No journal available.</p>
+            )}
           </div>
         </div>
 
