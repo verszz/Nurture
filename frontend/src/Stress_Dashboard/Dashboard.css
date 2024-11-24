@@ -1,0 +1,32 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 100vh; /* Full viewport height */
+  }
+  
+  .charts-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%; /* Ensure it takes full width */
+    height: 100%; /* Make sure the charts container fills the available space */
+  }
+  
+  .chart-wrapper {
+    flex: 1;
+    min-width: 400px; /* Adjust based on your needs */
+    height: 100%; /* Let it fill the container vertically */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    background: none; /* Remove background */
+    box-shadow: none; /* Remove box shadow */
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
