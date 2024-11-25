@@ -136,6 +136,11 @@ const MainPage = () => {
     setSidebarVisible(!isSidebarVisible);
   };
 
+  const getCurrentDate = () => {
+    const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+    return new Date().toLocaleDateString("en-US", options);
+  };
+
   return (
     <div>
       {/* Header */}
@@ -252,7 +257,7 @@ const MainPage = () => {
         {/* Schedule Section */}
         <div className="box schedule">
           <h2>Schedule</h2>
-          <p>Your schedule for today:</p>
+          <p>({getCurrentDate()})</p>
           <ul>
             <li>9:00 AM - Meeting</li>
             <li>11:00 AM - Workshop</li>

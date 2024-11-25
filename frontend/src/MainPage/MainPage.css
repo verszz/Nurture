@@ -296,6 +296,12 @@
     overflow: hidden; /* Prevent leaks */
   }
   
+  .schedule p {
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 25px; /* Ensure consistent font size in the schedule list */
+    color: black; /* Set text color to black */
+  }
 
 /* Schedule Section */
 .schedule {
