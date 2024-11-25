@@ -9,8 +9,8 @@ const Sidebar = ({ isVisible, toggleSidebar, navigate, handleLogout }) => {
       </div>
       <ul>
         <li onClick={() => navigate("/home")}>Home</li>
-        <li onClick={() => navigate("/profile")}>Profile</li>
-        <li onClick={() => navigate("/settings")}>Settings</li>
+        <li onClick={() => navigate("/weeklyStress")}>Weekly Stress Tracker</li>
+        <li onClick={() => navigate("/news")}>News</li>
         <li className="logout" onClick={handleLogout}>Logout</li>
       </ul>
     </div>

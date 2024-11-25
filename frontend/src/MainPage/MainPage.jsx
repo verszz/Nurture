@@ -49,7 +49,7 @@ const MainPage = () => {
   useEffect(() => {
     const loadJournal = async () => {
       const response = await getAllJournal(username); // Panggil fungsi fetchNews
-      // console.log(username);
+      console.log(username);
       if (response.success) {
         setJournal(response.data); // Set state dengan data artikel jika sukses
       } else {
@@ -58,7 +58,7 @@ const MainPage = () => {
     };
 
     loadJournal();
-  }, []);
+  }, [username]);
 
   const handleJournalAlert = (message) => {
     alert(message);
@@ -87,7 +87,7 @@ const MainPage = () => {
         <div className="menu" onClick={toggleSidebar}>
           ☰
         </div>
-        <div>Nurture</div>
+        <div>{username}</div>
         <div className="profile">{getInitials(username)}</div> {/* Inisial */}
       </div>
 
@@ -135,7 +135,7 @@ const MainPage = () => {
         <div className="chatbot-container">
           <h2>Chatbot</h2>
           <div className="chat-bubble">Hello! Got a bad day</div>
-          <div className="share-button" onClick={handleChatbot}>Tell me ypur problem</div>
+          <div className="share-button" onClick={handleChatbot}>Tell me your problem</div>
         </div>
 
         {/* Journal Section */}
