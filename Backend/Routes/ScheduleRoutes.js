@@ -6,6 +6,7 @@ const {
   loadScheduleFromDatabase,
   calculateHourlyStressData,
   addSchedule,
+  deleteSchedule
 } = require("../repositories/Repository.schedule.js");
 
 router.post("/getScheduleData", async (req, res) => {
@@ -26,6 +27,17 @@ router.post("/getScheduleData", async (req, res) => {
   } catch (error) {
     console.error("Error:", error);
     res.status(500).send("Internal Server Error");
+  }
+});
+
+router.delete("/DeleteSchedule", async (req, res) => {
+  const { scheduleId, scheduleOwner } = req.body;
+  try {
+    const deletedId = await deleteSchedule(scheduleId, scheduleOwner);
+    res.status(200).json({ message: "Schedule deleted successfully", deletedId });
+  } catch (error) {
+    console.error("Error deleting schedule:", error);
+    res.status(400).json({ error: error.message });
   }
 });
 

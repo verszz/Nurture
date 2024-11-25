@@ -3,6 +3,30 @@ const moment = require('moment');
 
 const POST_CLASS_CONSTANT_DURATION = 30; // in minutes
 
+
+exports.deleteSchedule = async function (scheduleId, scheduleOwner) {
+  const client = await pool.connect();
+  try {
+    const query = `
+      DELETE FROM Nurture_Schedule
+      WHERE id = $1 AND schedule_owner = $2
+      RETURNING id
+    `;
+    const values = [scheduleId, scheduleOwner];
+    const res = await client.query(query, values);
+
+    if (res.rowCount === 0) {
+      throw new Error("Schedule not found or unauthorized action.");
+    }
+
+    return res.rows[0].id; // Return the deleted schedule ID
+  } catch (error) {
+    throw error;
+  } finally {
+    client.release();
+  }
+};
+
 // Function to add a schedule to the database
 exports.addSchedule = async function (
   className,

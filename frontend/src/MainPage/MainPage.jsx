@@ -3,14 +3,39 @@ import { useNavigate } from "react-router-dom";
 import { logout } from "../actions/user.action";
 import { fetchNews } from "../actions/news.action"; // Import fetchNews
 import { getAllJournal } from "../actions/journal.action";
-import Sidebar from "../Sidebar/Sidebar"; // Import Sidebar
+import { getStressData } from "../actions/schedule.action";
+import Sidebar from "../Sidebar/Sidebar";
+import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 import "./MainPage.css";
+
+// Register Chart.js components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const MainPage = () => {
   const [isSidebarVisible, setSidebarVisible] = useState(false); // State untuk sidebar
   const [username, setUsername] = useState(""); // State untuk username
   const [articles, setArticles] = useState([]); // State untuk menyimpan data artikel
   const [journal, setJournal] = useState([]); // State untuk menyimpan data journal
+  const [stressData, setStressData] = useState(null);
+  const [loadingStress, setLoadingStress] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -63,6 +88,37 @@ const MainPage = () => {
   const handleJournalAlert = (message) => {
     alert(message);
   };
+
+  useEffect(() => {
+    const fetchStressData = async () => {
+      if (!username) return;
+      try {
+        const data = await getStressData(username);
+        const chartData = {
+          labels: Object.keys(data),
+          datasets: [
+            {
+              label: "Weekly Stress Levels",
+              data: Object.keys(data).map((day) =>
+                Object.values(data[day]).reduce((total, val) => total + val, 0)
+              ),
+              backgroundColor: "rgba(75, 192, 192, 0.2)",
+              borderColor: "rgba(75, 192, 192, 1)",
+              borderWidth: 2,
+              pointBackgroundColor: "rgba(75, 192, 192, 1)",
+              pointRadius: 5,
+            },
+          ],
+        };
+        setStressData(chartData);
+        setLoadingStress(false);
+      } catch (error) {
+        console.error("Error fetching stress data:", error);
+        setLoadingStress(false);
+      }
+    };
+    fetchStressData();
+  }, [username]);
 
   const handleLogout = () => {
     logout();
@@ -165,8 +221,33 @@ const MainPage = () => {
         {/* Stress Level Section */}
         <div className="box stress">
           <h2>Stress Level</h2>
-          <p>Current stress level: Moderate</p>
+          <div className="chart-container">
+            {loadingStress ? (
+              <p>Loading stress data...</p>
+            ) : stressData ? (
+              <Line
+                data={stressData}
+                options={{
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  plugins: {
+                    title: {
+                      display: true,
+                      text: "Weekly Stress Levels",
+                    },
+                  },
+                  scales: {
+                    x: { title: { display: true, text: "Days of the Week" } },
+                    y: { title: { display: true, text: "Stress Level" } },
+                  },
+                }}
+              />
+            ) : (
+              <p>No stress data available.</p>
+            )}
+          </div>
         </div>
+
 
         {/* Schedule Section */}
         <div className="box schedule">
