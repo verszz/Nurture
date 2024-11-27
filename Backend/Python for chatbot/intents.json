@@ -774,6 +774,1472 @@
       "responses": [
           "i have heard that 3 3 3 rule is the best method to reduce anxiety.in this method you have to mentally note\u00a0three\u00a0things you see,\u00a0three\u00a0sounds you hear, and then move\u00a0three\u00a0parts of your body.this exercise can help your mind refocus on something else.give this method a try i am sure it will help you"
       ]
-  }
+  },
+  {
+    "tag": "dealing_with_bullying",
+    "patterns": [
+      "I am a victim of bullying",
+      "I am being bullied",
+      "Someone is bullying me",
+      "I feel harassed",
+      "I'm scared of my bully"
+    ],
+    "responses": [
+      "I'm really sorry to hear that you're going through this. Bullying is never okay. Please consider talking to someone you trust, like a parent, teacher, or counselor. You deserve to feel safe and respected."
+    ]
+  },
+  {
+    "tag": "afraid_to_report_bullying",
+    "patterns": [
+      "I'm scared to report the bullying",
+      "I feel afraid to tell someone about being bullied",
+      "I don't know how to report bullying",
+      "I feel helpless about being bullied"
+    ],
+    "responses": [
+      "It's understandable to feel scared, but standing up for yourself is important. Try to document what's happening and talk to a trusted adult or authority figure. You don't have to face this alone."
+    ]
+  },
+  {
+    "tag": "feeling_anxious",
+    "patterns": [
+      "I feel anxious",
+      "I am always worried lately",
+      "I have anxiety",
+      "I can't stop feeling nervous",
+      "I feel uneasy"
+    ],
+    "responses": [
+      "Anxiety can be overwhelming, but there are ways to manage it. Try the 3-3-3 rule: look around and name three things you see, three sounds you hear, and move three parts of your body. Deep breathing and mindfulness exercises can also help ground you."
+    ]
+  },
+  {
+    "tag": "feeling_like_quitting",
+    "patterns": [
+      "I feel like quitting",
+      "I want to give up",
+      "I can't keep going anymore",
+      "I want to stop trying"
+    ],
+    "responses": [
+      "I know it feels tough right now, but remember, even the strongest people feel like quitting sometimes. Take a break, reflect, and remind yourself why you started. You’ve come this far—don’t give up on yourself!"
+    ]
+  },
+  {
+    "tag": "feeling_guilty",
+    "patterns": [
+      "I feel guilty",
+      "I let everyone down",
+      "I feel like I failed others",
+      "I disappointed people"
+    ],
+    "responses": [
+      "Guilt is a sign that you care deeply, but don't be too hard on yourself. Ask yourself: is there something you can do to make amends? If yes, take action. If not, forgive yourself and focus on doing better moving forward."
+    ]
+  },
+  {
+    "tag": "feeling_exhausted",
+    "patterns": [
+      "I feel exhausted",
+      "I can't do this anymore",
+      "I'm so tired",
+      "I feel drained"
+    ],
+    "responses": [
+      "You sound like you need a break. Rest is vital for your mind and body. Take some time to recharge—whether it’s a short walk, a nap, or even a day off. You’ll come back stronger!"
+    ]
+  },
+  {
+    "tag": "dealing_with_loss",
+    "patterns": [
+      "I lost someone close to me",
+      "Someone I love passed away",
+      "I can't cope with losing them",
+      "I'm grieving a loss"
+    ],
+    "responses": [
+      "Losing someone you love is one of the hardest things to face. Grieving takes time, and it’s okay to feel whatever you're feeling. Talking to a close friend or therapist can help you process your emotions."
+    ]
+  },
+  {
+    "tag": "relationship_issues",
+    "patterns": [
+      "I'm having relationship problems",
+      "My partner and I are fighting",
+      "I feel distant from my partner",
+      "My relationship is falling apart"
+    ],
+    "responses": [
+      "Relationships can be challenging, but communication is key. Try to calmly share your feelings with your partner and listen to theirs. If things feel too difficult, consider seeking help from a counselor."
+    ]
+  },
+  {
+    "tag": "feeling_lonely",
+    "patterns": [
+      "I feel lonely",
+      "I don't have anyone",
+      "I have no one to talk to",
+      "I'm alone"
+    ],
+    "responses": [
+      "Loneliness can feel heavy, but you’re not truly alone. Reaching out to a friend, family member, or joining a community group can help. Sometimes, even connecting with an online support group can make a difference."
+    ]
+  },
+  {
+    "tag": "career_stress",
+    "patterns": [
+      "I'm stressed about my job",
+      "I feel burnt out at work",
+      "I can't handle my career anymore",
+      "Work is overwhelming me"
+    ],
+    "responses": [
+      "Work stress can be tough. Try to prioritize your tasks and take small breaks during the day. Communicate with your employer if you're feeling overwhelmed—they might be able to adjust your workload."
+    ]
+  },
+  {
+    "tag": "making_big_decisions",
+    "patterns": [
+      "I'm stuck making a big decision",
+      "I can't decide what to do",
+      "I feel lost about a major choice",
+      "I'm scared of making the wrong decision"
+    ],
+    "responses": [
+      "Big decisions can feel paralyzing. Try listing the pros and cons of your options and think about what aligns with your values. Remember, no decision is perfect, but you can always adjust your course later."
+    ]
+  },
+  {
+    "tag": "financial_worries",
+    "patterns": [
+      "I'm worried about money",
+      "I can't handle my finances",
+      "I have so much debt",
+      "My financial situation is bad"
+    ],
+    "responses": [
+      "Money worries can be overwhelming. Start by creating a small budget or seeking advice from a financial counselor. Focusing on small, manageable steps can help you regain control over your situation."
+    ]
+  },
+  {
+    "tag": "low_self_esteem",
+    "patterns": [
+      "I don't feel good about myself",
+      "I have low self-worth",
+      "I feel like I'm not enough",
+      "I don't like who I am"
+    ],
+    "responses": [
+      "It’s hard to feel this way, but remember: no one is perfect, and you don’t have to be. Focus on your strengths, no matter how small they seem. You matter, and the world is better with you in it."
+    ]
+  },
+  {
+    "tag": "parenting_struggles",
+    "patterns": [
+      "I'm struggling as a parent",
+      "Parenting is so hard",
+      "I feel like I'm failing as a parent",
+      "I don't know how to handle my kids"
+    ],
+    "responses": [
+      "Parenting is one of the hardest jobs in the world, and no one gets it right all the time. Give yourself grace. Try to focus on small wins, and don’t hesitate to reach out to other parents or professionals for support."
+    ]
+  },
+  {
+    "tag": "feeling_unmotivated",
+    "patterns": [
+      "I feel unmotivated",
+      "I can't get anything done",
+      "I don't have energy to work",
+      "I feel lazy"
+    ],
+    "responses": [
+      "Feeling unmotivated is natural sometimes. Start with small steps—set a tiny goal and accomplish it. Even something as simple as making your bed can create momentum."
+    ]
+  },
+  {
+    "tag": "coping_with_change",
+    "patterns": [
+      "I'm struggling with change",
+      "Change is hard for me",
+      "I can't adapt to new things",
+      "This new phase of life is tough"
+    ],
+    "responses": [
+      "Change can be scary, but it's also an opportunity to grow. Take things one step at a time, and remind yourself that it’s okay to feel uncomfortable as you adjust."
+    ]
+  },
+  {
+    "tag": "building_healthy_habits",
+    "patterns": [
+      "I want to build better habits",
+      "I don't know how to stay healthy",
+      "How do I create good routines?",
+      "I want to improve my habits"
+    ],
+    "responses": [
+      "Start small! Focus on one habit at a time, like drinking more water or going for a 10-minute walk. Consistency is key—small daily actions lead to big changes over time."
+    ]
+  },
+  {
+    "tag": "coping_with_rejection",
+    "patterns": [
+      "I can't handle rejection",
+      "I feel hurt after being rejected",
+      "Rejection really affects me",
+      "I was turned down and feel bad"
+    ],
+    "responses": [
+      "Rejection is painful, but it's not a reflection of your worth. Everyone faces rejection—it’s part of life. Learn from it, grow, and remind yourself that something better is waiting for you."
+    ]
+  },
+  {
+    "tag": "feeling_unheard",
+    "patterns": [
+      "I feel like no one listens to me",
+      "No one cares about what I say",
+      "I feel invisible",
+      "I don't feel heard"
+    ],
+    "responses": [
+      "It hurts to feel unheard. Try expressing yourself clearly and calmly to those around you. If that doesn’t help, find someone who values your voice—like a friend, therapist, or support group. Your feelings matter."
+    ]
+  },
+  {
+    "tag": "feeling_sad",
+    "patterns": [
+      "I am feeling sad",
+      "I feel down today",
+      "I'm not happy",
+      "I feel blue",
+      "I'm upset"
+    ],
+    "responses": [
+      "I'm sorry you're feeling this way. Sometimes sadness comes and goes like waves. Try doing something you enjoy or talk to someone close to you. Remember, it's okay to feel sad sometimes. You're not alone."
+    ]
+  },
+  {
+    "tag": "dealing_with_bullying",
+    "patterns": [
+      "I am a victim of bullying",
+      "I am being bullied",
+      "Someone is bullying me",
+      "I feel harassed",
+      "I'm scared of my bully"
+    ],
+    "responses": [
+      "I'm really sorry to hear that you're going through this. Bullying is never okay. Please consider talking to someone you trust, like a parent, teacher, or counselor. You deserve to feel safe and respected."
+    ]
+  },
+  {
+    "tag": "afraid_to_report_bullying",
+    "patterns": [
+      "I'm scared to report the bullying",
+      "I feel afraid to tell someone about being bullied",
+      "I don't know how to report bullying",
+      "I feel helpless about being bullied"
+    ],
+    "responses": [
+      "It's understandable to feel scared, but standing up for yourself is important. Try documenting what's happening and talking to a trusted adult or authority figure. You don’t have to face this alone."
+    ]
+  },
+  {
+    "tag": "feeling_anxious",
+    "patterns": [
+      "I feel anxious",
+      "I am always worried lately",
+      "I have anxiety",
+      "I can't stop feeling nervous",
+      "I feel uneasy"
+    ],
+    "responses": [
+      "Anxiety can be overwhelming, but there are ways to manage it. Try the 3-3-3 rule: look around and name three things you see, three sounds you hear, and move three parts of your body. Deep breathing and mindfulness exercises can also help ground you."
+    ]
+  },
+  {
+    "tag": "feeling_like_quitting",
+    "patterns": [
+      "I feel like quitting",
+      "I want to give up",
+      "I can't keep going anymore",
+      "I want to stop trying"
+    ],
+    "responses": [
+      "I know it feels tough right now, but remember, even the strongest people feel like quitting sometimes. Take a break, reflect, and remind yourself why you started. You’ve come this far—don’t give up on yourself!"
+    ]
+  },
+  {
+    "tag": "feeling_guilty",
+    "patterns": [
+      "I feel guilty",
+      "I let everyone down",
+      "I feel like I failed others",
+      "I disappointed people"
+    ],
+    "responses": [
+      "Guilt is a sign that you care deeply, but don't be too hard on yourself. Ask yourself: is there something you can do to make amends? If yes, take action. If not, forgive yourself and focus on doing better moving forward."
+    ]
+  },
+  {
+    "tag": "feeling_exhausted",
+    "patterns": [
+      "I feel exhausted",
+      "I can't do this anymore",
+      "I'm so tired",
+      "I feel drained"
+    ],
+    "responses": [
+      "You sound like you need a break. Rest is vital for your mind and body. Take some time to recharge—whether it’s a short walk, a nap, or even a day off. You’ll come back stronger!"
+    ]
+  },
+  {
+    "tag": "dealing_with_loss",
+    "patterns": [
+      "I lost someone close to me",
+      "Someone I love passed away",
+      "I can't cope with losing them",
+      "I'm grieving a loss"
+    ],
+    "responses": [
+      "Losing someone you love is one of the hardest things to face. Grieving takes time, and it’s okay to feel whatever you're feeling. Talking to a close friend or therapist can help you process your emotions."
+    ]
+  },
+  {
+    "tag": "relationship_issues",
+    "patterns": [
+      "I'm having relationship problems",
+      "My partner and I are fighting",
+      "I feel distant from my partner",
+      "My relationship is falling apart"
+    ],
+    "responses": [
+      "Relationships can be challenging, but communication is key. Try to calmly share your feelings with your partner and listen to theirs. If things feel too difficult, consider seeking help from a counselor."
+    ]
+  },
+  {
+    "tag": "feeling_lonely",
+    "patterns": [
+      "I feel lonely",
+      "I don't have anyone",
+      "I have no one to talk to",
+      "I'm alone"
+    ],
+    "responses": [
+      "Loneliness can feel heavy, but you’re not truly alone. Reaching out to a friend, family member, or joining a community group can help. Sometimes, even connecting with an online support group can make a difference."
+    ]
+  },
+  {
+    "tag": "career_stress",
+    "patterns": [
+      "I'm stressed about my job",
+      "I feel burnt out at work",
+      "I can't handle my career anymore",
+      "Work is overwhelming me"
+    ],
+    "responses": [
+      "Work stress can be tough. Try to prioritize your tasks and take small breaks during the day. Communicate with your employer if you're feeling overwhelmed—they might be able to adjust your workload."
+    ]
+  },
+  {
+    "tag": "making_big_decisions",
+    "patterns": [
+      "I'm stuck making a big decision",
+      "I can't decide what to do",
+      "I feel lost about a major choice",
+      "I'm scared of making the wrong decision"
+    ],
+    "responses": [
+      "Big decisions can feel paralyzing. Try listing the pros and cons of your options and think about what aligns with your values. Remember, no decision is perfect, but you can always adjust your course later."
+    ]
+  },
+  {
+    "tag": "financial_worries",
+    "patterns": [
+      "I'm worried about money",
+      "I can't handle my finances",
+      "I have so much debt",
+      "My financial situation is bad"
+    ],
+    "responses": [
+      "Money worries can be overwhelming. Start by creating a small budget or seeking advice from a financial counselor. Focusing on small, manageable steps can help you regain control over your situation."
+    ]
+  },
+  {
+    "tag": "low_self_esteem",
+    "patterns": [
+      "I don't feel good about myself",
+      "I have low self-worth",
+      "I feel like I'm not enough",
+      "I don't like who I am"
+    ],
+    "responses": [
+      "It’s hard to feel this way, but remember: no one is perfect, and you don’t have to be. Focus on your strengths, no matter how small they seem. You matter, and the world is better with you in it."
+    ]
+  },
+  {
+    "tag": "parenting_struggles",
+    "patterns": [
+      "I'm struggling as a parent",
+      "Parenting is so hard",
+      "I feel like I'm failing as a parent",
+      "I don't know how to handle my kids"
+    ],
+    "responses": [
+      "Parenting is one of the hardest jobs in the world, and no one gets it right all the time. Give yourself grace. Try to focus on small wins, and don’t hesitate to reach out to other parents or professionals for support."
+    ]
+  },
+  {
+    "tag": "feeling_unmotivated",
+    "patterns": [
+      "I feel unmotivated",
+      "I can't get anything done",
+      "I don't have energy to work",
+      "I feel lazy"
+    ],
+    "responses": [
+      "Feeling unmotivated is natural sometimes. Start with small steps—set a tiny goal and accomplish it. Even something as simple as making your bed can create momentum."
+    ]
+  },
+  {
+    "tag": "coping_with_change",
+    "patterns": [
+      "I'm struggling with change",
+      "Change is hard for me",
+      "I can't adapt to new things",
+      "This new phase of life is tough"
+    ],
+    "responses": [
+      "Change can be scary, but it’s also an opportunity to grow. Take things one step at a time, and remind yourself that it’s okay to feel uncomfortable as you adjust."
+    ]
+  },
+  {
+    "tag": "building_healthy_habits",
+    "patterns": [
+      "I want to build better habits",
+      "I don't know how to stay healthy",
+      "How do I create good routines?",
+      "I want to improve my habits"
+    ],
+    "responses": [
+      "Start small! Focus on one habit at a time, like drinking more water or going for a 10-minute walk. Consistency is key—small daily actions lead to big changes over time."
+    ]
+  },
+  {
+    "tag": "coping_with_rejection",
+    "patterns": [
+      "I can't handle rejection",
+      "I feel hurt after being rejected",
+      "Rejection really affects me",
+      "I was turned down and feel bad"
+    ],
+    "responses": [
+      "Rejection is painful, but it’s not a reflection of your worth. Everyone faces rejection—it’s part of life. Learn from it, grow, and remind yourself that something better is waiting for you."
+    ]
+  },
+  {
+    "tag": "feeling_unheard",
+    "patterns": [
+      "I feel like no one listens to me",
+      "No one cares about what I say",
+      "I feel invisible",
+      "I don't feel heard"
+    ],
+    "responses": [
+      "It hurts to feel unheard. Try expressing yourself clearly and calmly to those around you. If that doesn’t help, find someone who values your voice—like a friend, therapist, or support group. Your feelings matter."
+    ]
+  },
+  {
+    "tag": "dealing_with_failure",
+    "patterns": [
+      "I failed",
+      "I can't handle failure",
+      "Failure hurts so much",
+      "I feel like a loser"
+    ],
+    "responses": [
+      "Failure is tough, but it’s also a stepping stone to success. Every failure is a lesson. Reflect on what went wrong, adjust your approach, and try again. You’re stronger than you think."
+    ]
+  },
+  {
+    "tag": "feeling_jealous",
+    "patterns": [
+      "I feel jealous",
+      "I'm always comparing myself to others",
+      "Jealousy is eating me up",
+      "I can't stop feeling envious"
+    ],
+    "responses": [
+      "Jealousy can be a sign that you deeply care about something or someone. Try to focus on gratitude for what you have, and work on improving yourself rather than comparing. Your journey is unique."
+    ]
+  },
+  {
+    "tag": "dealing_with_revenge",
+    "patterns": [
+      "I want revenge",
+      "I feel like getting back at someone",
+      "I can't forgive and want to hurt them",
+      "I want to make them pay"
+    ],
+    "responses": [
+      "Revenge might feel satisfying in the moment, but it often leads to more pain. Instead, focus on healing and moving on. Forgiveness doesn’t mean forgetting—it means freeing yourself from the burden of anger."
+    ]
+  },
+  {
+    "tag": "coping_with_fear",
+    "patterns": [
+      "I'm scared",
+      "I feel afraid",
+      "Fear is controlling me",
+      "I can't overcome my fears"
+    ],
+    "responses": [
+      "Fear is natural, but it doesn’t have to control you. Break the fear down—what’s the worst that could happen? Often, our fears are bigger in our minds than in reality. Take small steps to face it."
+    ]
+  },
+  {
+    "tag": "breaking_bad_habits",
+    "patterns": [
+      "I can't stop my bad habits",
+      "How do I quit bad habits?",
+      "I'm stuck with unhealthy routines",
+      "My bad habits are ruining my life"
+    ],
+    "responses": [
+      "Breaking bad habits takes time and patience. Start small: replace the habit with something positive. Reward yourself for progress, and don’t be too hard on yourself if you slip up. Keep going."
+    ]
+  },
+  {
+    "tag": "coping_with_criticism",
+    "patterns": [
+      "I can't handle criticism",
+      "Criticism hurts me",
+      "I feel offended when people criticize me",
+      "I take criticism too personally"
+    ],
+    "responses": [
+      "Criticism can sting, but it’s also an opportunity to grow. Ask yourself: is the feedback constructive? If yes, use it to improve. If not, let it go. You’re not defined by others’ opinions."
+    ]
+  },
+  {
+    "tag": "dealing_with_procrastination",
+    "patterns": [
+      "I keep procrastinating",
+      "I can't stop putting things off",
+      "I'm stuck in procrastination",
+      "I always delay my work"
+    ],
+    "responses": [
+      "Procrastination happens to everyone. Start by breaking your tasks into smaller steps and tackling just one thing at a time. Set a timer for 10 minutes and start—often, the hardest part is beginning."
+    ]
+  },
+  {
+    "tag": "coping_with_breakups",
+    "patterns": [
+      "I just went through a breakup",
+      "My relationship ended",
+      "I'm heartbroken",
+      "I can't move on from my ex"
+    ],
+    "responses": [
+      "Breakups are painful, but they also open the door to new beginnings. Allow yourself to grieve, but don’t lose sight of your own worth. Focus on self-care and lean on friends for support."
+    ]
+  },
+  {
+    "tag": "feeling_overwhelmed",
+    "patterns": [
+      "I feel overwhelmed",
+      "Everything feels like too much",
+      "I can't handle all this pressure",
+      "I'm drowning in responsibilities"
+    ],
+    "responses": [
+      "Feeling overwhelmed is tough, but you don’t have to tackle everything at once. Prioritize what’s most important and take it step by step. Deep breaths and small breaks can help lighten the load."
+    ]
+  },
+  {
+    "tag": "dealing_with_repetitive_thoughts",
+    "patterns": [
+      "I can't stop overthinking",
+      "My mind won't stop racing",
+      "I keep thinking the same thing over and over",
+      "I can't control my thoughts"
+    ],
+    "responses": [
+      "Overthinking can be exhausting. Try to write down your thoughts to get them out of your head. Practice mindfulness or grounding exercises to bring your focus back to the present moment."
+    ]
+  },
+  {
+    "tag": "setting_boundaries",
+    "patterns": [
+      "I don't know how to set boundaries",
+      "People always take advantage of me",
+      "I can't say no",
+      "I feel like I have no control in relationships"
+    ],
+    "responses": [
+      "Setting boundaries is about protecting your well-being. Start small: practice saying no politely but firmly. Remember, you’re not responsible for other people’s feelings—taking care of yourself is not selfish."
+    ]
+  },
+  {
+    "tag": "coping_with_regret",
+    "patterns": [
+      "I regret my choices",
+      "I can't stop thinking about my mistakes",
+      "I wish I had done things differently",
+      "Regret is eating me alive"
+    ],
+    "responses": [
+      "Regret can be heavy, but it’s also a sign that you’ve learned something valuable. Focus on what you can do differently moving forward. Remember, the past doesn’t define your future."
+    ]
+  },
+  {
+    "tag": "feeling_hopeless",
+    "patterns": [
+      "I feel hopeless",
+      "There's no point in trying anymore",
+      "I feel like things will never get better",
+      "I'm ready to give up on everything"
+    ],
+    "responses": [
+      "I’m sorry you’re feeling this way. It’s hard to see hope when things feel dark, but remember that bad times don’t last forever. Talk to someone you trust, and take small steps toward brighter days."
+    ]
+  },
+  {
+    "tag": "dealing_with_insecurity",
+    "patterns": [
+      "I feel insecure",
+      "I don't feel confident about myself",
+      "I'm always doubting myself",
+      "My insecurities are ruining my life"
+    ],
+    "responses": [
+      "Insecurity can be tough, but remember: no one is perfect. Focus on your strengths and the things you love about yourself. Building self-confidence takes time—be kind to yourself along the way."
+    ]
+  },
+  {
+    "tag": "coping_with_peer_pressure",
+    "patterns": [
+      "I feel pressured by my friends",
+      "I can't say no to peer pressure",
+      "I'm doing things I don't want to because of others",
+      "Peer pressure is hard to handle"
+    ],
+    "responses": [
+      "Peer pressure can be strong, but your values and well-being matter most. Practice saying no with confidence, and surround yourself with people who respect your boundaries and choices."
+    ]
+  },
+  {
+    "tag": "managing_stress",
+    "patterns": [
+      "I'm so stressed",
+      "Stress is taking over my life",
+      "I can't manage my stress",
+      "Everything is stressing me out"
+    ],
+    "responses": [
+      "Stress can feel overwhelming, but small steps can help. Try deep breathing, taking walks, or practicing mindfulness. Don’t hesitate to ask for help—it’s okay to lean on others."
+    ]
+  },
+  {
+    "tag": "dealing_with_confusion",
+    "patterns": [
+      "I'm so confused",
+      "I don't know what to do",
+      "Nothing makes sense anymore",
+      "I feel lost and unsure"
+    ],
+    "responses": [
+      "Confusion can feel unsettling, but it’s also a sign you’re exploring your options. Take time to reflect, write down your thoughts, and talk to someone you trust. Clarity will come with time."
+    ]
+  },
+  {
+    "tag": "imposter_syndrome",
+    "patterns": [
+      "I feel like a fraud",
+      "I don't deserve my success",
+      "I feel like I'm not good enough for my role",
+      "I think I'm fooling everyone"
+    ],
+    "responses": [
+      "Imposter syndrome is common, but it doesn’t define you. You’ve worked hard to get where you are—acknowledge your achievements and remind yourself that growth is a journey."
+    ]
+  },
+  {
+    "tag": "coping_with_trauma",
+    "patterns": [
+      "I can't move past my trauma",
+      "Trauma is controlling my life",
+      "I feel stuck in the past",
+      "My trauma is overwhelming me"
+    ],
+    "responses": [
+      "Trauma is incredibly difficult to process, but healing is possible. Consider reaching out to a counselor or therapist who can guide you through it. You don’t have to face this alone."
+    ]
+  },
+  {
+    "tag": "coping_with_rejection_in_love",
+    "patterns": [
+      "I was rejected by someone I love",
+      "They don't love me back",
+      "Unrequited love is hurting me",
+      "I can't handle rejection in love"
+    ],
+    "responses": [
+      "Rejection in love is painful, but it doesn’t diminish your worth. Allow yourself to grieve, but remember that the right person will value and cherish you for who you are."
+    ]
+  },
+  {
+    "tag": "finding_purpose",
+    "patterns": [
+      "I don't know my purpose in life",
+      "I feel like I have no direction",
+      "What is the point of everything?",
+      "I can't find meaning in life"
+    ],
+    "responses": [
+      "Finding purpose takes time, and it's okay to feel lost sometimes. Start by exploring the things that bring you joy or make you feel fulfilled. Your purpose often grows from the small things you care about."
+    ]
+  },
+  {
+    "tag": "dealing_with_lack_of_support",
+    "patterns": [
+      "I feel like no one supports me",
+      "I don't have anyone on my side",
+      "I feel abandoned",
+      "No one understands me"
+    ],
+    "responses": [
+      "It’s hard to feel unsupported, but there are people out there who care. Try reaching out to a friend, family member, or even a support group. You deserve to be heard and understood."
+    ]
+  },
+  {
+    "tag": "coping_with_health_issues",
+    "patterns": [
+      "I'm struggling with my health",
+      "My illness is taking over my life",
+      "I can't handle being sick",
+      "Dealing with health issues is so hard"
+    ],
+    "responses": [
+      "Dealing with health challenges can be physically and emotionally draining. Focus on what you can control, like small self-care practices, and lean on loved ones or healthcare professionals for support."
+    ]
+  },
+  {
+    "tag": "coping_with_life_transitions",
+    "patterns": [
+      "This new phase of life is scary",
+      "I can't adjust to change",
+      "Life transitions are overwhelming me",
+      "I feel stuck in this new chapter"
+    ],
+    "responses": [
+      "Life transitions can feel unsettling, but they also bring opportunities for growth. Take things step by step and remind yourself that it’s okay to feel uncertain as you adjust to new circumstances."
+    ]
+  },
+  {
+    "tag": "coping_with_family_conflict",
+    "patterns": [
+      "My family is always fighting",
+      "I can't get along with my family",
+      "Family conflict is stressing me out",
+      "I feel distant from my family"
+    ],
+    "responses": [
+      "Family conflicts can be emotionally exhausting. Try open and honest communication when possible, and set boundaries to protect your peace. If needed, a mediator or counselor can help improve relationships."
+    ]
+  },
+  {
+    "tag": "managing_time",
+    "patterns": [
+      "I can't manage my time well",
+      "I'm always behind schedule",
+      "Time management is hard for me",
+      "I feel like there's never enough time"
+    ],
+    "responses": [
+      "Time management can feel overwhelming, but small changes can help. Start by prioritizing tasks, using to-do lists, and breaking work into smaller chunks. Remember, it’s okay to say no to avoid overcommitting."
+    ]
+  },
+  {
+    "tag": "feeling_bored",
+    "patterns": [
+      "I'm so bored",
+      "Life feels so monotonous",
+      "I have nothing to do",
+      "I can't find anything exciting"
+    ],
+    "responses": [
+      "Boredom can be an opportunity to explore new hobbies or interests. Try something creative, read a book, or take a walk in nature. Sometimes, a small change can spark excitement."
+    ]
+  },
+  {
+    "tag": "coping_with_relocation",
+    "patterns": [
+      "I just moved to a new place",
+      "Relocating is so hard",
+      "I feel lost in this new city",
+      "I can't adjust to my new surroundings"
+    ],
+    "responses": [
+      "Relocating can feel lonely and overwhelming at first, but over time, you’ll find your rhythm. Explore your new surroundings, join local groups, and give yourself patience as you settle in."
+    ]
+  },
+  {
+    "tag": "coping_with_addiction",
+    "patterns": [
+      "I can't stop my addiction",
+      "I'm struggling with addiction",
+      "Addiction is ruining my life",
+      "I feel trapped in my habits"
+    ],
+    "responses": [
+      "Addiction is incredibly tough, but seeking help is a brave first step. Reach out to a support group, therapist, or trusted person. Recovery is a journey, and you don’t have to walk it alone."
+    ]
+  },
+  {
+    "tag": "coping_with_redundancy",
+    "patterns": [
+      "I just lost my job",
+      "Being unemployed is so hard",
+      "I feel worthless after losing my job",
+      "I can't handle being redundant"
+    ],
+    "responses": [
+      "Losing a job is a big change, but it doesn’t define your worth. Take time to process your feelings, update your resume, and explore new opportunities. This could be the start of something new."
+    ]
+  },
+  {
+    "tag": "coping_with_envy",
+    "patterns": [
+      "I feel envious of others' success",
+      "I can't stop comparing myself",
+      "Envy is making me feel bad",
+      "I feel bitter when others do well"
+    ],
+    "responses": [
+      "Envy can be an opportunity to reflect on your own goals. Instead of comparing, focus on what you can learn from others’ successes. Your journey is unique, and you’re capable of amazing things too."
+    ]
+  },
+  {
+    "tag": "coping_with_revengeful_thoughts",
+    "patterns": [
+      "I want to get back at them",
+      "I can't forgive them",
+      "Revenge feels right",
+      "I feel hatred toward someone"
+    ],
+    "responses": [
+      "Revenge may feel satisfying in the moment, but it often leads to more pain. Focus on healing and moving forward. Forgiveness doesn’t mean forgetting—it means freeing yourself from anger."
+    ]
+  },
+  {
+    "tag": "improving_focus",
+    "patterns": [
+      "I can't focus on anything",
+      "My concentration is terrible",
+      "I feel so distracted",
+      "I wish I could focus better"
+    ],
+    "responses": [
+      "Improving focus takes practice. Try breaking tasks into smaller steps, minimizing distractions, and working in short bursts with breaks in between. Techniques like mindfulness can also help."
+    ]
+  },
+  {
+    "tag": "coping_with_failure_in_exams",
+    "patterns": [
+      "I failed my exams",
+      "Exam failure is breaking me",
+      "I feel like I disappointed everyone",
+      "I can't cope with failing"
+    ],
+    "responses": [
+      "Failing exams is tough, but it doesn’t define your future. Reflect on what went wrong, and create a new plan for studying. Remember, many successful people failed before they succeeded."
+    ]
+  },
+  {
+    "tag": "coping_with_unemployment",
+    "patterns": [
+      "I can't find a job",
+      "Unemployment is making me hopeless",
+      "I feel stuck without work",
+      "I don’t know what to do without a job"
+    ],
+    "responses": [
+      "Unemployment can feel discouraging, but it’s also a chance to explore new directions. Update your skills, network with others, and remember that your value isn’t tied to your employment status."
+    ]
+  },
+  {
+    "tag": "coping_with_public_speaking_anxiety",
+    "patterns": [
+      "I'm scared of public speaking",
+      "Speaking in front of others terrifies me",
+      "I can't handle presentations",
+      "Public speaking makes me nervous"
+    ],
+    "responses": [
+      "Public speaking anxiety is common. Practice your speech in front of friends or a mirror, and focus on one person at a time while presenting. Deep breaths can help calm nerves."
+    ]
+  },
+  {
+    "tag": "coping_with_social_media_pressure",
+    "patterns": [
+      "Social media makes me feel bad about myself",
+      "I compare myself to others online",
+      "I feel overwhelmed by social media",
+      "Social media is affecting my mental health"
+    ],
+    "responses": [
+      "Social media often shows only the highlights of people’s lives. Consider taking a break or limiting your time online. Focus on real connections and remind yourself that everyone has struggles offscreen."
+    ]
+  },
+  {
+    "tag": "dealing_with_rejection_from_friends",
+    "patterns": [
+      "My friends don't include me",
+      "I feel rejected by my friends",
+      "My friends don't value me",
+      "I feel left out"
+    ],
+    "responses": [
+      "Feeling left out is painful, but true friends will make you feel valued. Consider talking to them about how you feel, and if they don’t respond kindly, it might be time to seek new connections."
+    ]
+  },
+  {
+    "tag": "coping_with_body_image_issues",
+    "patterns": [
+      "I don't like how I look",
+      "I feel insecure about my body",
+      "Body image issues control me",
+      "I wish I looked different"
+    ],
+    "responses": [
+      "Body image struggles are tough, but your worth isn’t tied to your appearance. Focus on what your body allows you to do, and practice self-kindness. Surround yourself with people who uplift you."
+    ]
+  },
+  {
+    "tag": "dealing_with_perfectionism",
+    "patterns": [
+      "I always strive to be perfect",
+      "Perfectionism is exhausting",
+      "I can't handle making mistakes",
+      "I feel like I have to be perfect all the time"
+    ],
+    "responses": [
+      "Perfectionism can be draining, and no one is perfect. Focus on progress, not perfection. Celebrate small wins and remind yourself that mistakes are part of growth."
+    ]
+  },
+  {
+    "tag": "coping_with_sleeplessness",
+    "patterns": [
+      "I can't sleep",
+      "I have trouble falling asleep",
+      "Sleeplessness is ruining my life",
+      "I feel so tired but can't rest"
+    ],
+    "responses": [
+      "Sleep difficulties can affect everything. Try creating a bedtime routine, avoiding screens before bed, and practicing relaxation techniques like deep breathing. If it persists, consider consulting a doctor."
+    ]
+  },
+  {
+    "tag": "coping_with_lack_of_direction",
+    "patterns": [
+      "I don't know what to do with my life",
+      "I feel directionless",
+      "I have no goals",
+      "I feel stuck and unmotivated"
+    ],
+    "responses": [
+      "Lacking direction can feel overwhelming, but it’s also a chance to explore. Start with small steps—what excites you? What do you care about? It’s okay to take time to figure it out."
+    ]
+  },
+  {
+    "tag": "dealing_with_mental_fatigue",
+    "patterns": [
+      "I'm mentally exhausted all the time",
+      "I feel drained but can't relax",
+      "My brain feels constantly tired",
+      "I can't think straight due to mental fatigue"
+    ],
+    "responses": [
+      "Mental fatigue can be caused by prolonged stress, lack of sleep, or overstimulation. The first step to recovery is rest—take short breaks throughout the day and ensure you get enough sleep each night. Additionally, incorporating mindfulness practices like meditation can help calm your mind and restore focus. Regular exercise also has proven benefits for reducing mental fatigue by improving circulation and energy levels. If fatigue persists, consider consulting a professional, as it could be linked to underlying mental health conditions such as anxiety or depression."
+    ]
+  },
+  {
+    "tag": "struggling_with_emoitional_numbness",
+    "patterns": [
+      "I feel emotionally numb",
+      "I can't feel anything anymore",
+      "Everything seems dull and empty",
+      "I feel detached from my emotions"
+    ],
+    "responses": [
+      "Emotional numbness can occur as a defense mechanism when your mind is overwhelmed. It often results from prolonged stress, trauma, or depression. One approach to overcoming numbness is reconnecting with your emotions slowly—try journaling or talking about small, everyday things that make you feel something. Practices such as grounding techniques or engaging in creative activities like art or music can also help reactivate emotional awareness. If this persists, it may be beneficial to explore therapy, particularly trauma-focused therapy, to process the underlying causes."
+    ]
+  },
+  {
+    "tag": "dealing_with_high_functioning_anxiety",
+    "patterns": [
+      "I appear fine but feel anxious inside",
+      "I look calm, but I'm constantly stressed",
+      "I hide my anxiety from others",
+      "People don't realize how anxious I really am"
+    ],
+    "responses": [
+      "High-functioning anxiety often means you mask your struggles by maintaining outward success and control. While it may seem manageable, it can lead to burnout and increased stress over time. The first step in coping is acknowledging that it’s okay to not be okay. Consider implementing relaxation techniques like deep breathing or progressive muscle relaxation to calm your body. Setting boundaries in your personal and professional life will also help ease the pressure. Lastly, working with a therapist can provide tools to address the underlying anxiety without it negatively affecting your daily life."
+    ]
+  },
+  {
+    "tag": "coping_with_perfectionism_and_imposter_syndrome",
+    "patterns": [
+      "I feel like I'm never good enough",
+      "I'm always striving for perfection",
+      "I fear being exposed as a fraud",
+      "No matter how much I achieve, I feel inadequate"
+    ],
+    "responses": [
+      "Perfectionism and imposter syndrome often go hand-in-hand, with a person constantly feeling like their achievements are never enough, and they’re bound to be discovered as inadequate. This can lead to stress and burnout. It's important to challenge these thought patterns by recognizing that nobody is perfect, and making mistakes is part of being human. Celebrate your successes, even small ones, and remind yourself that achievements are earned, not given. Practicing self-compassion and reframing negative thoughts through Cognitive Behavioral Therapy (CBT) can help alleviate these feelings."
+    ]
+  },
+  {
+    "tag": "dealing_with_intrusive_thoughts",
+    "patterns": [
+      "I can't stop thinking about these things",
+      "My mind keeps obsessing over one thought",
+      "I can't control my intrusive thoughts",
+      "These thoughts are taking over my life"
+    ],
+    "responses": [
+      "Intrusive thoughts can be distressing and are often associated with anxiety, OCD, or trauma. The first step is recognizing that thoughts do not define you; they are just thoughts, not actions. One helpful technique is to practice mindfulness, where you observe the thought without judgment and let it pass. Cognitive Behavioral Therapy (CBT) is highly effective in addressing intrusive thoughts by helping you reframe them and reduce their emotional impact. If these thoughts are significantly affecting your daily life, working with a mental health professional can guide you through managing them effectively."
+    ]
+  },
+  {
+    "tag": "coping_with_substance_abuse",
+    "patterns": [
+      "I can't stop using substances",
+      "I'm struggling with addiction",
+      "Substance abuse is ruining my life",
+      "I feel trapped in my addiction"
+    ],
+    "responses": [
+      "Substance abuse can have a profound impact on both physical and mental health. The road to recovery often involves acknowledging the problem and seeking help from a support group, therapist, or rehabilitation center. Cognitive Behavioral Therapy (CBT) and other treatment methods help address the root causes of addiction and provide coping strategies. It's also important to build a support network that can encourage positive habits and hold you accountable. Remember, recovery is a journey, and every step forward, no matter how small, is progress."
+    ]
+  },
+  {
+    "tag": "coping_with_parenting_stress",
+    "patterns": [
+      "Parenting is overwhelming",
+      "I'm exhausted from raising kids",
+      "I feel like I'm failing as a parent",
+      "Parenting is so stressful for me"
+    ],
+    "responses": [
+      "Parenting can be incredibly rewarding but also highly stressful, especially when juggling multiple responsibilities. It's important to practice self-care and ask for help when needed. Setting boundaries and taking time for yourself are essential to avoid burnout. Communicating with your partner or a trusted friend about your challenges can help reduce feelings of isolation. In some cases, parent coaching or therapy can provide support, offering strategies for managing stress and enhancing your parenting approach. Don’t forget that every parent faces challenges, and taking care of yourself is key to being there for your children."
+    ]
+  },
+  {
+    "tag": "coping_with_parental_expectations",
+    "patterns": [
+      "My parents have too high expectations for me",
+      "I feel pressured by my family's expectations",
+      "I can't meet my parents' standards",
+      "I always feel like I have to impress my family"
+    ],
+    "responses": [
+      "Living with the weight of high parental expectations can be stressful and overwhelming. It's important to communicate openly with your parents about your feelings and limitations. Setting healthy boundaries is crucial in maintaining your mental health. You are not defined by your achievements or others' expectations; you deserve to be valued for who you are. If you find it difficult to manage this pressure, working with a counselor can provide tools to navigate these dynamics while still honoring your needs and goals."
+    ]
+  },
+  {
+    "tag": "coping_with_burnout_from_caring_for_others",
+    "patterns": [
+      "I'm exhausted from taking care of others",
+      "I feel burned out from caring for a loved one",
+      "Caregiver burnout is affecting me",
+      "I can't keep caring for others at this pace"
+    ],
+    "responses": [
+      "Caring for others, whether as a caregiver for a family member or a healthcare professional, can lead to burnout if your own needs are neglected. It's essential to establish boundaries and ask for help when needed. Taking regular breaks and prioritizing self-care is vital. Connecting with support groups for caregivers can also provide emotional support and practical advice. If feelings of burnout persist, seeking counseling or therapy can help you manage the emotional strain and find healthier ways to cope."
+    ]
+  },
+  {
+    "tag": "struggling_with_financial_stress",
+    "patterns": [
+      "I’m overwhelmed by my financial situation",
+      "Money problems are causing me stress",
+      "I can’t manage my finances",
+      "Financial stress is ruining my mental health"
+    ],
+    "responses": [
+      "Financial stress can cause significant emotional strain, but there are steps you can take to regain control. Start by creating a realistic budget and seeking financial advice if necessary. Prioritize essential expenses and reduce unnecessary spending. Reaching out to a financial counselor can provide guidance on how to manage debt and improve your situation. Remember that financial difficulties are often temporary, and with proper planning and support, you can work through this challenge."
+    ]
+  },
+  {
+    "tag": "coping_with_bullying_in_adulthood",
+    "patterns": [
+      "I’m being bullied at work",
+      "Adults bully me in my social circle",
+      "Bullying doesn’t stop as an adult",
+      "I feel helpless against adult bullying"
+    ],
+    "responses": [
+      "Adult bullying, though less talked about, is a real issue and can be just as harmful as bullying in childhood. If you're being bullied at work, it’s important to document the incidents and report them to HR or a supervisor. In social situations, set firm boundaries and distance yourself from toxic individuals. Therapy can also be a helpful space to process your experiences and develop coping strategies to address this issue while building your resilience."
+    ]
+  },
+  {
+    "tag": "managing_academic_stress",
+    "patterns": [
+      "I'm stressed about my exams",
+      "I feel overwhelmed with college assignments",
+      "The workload in college is too much",
+      "How can I manage academic stress?"
+    ],
+    "responses": [
+      "Academic stress is common in college, but there are strategies that can help you cope. Break your tasks into smaller chunks and set realistic deadlines. Utilize the Pomodoro Technique—study for 25 minutes and then take a 5-minute break. Prioritize self-care, including exercise, to maintain balance, and don't hesitate to ask for help when needed."
+    ]
+  },
+  {
+    "tag": "time_management_for_college",
+    "patterns": [
+      "I can't manage my time in college",
+      "I always run out of time",
+      "How can I manage my time better in school?",
+      "I feel like there's never enough time for everything"
+    ],
+    "responses": [
+      "Time management is key to handling college stress. Start by creating a weekly schedule that includes classes, study time, meals, and rest. Use tools like digital calendars or planners to visualize your tasks. Prioritize your assignments based on deadlines and importance, and make time for relaxation to avoid burnout."
+    ]
+  },
+  {
+    "tag": "study_habits_for_success",
+    "patterns": [
+      "What are some good study habits for college?",
+      "How can I improve my study routine?",
+      "I need tips on studying efficiently"
+    ],
+    "responses": [
+      "To improve study habits, consider active learning techniques such as summarizing material in your own words, teaching someone else, or using flashcards for memorization. Consistent study schedules, rather than cramming, help boost retention. Experiment with study techniques like spaced repetition and retrieval practice to enhance your learning."
+    ]
+  },
+  {
+    "tag": "dealing_with_procrastination",
+    "patterns": [
+      "I procrastinate too much",
+      "I can't stop putting things off",
+      "How do I stop procrastinating in college?"
+    ],
+    "responses": [
+      "Procrastination often stems from stress, perfectionism, or lack of motivation. Try breaking tasks into smaller, manageable pieces, and set deadlines for each part. The 'two-minute rule' suggests if a task takes less than two minutes, do it immediately. Make your workspace free of distractions, and consider using apps like Focus@Will or the Forest app to help you stay on task."
+    ]
+  },
+  {
+    "tag": "creating_a_study_plan",
+    "patterns": [
+      "I need a good study plan for my semester",
+      "How should I organize my study time?",
+      "Can you help me create a study schedule?"
+    ],
+    "responses": [
+      "A study plan can help reduce stress and improve performance. Start by identifying your goals and breaking them down into weekly and daily tasks. Use a calendar or planner to track due dates for assignments and exams. Block out time for studying, but also include breaks to maintain focus and prevent burnout. Stick to your schedule as closely as possible while being flexible when needed."
+    ]
+  },
+  {
+    "tag": "managing_stress_from_social_life",
+    "patterns": [
+      "I feel stressed by my social life",
+      "I don't know how to balance socializing and studying",
+      "Social pressure is overwhelming in college"
+    ],
+    "responses": [
+      "Balancing social life with academic responsibilities is a common challenge. Start by setting clear priorities for yourself. Plan social activities in advance and avoid last-minute plans that can add stress. Be honest with friends about your need for personal time, and set boundaries to protect your study time. Regularly assess your workload to avoid feeling overwhelmed."
+    ]
+  },
+  {
+    "tag": "dealing_with_roommate_conflict",
+    "patterns": [
+      "My roommate and I are always fighting",
+      "I can't get along with my roommate",
+      "Living with my roommate is stressful"
+    ],
+    "responses": [
+      "Roommate conflicts are common but can be resolved with open communication. Set aside time for a calm discussion where you both express your concerns and expectations. Try to understand each other's perspective, and work on finding compromises. If needed, involve a resident advisor (RA) to mediate and help find a solution."
+    ]
+  },
+  {
+    "tag": "managing_test_anxiety",
+    "patterns": [
+      "I get nervous before exams",
+      "Test anxiety is affecting my performance",
+      "How do I overcome test anxiety?"
+    ],
+    "responses": [
+      "Test anxiety can be managed with relaxation techniques. Deep breathing exercises or mindfulness meditation before an exam can help calm your nerves. Practice visualization techniques by imagining yourself succeeding during the test. Preparation is key—study well in advance, and make sure to get plenty of rest the night before. On the day of the test, stay focused on the task rather than the anxiety."
+    ]
+  },
+  {
+    "tag": "self_care_for_college_students",
+    "patterns": [
+      "How can I practice self-care in college?",
+      "I don't have time for self-care",
+      "What are some self-care tips for students?"
+    ],
+    "responses": [
+      "Self-care is essential for maintaining both mental and physical health in college. Simple practices such as regular exercise, getting enough sleep, and eating nutritious foods can significantly impact your well-being. Try to set aside time each week for hobbies or relaxation activities, and practice mindfulness or journaling to reduce stress. Don't hesitate to seek support from campus counseling services if you need additional help."
+    ]
+  },
+  {
+    "tag": "improving_concentration_in_class",
+    "patterns": [
+      "I can't concentrate in class",
+      "My attention span is so short",
+      "How can I focus better in lectures?"
+    ],
+    "responses": [
+      "Improving concentration requires practice and discipline. Try sitting in the front row to minimize distractions. Take notes actively rather than passively, and ask questions during class to stay engaged. If your mind starts to wander, gently bring it back by focusing on one point at a time. You can also incorporate mindfulness techniques to improve attention and mental clarity."
+    ]
+  },
+  {
+    "tag": "dealing_with_fomo_in_college",
+    "patterns": [
+      "I feel like I'm missing out on everything",
+      "I'm always worried about FOMO in college",
+      "Why does everyone seem to be having fun but me?"
+    ],
+    "responses": [
+      "FOMO (Fear of Missing Out) is common, especially in a social environment like college. Instead of focusing on what you’re missing, focus on activities that bring you joy and fulfillment. Practice gratitude for the experiences you do have and remember that it's okay to prioritize rest and personal time. Regularly disconnect from social media to reduce feelings of inadequacy."
+    ]
+  },
+  {
+    "tag": "how_to_beat_late_night_study_sessions",
+    "patterns": [
+      "I study late at night but still feel unprepared",
+      "How do I avoid staying up late studying?",
+      "Late-night cramming doesn't work for me"
+    ],
+    "responses": [
+      "Late-night studying can disrupt your sleep and negatively affect memory retention. Instead, create a study schedule that allows for consistent daily study blocks. Avoid cramming the night before exams by reviewing material regularly throughout the semester. Ensure you get enough sleep, as sleep plays a critical role in consolidating memory and boosting cognitive function."
+    ]
+  },
+  {
+    "tag": "dealing_with_money_stress_as_a_student",
+    "patterns": [
+      "I’m stressed about my finances in college",
+      "I don't know how to manage my student loans",
+      "Money is stressing me out in school"
+    ],
+    "responses": [
+      "Financial stress is common in college. Start by creating a budget that includes all your expenses and look for ways to cut unnecessary costs. Apply for scholarships, part-time jobs, or consider finding free study resources. It’s also helpful to reach out to your school’s financial aid office for advice on managing loans and finding other financial support."
+    ]
+  },
+  {
+    "tag": "overcoming_perfectionism_in_college",
+    "patterns": [
+      "I feel like I have to be perfect all the time",
+      "Perfectionism is killing me in school",
+      "I can't stop striving for perfection"
+    ],
+    "responses": [
+      "Perfectionism can be paralyzing, especially in a demanding college environment. Shift your mindset by focusing on progress, not perfection. Break down tasks into smaller steps and celebrate completing them. Practice self-compassion and remember that mistakes are a part of the learning process. Seeking therapy can help you address deeper perfectionistic tendencies."
+    ]
+  },
+  {
+    "tag": "boosting_productivity_in_college",
+    "patterns": [
+      "I can’t stay productive in college",
+      "I waste too much time and don’t get things done",
+      "How can I be more productive in school?"
+    ],
+    "responses": [
+      "Boosting productivity requires a combination of focus, rest, and motivation. Use tools like task managers or apps (e.g., Todoist or Notion) to track deadlines and break large tasks into smaller, manageable ones. Try the Pomodoro technique—work for 25 minutes, then take a 5-minute break. Also, prioritize sleep and self-care to avoid burnout."
+    ]
+  },
+  {
+    "tag": "how_to_maintain_relationships_in_college",
+    "patterns": [
+      "I’m struggling to maintain friendships in college",
+      "I don't know how to keep up with my relationships",
+      "How do I balance relationships and academics?"
+    ],
+    "responses": [
+      "Maintaining relationships in college can be challenging, but setting time aside for friends and family is important for your well-being. Schedule regular catch-ups, whether in person or virtually. Prioritize meaningful relationships that uplift you, and practice communication when you're feeling overwhelmed. Balance comes from setting healthy boundaries and understanding that it's okay to say no when necessary."
+    ]
+  },
+  {
+    "tag": "dealing_with_college_scholarship_stress",
+    "patterns": [
+      "I'm stressed about applying for scholarships",
+      "College scholarships are so competitive",
+      "I feel overwhelmed by scholarship deadlines"
+    ],
+    "responses": [
+      "Scholarship applications can be stressful, but organizing them can make a big difference. Start by researching available scholarships early and creating a checklist of required materials. Allocate specific times to work on your applications and avoid procrastination. Keep a positive mindset, and remind yourself that persistence is key. Seek help from your college’s financial aid office if needed."
+    ]
+  },
+  {
+    "tag": "managing_stress_in_college_clubs",
+    "patterns": [
+      "I'm overwhelmed by my college club commitments",
+      "I can't manage my time with all my extracurricular activities",
+      "How do I balance college clubs and studying?"
+    ],
+    "responses": [
+      "Balancing college clubs and academics requires setting clear priorities. Organize your time by creating a schedule that includes club activities and study sessions. Don't be afraid to delegate tasks within your club, and make sure you're not overcommitting yourself. Regularly reassess your workload to ensure you're giving your best to both your studies and extracurriculars."
+    ]
+  },
+  [
+    {
+      "tag": "time_management_for_final_exams",
+      "patterns": [
+        "How do I manage my time for final exams?",
+        "What’s the best way to study for finals?",
+        "I’m overwhelmed by final exams, help me manage my time"
+      ],
+      "responses": [
+        "Effective time management for finals begins with a clear study schedule. Start by mapping out the dates for each of your finals and work backwards from there. Break down each subject into specific topics to review. Use the Pomodoro Technique (25-minute focused intervals with 5-minute breaks) to prevent burnout and improve focus. Prioritize harder subjects when you're most alert and leave easier topics for when you need a break."
+      ]
+    },
+    {
+      "tag": "improving_memory_for_studying",
+      "patterns": [
+        "How can I improve my memory for studying?",
+        "What can I do to remember what I study better?",
+        "I have trouble remembering what I study, what should I do?"
+      ],
+      "responses": [
+        "To improve memory, try active recall and spaced repetition techniques. Active recall involves testing yourself regularly on what you've learned, instead of simply re-reading. Spaced repetition, using apps like Anki, helps retain information over time by reviewing material at increasing intervals. Additionally, organizing information into visual aids like mind maps or charts helps to reinforce memory and makes complex concepts easier to recall."
+      ]
+    },
+    {
+      "tag": "effective_study_routines",
+      "patterns": [
+        "What is an effective study routine for college students?",
+        "How do I create a solid study routine?",
+        "What study habits should I develop?"
+      ],
+      "responses": [
+        "A successful study routine includes consistency, structure, and balance. Set a regular time each day to study, and stick to it. Begin with 2-3 hours of focused study sessions with short breaks in between (e.g., 25 minutes of studying followed by a 5-minute break). Ensure your study environment is quiet and free from distractions. The key is regularity—spreading out study sessions over weeks rather than cramming."
+      ]
+    },
+    {
+      "tag": "minimizing_distractions_while_studying",
+      "patterns": [
+        "How can I stop getting distracted while studying?",
+        "I can't concentrate when studying, what should I do?",
+        "How can I improve focus during study sessions?"
+      ],
+      "responses": [
+        "Minimizing distractions requires both a strategic environment and mindset. Start by setting up a quiet, clutter-free study space with everything you need within reach. Use tools like website blockers (e.g., Cold Turkey, Freedom) to avoid digital distractions. Also, break down tasks into smaller steps, making it easier to focus on one thing at a time. Practice mindfulness before studying to clear your mind and improve concentration."
+      ]
+    },
+    {
+      "tag": "how_to_handle_study_overload",
+      "patterns": [
+        "I feel overloaded with study material",
+        "How do I manage studying when there's too much to do?",
+        "I can't handle all my assignments and studying"
+      ],
+      "responses": [
+        "When you're feeling overloaded, start by prioritizing tasks. Break down your workload into smaller, more manageable chunks and tackle the most urgent or challenging tasks first. Use time-blocking, where you allocate specific blocks of time to study each subject or complete assignments. Avoid multitasking, as it divides your focus and reduces efficiency. Don't forget to schedule breaks to refresh your mind and avoid burnout."
+      ]
+    },
+    {
+      "tag": "study_breaks_for_productivity",
+      "patterns": [
+        "How often should I take breaks while studying?",
+        "What are the best ways to take study breaks?",
+        "Do I need to take breaks when studying?"
+      ],
+      "responses": [
+        "Studies show that taking regular breaks boosts productivity and helps with long-term retention. Use the Pomodoro Technique, which suggests working for 25 minutes followed by a 5-minute break. After 4 sessions, take a longer break (15-30 minutes). During breaks, engage in activities that relax you, like walking, stretching, or deep breathing. This prevents mental fatigue and keeps your brain fresh for studying."
+      ]
+    },
+    {
+      "tag": "avoiding_cramming_for_exams",
+      "patterns": [
+        "How can I avoid cramming for exams?",
+        "What should I do instead of cramming the night before?",
+        "Cramming doesn't work for me, help!"
+      ],
+      "responses": [
+        "Cramming is ineffective and increases anxiety. The best approach is to start studying well in advance, ideally 2-3 weeks before exams. Create a study schedule and stick to it. Focus on understanding the material rather than memorizing it. Use active recall and spaced repetition techniques for better retention. If you’ve already started cramming, focus on reviewing key concepts and take regular breaks to avoid burnout."
+      ]
+    },
+    {
+      "tag": "how_to_study_effectively_for_multiple_subjects",
+      "patterns": [
+        "How do I study for multiple subjects at once?",
+        "How do I organize my study time for different subjects?",
+        "Studying for multiple exams is overwhelming, what can I do?"
+      ],
+      "responses": [
+        "When studying for multiple subjects, prioritize based on difficulty and exam dates. Allocate specific study blocks to each subject, and use a timetable to structure your time. It’s helpful to alternate between subjects during study sessions to prevent burnout and keep your mind engaged. If possible, study subjects that require different types of thinking (e.g., math vs. humanities) on the same day to balance cognitive load."
+      ]
+    },
+    {
+      "tag": "the_power_of_sleep_for_study_success",
+      "patterns": [
+        "How important is sleep for studying?",
+        "Can sleep improve my academic performance?",
+        "How much sleep should I get for better studying?"
+      ],
+      "responses": [
+        "Sleep is essential for memory consolidation and cognitive function. Research shows that sleep enhances learning by helping to solidify new information in long-term memory. Aim for 7-9 hours of quality sleep each night to improve focus, concentration, and problem-solving ability. Avoid all-nighters, as they impair cognitive function and negatively impact exam performance."
+      ]
+    },
+    {
+      "tag": "getting_motivation_to_study",
+      "patterns": [
+        "I can't find the motivation to study",
+        "I feel unmotivated to study, what should I do?",
+        "How do I get myself to study?"
+      ],
+      "responses": [
+        "Motivation often follows action. Start with small, manageable tasks to build momentum. Reward yourself after completing tasks, even if they are small. Create a study environment that is free from distractions, and try studying with friends or in study groups to increase accountability. Remind yourself of the long-term benefits of studying and your academic goals to reignite your motivation."
+      ]
+    },
+    {
+      "tag": "using_active_learning_for_studying",
+      "patterns": [
+        "What is active learning?",
+        "How can I use active learning to study better?",
+        "How does active learning help with studying?"
+      ],
+      "responses": [
+        "Active learning involves engaging with the material, rather than passively reading or listening. Techniques include summarizing information in your own words, teaching someone else, or using flashcards. Active learning enhances retention by forcing you to process and apply the information. Incorporating frequent self-testing or practice quizzes also helps reinforce your learning and prepares you for exams."
+      ]
+    },
+    {
+      "tag": "managing_study_anxiety",
+      "patterns": [
+        "I feel anxious about studying",
+        "Study anxiety is affecting my performance",
+        "How do I deal with anxiety during studying?"
+      ],
+      "responses": [
+        "Study anxiety is common and can be managed with mindfulness techniques. Practice deep breathing or progressive muscle relaxation before studying to calm your nerves. Break your study sessions into smaller, more manageable chunks and focus on one task at a time. If anxiety persists, consider seeking support from a therapist who can help you address the root causes of your stress and teach you relaxation techniques."
+      ]
+    },
+    {
+      "tag": "time_blocking_for_study_sessions",
+      "patterns": [
+        "What is time blocking for studying?",
+        "How do I use time blocking to study?",
+        "Can time blocking improve my productivity?"
+      ],
+      "responses": [
+        "Time blocking is a technique where you allocate specific blocks of time for different tasks or subjects. For example, you might set aside 9:00 AM to 11:00 AM for studying biology and 11:00 AM to 1:00 PM for math. This strategy helps maintain focus and ensures you’re dedicating enough time to each subject. It also helps reduce procrastination by providing structure and clear boundaries for work and rest."
+      ]
+    },
+    {
+      "tag": "managing_college_stress_with_exercise",
+      "patterns": [
+        "Can exercise help with college stress?",
+        "How can exercise improve my studying?",
+        "What are the benefits of exercising for stress management?"
+      ],
+      "responses": [
+        "Exercise is a powerful stress reliever and has been shown to improve mood, reduce anxiety, and boost cognitive function. Regular physical activity increases blood flow to the brain, which can improve memory and learning. Aim for at least 30 minutes of moderate exercise 3-4 times a week. Activities like jogging, swimming, or yoga can help clear your mind and restore focus for studying."
+      ]
+    }
+  ]
+  
 ]
 }
