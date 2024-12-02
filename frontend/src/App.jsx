@@ -11,6 +11,7 @@ import NewsPage from './NewsPage/NewsPage';
 import ScheduleList from './ViewSchedulePage/Schedule.List';
 import AddSchedule from './AddSchedule/AddSchedule';
 import AutoLogout from './AutoLogout/AutoLogout';
+import EditJournal from './EditJournal/EditJournal';
 import './App.css';
 
 function App() {
@@ -51,6 +52,11 @@ function App() {
             <ScheduleList/>
           </ProtectedRoute>
           } />
+        <Route path="/editjournal/:id" element={
+          <ProtectedRoute>
+            <EditJournal/>
+          </ProtectedRoute>
+        }/>
         <Route path='/addSchedule' element={
           <ProtectedRoute>
             <AddSchedule/>

@@ -54,6 +54,19 @@ exports.getAllJournal = async function (req, res) {
     res.status(500).send("Internal Server Error");
   }
 };
+exports.deleteJournal = async function (req, res) {
+  const { id } = req.body; // Use journal ID from the request body
+  try {
+      const result = await pool.query("DELETE FROM journal_nurture WHERE id = $1", [id]);
+      if (result.rowCount === 0) {
+          return res.status(404).send("Journal not found.");
+      }
+      res.status(200).send("Journal deleted successfully.");
+  } catch (error) {
+      console.error(error);
+      res.status(500).send("Internal Server Error");
+  }
+};
 
 exports.getJournalSpecific = async function (req, res) {
   const { username, title } = req.body;
@@ -74,32 +87,62 @@ exports.getJournalSpecific = async function (req, res) {
   }
 };
 
+exports.getJournalById = async function (req, res) {
+  const { id } = req.body; // Extract ID from the request body
+
+  try {
+    // Check if the journal exists
+    const result = await pool.query(
+      "SELECT * FROM journal_nurture WHERE id = $1",
+      [id]
+    );
+
+    if (result.rowCount === 0) {
+      return res.status(404).send("Journal entry not found.");
+    }
+
+    // Return the journal data
+    return res.status(200).json(result.rows[0]);
+  } catch (error) {
+    console.error("Error retrieving journal by ID:", error);
+    return res.status(500).send("Internal Server Error.");
+  }
+};
 
 exports.EditJournalSpecific = async function (req, res) { 
-    const { username, title, Content, new_title } = req.body;
+  const { username, title, Content, new_title } = req.body;
 
-    try {
-        // Check if the journal entry exists for the given username and title
-        const NoteCheck = await pool.query(
-            "SELECT * FROM journal_nurture WHERE journal_owner = $1 AND journal_title = $2",
-            [username, title]
-        );
+  // Ensure all required fields are provided
+  if (!username || !title || !Content || !new_title) {
+    return res.status(400).send("Missing required fields: username, title, Content, and new_title are required.");
+  }
 
-        // If no journal entry is found, return an error
-        if (NoteCheck.rowCount === 0) {
-            return res.status(404).send("Journal entry not found.");
-        }
-        const Note_Id =NoteCheck.rows[0].id;
+  try {
+    // Check if the journal entry exists for the given username and title
+    const NoteCheck = await pool.query(
+      "SELECT * FROM journal_nurture WHERE journal_owner = $1 AND journal_title = $2",
+      [username, title]
+    );
 
-        // Update the journal entry with the new content
-        await pool.query(
-            "UPDATE journal_nurture SET journal_content = $1, journal_title = $2 WHERE journal_owner = $3 AND id = $4",
-            [Content, new_title, username, Note_Id]
-        );
-        res.status(200).send("Journal entry updated successfully!");
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("Internal Server Error");
+    // If no journal entry is found, return an error
+    if (NoteCheck.rowCount === 0) {
+      return res.status(404).send("Journal entry not found.");
     }
+
+    const Note_Id = NoteCheck.rows[0].id;
+
+    // Update the journal entry with the new content
+    await pool.query(
+      "UPDATE journal_nurture SET journal_content = $1, journal_title = $2 WHERE journal_owner = $3 AND id = $4",
+      [Content, new_title, username, Note_Id]
+    );
+
+    // Send success response
+    res.status(200).send("Journal entry updated successfully!");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
 };
+
 
