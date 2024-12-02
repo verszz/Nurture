@@ -5,8 +5,11 @@ import RegisterPage from './RegisterPage/RegisterPage';
 import MainPage from './MainPage/MainPage';
 import Chatbot from './ChatBot/ChatBot';
 import WeeklyStressPage from './SchedulePage/ScheduleWeeklyPage';
+import DailyStressChart from './SchedulePage/ScheduleDailyPage';
 import ProtectedRoute from './ProtectedRoute';
 import NewsPage from './NewsPage/NewsPage';
+import ScheduleList from './ViewSchedulePage/Schedule.List';
+import AddSchedule from './AddSchedule/AddSchedule';
 import AutoLogout from './AutoLogout/AutoLogout';
 import './App.css';
 
@@ -37,6 +40,21 @@ function App() {
         <ProtectedRoute>
             <NewsPage/>
         </ProtectedRoute>
+          } />
+        <Route path='/dailyStress' element={
+          <ProtectedRoute>
+            <DailyStressChart/>
+          </ProtectedRoute>
+          } />
+        <Route path='/scheduleList' element={
+          <ProtectedRoute>
+            <ScheduleList/>
+          </ProtectedRoute>
+          } />
+        <Route path='/addSchedule' element={
+          <ProtectedRoute>
+            <AddSchedule/>
+          </ProtectedRoute>
           } />
       </Routes>
       </AutoLogout>

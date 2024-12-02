@@ -43,7 +43,7 @@ const NewsPage = () => {
         <div className="menu" onClick={toggleSidebar}>
           ☰
         </div>
-        <div>{username}</div>
+        <div className="title">News</div>
         <div className="profile">{getInitials(username)}</div> {/* Inisial */}
       </div>
 

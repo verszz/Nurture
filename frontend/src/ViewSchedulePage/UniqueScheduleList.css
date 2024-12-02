@@ -1,0 +1,75 @@
+.unique-schedule-container {
+    font-family: Arial, sans-serif;
+    /* padding: 20px; */
+  }
+  
+  .unique-schedule-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .unique-day-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .unique-day-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .unique-day-card h2 {
+    text-align: center;
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .unique-class-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .unique-class-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .unique-class-card h3 {
+    font-size: 1em;
+    margin: 0 0 5px;
+    color: #0073e6;
+  }
+  
+  .unique-class-card p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #555;
+  }
+  
+  .delete-schedule-button {
+    color: black;
+    background-color: red;
+  }
+
+  .add-schedule-button {
+    align-self: flex-end; /* Moves the button to the right */
+    color: white;
+    background-color: green;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-left: 90%;
+    border: none;
+    cursor: pointer;
+  }

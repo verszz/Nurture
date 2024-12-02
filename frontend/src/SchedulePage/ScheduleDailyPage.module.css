@@ -1,0 +1,94 @@
+/* Global Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    height: 100%; /* Ensure full height */
+    width: 100%; /* Ensure full width */
+}
+
+#root {
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+    display: flex; /* Ensure layout elements fit flexibly */
+    flex-direction: column;
+}
+
+/* Body Wrapper */
+.body {
+    display: flex;
+    background-color: #ADDBC0; /* Light green background for the page */
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Prevent page leaking */
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #324A5F; /* Dark blue for header background */
+    color: white;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu {
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.profile {
+    background-color: #FFB74D; /* Orange circle for initials */
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 25px; /* Adjust content margin when sidebar is visible */
+    padding: 20px;
+    width: 90%; /* Ensure the content takes up the remaining space */
+    transition: margin-left 0.3s ease, width 0.3s ease;
+    overflow-x: hidden; /* Prevent horizontal scroll in the content */
+    overflow-y: hidden;
+}
+
+/* Card Styles for Chart */
+.chart-card {
+    background-color: #FFF3CA; /* Light yellow background */
+    border-radius: 20px; /* Rounded corners */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 50px auto;
+    max-width: 600px; /* Wider maximum width for responsiveness */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth interaction effects */
+}
+
+.chart-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Footer (optional) */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #cbefb0; /* Muted green for footer background */
+    color: white;
+    margin-top: auto;
+    font-size: 0.9rem;
+}

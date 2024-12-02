@@ -3,15 +3,86 @@ import { useNavigate } from "react-router-dom";
 import { logout } from "../actions/user.action";
 import { fetchNews } from "../actions/news.action"; // Import fetchNews
 import { getAllJournal } from "../actions/journal.action";
-import Sidebar from "../Sidebar/Sidebar"; // Import Sidebar
+import { getStressData } from "../actions/schedule.action";
+import Sidebar from "../Sidebar/Sidebar";
+import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  Colors,
+} from "chart.js";
 import "./MainPage.css";
+import styles from "../ChatBot/Chatbot.module.css";
+
+// Register Chart.js components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const MainPage = () => {
   const [isSidebarVisible, setSidebarVisible] = useState(false); // State untuk sidebar
   const [username, setUsername] = useState(""); // State untuk username
   const [articles, setArticles] = useState([]); // State untuk menyimpan data artikel
   const [journal, setJournal] = useState([]); // State untuk menyimpan data journal
+  const [stressData, setStressData] = useState(null);
+  const [loadingStress, setLoadingStress] = useState(true);
   const navigate = useNavigate();
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState("");
+
+  useEffect(() => {
+    const fetchWelcomeMessage = async () => {
+        try {
+            const response = await fetch("http://localhost:3000/chatbot", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: "Hello" }), // Kirim pesan kosong untuk mendapatkan pesan sapaan
+            });
+            const data = await response.json();
+            const welcomeMessage = { sender: "bot", text: data.response };
+            setMessages([welcomeMessage]);
+        } catch (error) {
+            console.error("Error fetching welcome message:", error);
+        }
+    };
+
+    fetchWelcomeMessage();
+  }, []); // Hanya dipanggil sekali saat komponen dimuat
+
+    const handleSend = async () => {
+        if (!input) return;
+
+        const userMessage = { sender: "user", text: input };
+        setMessages((prev) => [...prev, userMessage]);
+
+        try {
+            const response = await fetch("http://localhost:3000/chatbot", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: input }),
+            });
+            const data = await response.json();
+
+            const botMessage = { sender: "bot", text: data.response };
+            setMessages((prev) => [...prev, botMessage]);
+        } catch (error) {
+            console.error("Error communicating with backend:", error);
+        }
+
+        setInput("");
+    };
 
   useEffect(() => {
     // Ambil username dari localStorage
@@ -64,6 +135,37 @@ const MainPage = () => {
     alert(message);
   };
 
+  useEffect(() => {
+    const fetchStressData = async () => {
+      if (!username) return;
+      try {
+        const data = await getStressData(username);
+        const chartData = {
+          labels: Object.keys(data),
+          datasets: [
+            {
+              label: "Weekly Stress Levels",
+              data: Object.keys(data).map((day) =>
+                Object.values(data[day]).reduce((total, val) => total + val, 0)
+              ),
+              backgroundColor: "rgba(75, 192, 192, 0.2)",
+              borderColor: "rgba(75, 192, 192, 1)",
+              borderWidth: 2,
+              pointBackgroundColor: "rgba(75, 192, 192, 1)",
+              pointRadius: 5,
+            },
+          ],
+        };
+        setStressData(chartData);
+        setLoadingStress(false);
+      } catch (error) {
+        console.error("Error fetching stress data:", error);
+        setLoadingStress(false);
+      }
+    };
+    fetchStressData();
+  }, [username]);
+
   const handleLogout = () => {
     logout();
     alert("Berhasil logout!");
@@ -80,6 +182,11 @@ const MainPage = () => {
     setSidebarVisible(!isSidebarVisible);
   };
 
+  const getCurrentDate = () => {
+    const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+    return new Date().toLocaleDateString("en-US", options);
+  };
+
   return (
     <div>
       {/* Header */}
@@ -87,7 +194,7 @@ const MainPage = () => {
         <div className="menu" onClick={toggleSidebar}>
           ☰
         </div>
-        <div>{username}</div>
+        <div className="title">Nurture</div>
         <div className="profile">{getInitials(username)}</div> {/* Inisial */}
       </div>
 
@@ -131,13 +238,6 @@ const MainPage = () => {
           </div>
         </div>
 
-        {/* Chatbot Section */}
-        <div className="chatbot-container">
-          <h2>Chatbot</h2>
-          <div className="chat-bubble">Hello! Got a bad day</div>
-          <div className="share-button" onClick={handleChatbot}>Tell me your problem</div>
-        </div>
-
         {/* Journal Section */}
         <div className="box journal-container">
           <div className="header">
@@ -162,16 +262,76 @@ const MainPage = () => {
           </div>
         </div>
 
+        {/* Chatbot Section */}
+        <div className="chatbot-container">
+        <div className="header">
+          <h2>Chatbot</h2>
+          </div>
+          <div className={styles.container}>
+            <div className={styles.chatWindow}>
+                {messages.map((msg, index) => (
+                    <div
+                        key={index}
+                        className={
+                            msg.sender === "user"
+                                ? styles.userMessage
+                                : styles.botMessage
+                        }
+                    >
+                        {msg.text}
+                    </div>
+                ))}
+            </div>
+            <div className={styles.inputContainer}>
+                <input
+                    type="text"
+                    className={styles.input}
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    placeholder="Type your message..."
+                />
+                <button type="submit" className={styles.sendButton} onClick={handleSend}>
+                    Send
+                </button>
+            </div>
+        </div>
+        </div>
+
         {/* Stress Level Section */}
         <div className="box stress">
           <h2>Stress Level</h2>
-          <p>Current stress level: Moderate</p>
+          <div className="chart-container">
+            {loadingStress ? (
+              <p>Loading stress data...</p>
+            ) : stressData ? (
+              <Line
+                data={stressData}
+                options={{
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  plugins: {
+                    title: {
+                      display: true,
+                      text: "Weekly Stress Levels",
+                    },
+                  },
+                  scales: {
+                    x: { title: { display: true, text: "Days of the Week" } },
+                    y: { title: { display: true, text: "Stress Level" } },
+                  },
+                }}
+              />
+            ) : (
+              <p>No stress data available.</p>
+            )}
+          </div>
         </div>
+
 
         {/* Schedule Section */}
         <div className="box schedule">
           <h2>Schedule</h2>
-          <p>Your schedule for today:</p>
+          <p>({getCurrentDate()})</p>
           <ul>
             <li>9:00 AM - Meeting</li>
             <li>11:00 AM - Workshop</li>

@@ -132,7 +132,7 @@ const WeeklyStressPage = () => {
         <div className="menu" onClick={toggleSidebar}>
           ☰
         </div>
-        <div>Weekly Stress Analysis</div>
+        <div className='title'>Weekly Stress Analysis</div>
         <div className="profile">{getInitials(storedUsername)}</div>
       </div>
       <Sidebar
