@@ -21,6 +21,28 @@ export const fetchNews = async () => {
   }
 };
 
+// Fungsi untuk menambah berita baru
+export const addNews = async (news) => {
+  try {
+    const { title, content, sources, writer, images } = news;
+    const response = await axios.post("http://localhost:3000/news/addNews", {
+      title,
+      content,
+      sources,
+      writer,
+      images,
+    });
+    return baseApiResponse(response.data, true); // Success
+  } catch (error) {
+    console.error("Error adding news:", error);
+    return baseApiResponse(
+      error.response ? error.response.data : error.message,
+      false
+    );
+  }
+};
+
+
 // Middleware untuk menambahkan token ke setiap request
 axios.interceptors.request.use(
   (config) => {

@@ -4,6 +4,7 @@ import { logout } from "../actions/user.action";
 import { fetchNews } from "../actions/news.action"; // Import fetchNews
 import { getAllJournal } from "../actions/journal.action";
 import { getStressData } from "../actions/schedule.action";
+import { addNews } from "../actions/news.action";
 import Sidebar from "../Sidebar/Sidebar";
 import { Line } from "react-chartjs-2";
 import {
@@ -41,6 +42,13 @@ const MainPage = () => {
   const navigate = useNavigate();
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
+  const [isModalOpen, setModalOpen] = useState(false); // State untuk kontrol modal
+  const [newArticle, setNewArticle] = useState({
+    title: "",
+    content: "",
+    sources: "",
+    images: "",
+  });
 
   useEffect(() => {
     const fetchWelcomeMessage = async () => {
@@ -171,11 +179,34 @@ const MainPage = () => {
     alert("Berhasil logout!");
     navigate("/");
   };
+  const handleAddNews = async () => {
+    if (!newArticle.title || !newArticle.content || !newArticle.sources) {
+      alert("Title, content, and sources are required!");
+      return;
+    }
 
-  const handleChatbot = () => {
-    navigate("/chatbot");
+    const writer = username || "Anonymous";
+    const articleData = {
+      ...newArticle,
+      writer,
+      images: newArticle.images.split(",").map((url) => url.trim()),
+    };
+
+    const response = await addNews(articleData);
+    if (response.success) {
+      setArticles((prevArticles) => [
+        ...prevArticles,
+        { ...articleData, id: response.data },
+      ]);
+      alert("News added successfully!");
+      setModalOpen(false); // Tutup modal setelah sukses
+      setNewArticle({ title: "", content: "", sources: "", images: "" }); // Reset form
+    } else {
+      alert("Failed to add news!");
+    }
   };
-
+  
+  
   // Fungsi untuk toggle sidebar
   const toggleSidebar = () => {
     console.log("Sidebar toggle:", !isSidebarVisible);
@@ -210,9 +241,22 @@ const MainPage = () => {
       <div className="container">
         {/* Article Section */}
         <div className="box article-container">
-          <div className="header">
-            <h2>Articles</h2>
-          </div>
+        <div className="header">
+          <h2>Articles</h2>
+          {username === "zik" && (
+            <button
+              className="add-news"
+              onClick={() => setModalOpen(true)}
+              style={{
+                marginLeft: "auto",
+                padding: "5px 10px",
+                cursor: "pointer",
+              }}
+            >
+              +
+            </button>
+          )}
+        </div>
           <div className="journal">
             {articles.length > 0 ? (
               articles.map((article) => (
@@ -237,6 +281,50 @@ const MainPage = () => {
             )}
           </div>
         </div>
+
+        {/* Modal */}
+        {isModalOpen && (
+          <div className="modal-overlay">
+            <div className="modal">
+              <h2>Add News</h2>
+              <input
+                type="text"
+                placeholder="Title"
+                value={newArticle.title}
+                onChange={(e) =>
+                  setNewArticle((prev) => ({ ...prev, title: e.target.value }))
+                }
+              />
+              <textarea
+                placeholder="Content"
+                value={newArticle.content}
+                onChange={(e) =>
+                  setNewArticle((prev) => ({ ...prev, content: e.target.value }))
+                }
+              />
+              <input
+                type="text"
+                placeholder="Sources (URL)"
+                value={newArticle.sources}
+                onChange={(e) =>
+                  setNewArticle((prev) => ({ ...prev, sources: e.target.value }))
+                }
+              />
+              <input
+                type="text"
+                placeholder="Image URLs (comma-separated)"
+                value={newArticle.images}
+                onChange={(e) =>
+                  setNewArticle((prev) => ({ ...prev, images: e.target.value }))
+                }
+              />
+              <div className="modal-buttons">
+                <button onClick={handleAddNews}>Submit</button>
+                <button onClick={() => setModalOpen(false)}>Cancel</button>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Journal Section */}
         <div className="box journal-container">
