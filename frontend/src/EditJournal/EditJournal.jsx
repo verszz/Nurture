@@ -139,7 +139,7 @@ const EditJournal = () => {
             <button type="button" onClick={handleSave}>
               Save
             </button>
-            <button type="button" onClick={() => navigate("/main")}>
+            <button type="button" onClick={() => navigate("/home")}>
               Cancel
             </button>
           </div>

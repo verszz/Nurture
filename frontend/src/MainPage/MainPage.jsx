@@ -44,6 +44,7 @@ const MainPage = () => {
   const [stressData, setStressData] = useState(null);
   const [loadingStress, setLoadingStress] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isJournalModalOpen, setIsJournalModalOpen] = useState(false);
   const [selectedJournal, setSelectedJournal] = useState(null);
   const [schedule, setSchedule] = useState([]); // User schedule data state
   const [currentClass, setCurrentClass] = useState(null); // Current class state
@@ -302,6 +303,15 @@ useEffect(() => {
     setSelectedJournal(null);
     setIsModalOpen(false);
   };
+  const openJournalModal = (journal) => {
+    setSelectedJournal(journal);
+    setIsJournalModalOpen(true); // Open Journal modal
+  };
+  
+  const closeJournalModal = () => {
+    setSelectedJournal(null);
+    setIsJournalModalOpen(false); // Close Journal modal
+  };
 
   const handleEdit = () => {
     navigate(`/editjournal/${selectedJournal.id}`);
@@ -424,8 +434,8 @@ useEffect(() => {
         </div>
         {/* Modal */}
         {isModalOpen && (
-          <div className="modal-overlay">
-            <div className="modal">
+          <div className="modal-overlay-news">
+            <div className="modal-news">
               <h2>Add News</h2>
               <input
                 type="text"
@@ -458,7 +468,7 @@ useEffect(() => {
                   setNewArticle((prev) => ({ ...prev, images: e.target.value }))
                 }
               />
-              <div className="modal-buttons">
+              <div className="modal-buttons-news">
                 <button onClick={handleAddNews}>Submit</button>
                 <button onClick={() => setIsModalOpen(false)}>Cancel</button>
               </div>
@@ -475,7 +485,7 @@ useEffect(() => {
                 <div
                   className="journal-entry"
                   key={entry.id}
-                  onClick={() => openModal(entry)}
+                  onClick={() => openJournalModal(entry)}
                 >
                   <h3>{entry.journal_title}</h3>
                   <p>{entry.journal_content.slice(0, 100)}...</p>
@@ -490,11 +500,11 @@ useEffect(() => {
       {/* Modal */}
       {selectedJournal && (
         <Modal
-          isOpen={isModalOpen}
-          onRequestClose={closeModal}
+          isOpen={openJournalModal}
+          onRequestClose={closeJournalModal}
           contentLabel="Journal Details"
           className="modal"
-          overlayClassName="overlay"
+          overlayClassName="modal-overlay-journal"
         >
           <h2>{selectedJournal.journal_title}</h2>
           <p>{selectedJournal.journal_content}</p>
