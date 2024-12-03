@@ -153,7 +153,7 @@ const WeeklyStressPage = () => {
                 marginRight: '30px',
                 paddingLeft:'10px',
                 paddingRight:'10px',
-                backgroundColor: '#cbefb0', // Warna latar belakang
+                backgroundColor: '#F0E3C7', // Warna latar belakang
             }}
             >
             <Line

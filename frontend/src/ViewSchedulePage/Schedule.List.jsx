@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './UniqueScheduleList.css';
-import { getScheduleData } from '../actions/schedule.action';
+import { getScheduleDataforScheduleList } from '../actions/schedule.action';
 import { deleteSchedule } from '../actions/schedule.action';
 import Sidebar from '../Sidebar/Sidebar'; // Import Sidebar
 
@@ -10,16 +10,28 @@ const UniqueScheduleList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [isSidebarVisible, setSidebarVisible] = useState(false);
+  const [username, setUsername] = useState(''); // State for the username
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchSchedule();
+    // Retrieve username from localStorage
+    const storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+      setUsername(storedUsername);
+    } else {
+      setError('No username found in localStorage');
+    }
   }, []);
+
+  useEffect(() => {
+    if (username) {
+      fetchSchedule();
+    }
+  }, [username]);
 
   const fetchSchedule = async () => {
     try {
-      const scheduleOwner = 'zik'; // Replace with actual owner or state variable
-      const data = await getScheduleData(scheduleOwner);
+      const data = await getScheduleDataforScheduleList(username); // Use username from state
       setSchedule(data);
     } catch (error) {
       setError('Failed to load schedule data.');
@@ -31,8 +43,7 @@ const UniqueScheduleList = () => {
 
   const handleDelete = async (scheduleId) => {
     try {
-      const scheduleOwner = 'zik'; // Replace with actual owner
-      await deleteSchedule(scheduleId, scheduleOwner); // Call the delete action
+      await deleteSchedule(scheduleId, username); // Use username from state
       // Remove deleted schedule from the state
       setSchedule(schedule.filter((item) => item.id !== scheduleId));
     } catch (error) {
@@ -58,6 +69,7 @@ const UniqueScheduleList = () => {
       .join('');
     return initials;
   };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -74,21 +86,21 @@ const UniqueScheduleList = () => {
 
   return (
     <div className="unique-schedule-container">
-        {/* Header Section */}
-    <div className="header">
-      <div className="menu" onClick={toggleSidebar}>
-        ☰
+      {/* Header Section */}
+      <div className="header">
+        <div className="menu" onClick={toggleSidebar}>
+          ☰
+        </div>
+        <div className="title">Weekly Schedule</div>
+        <div className="profile">{getInitials(username)}</div>
       </div>
-      <div className='title'>Weekly Schedule</div>
-      <div className="profile">{getInitials("zik")}</div>
-    </div>
-    {/* Sidebar Component */}
-    <Sidebar
-      isVisible={isSidebarVisible}
-      toggleSidebar={toggleSidebar}
-      navigate={navigate}
-      handleLogout={handleLogout}
-    />
+      {/* Sidebar Component */}
+      <Sidebar
+        isVisible={isSidebarVisible}
+        toggleSidebar={toggleSidebar}
+        navigate={navigate}
+        handleLogout={handleLogout}
+      />
       <button className="add-schedule-button" onClick={() => navigate('/addSchedule')}>
         Add Schedule
       </button>

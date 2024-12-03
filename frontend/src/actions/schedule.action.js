@@ -41,6 +41,26 @@ export const getStressData = async (scheduleOwner) => {
       };
     }
   };
+
+export const getScheduleDataforScheduleList = async (scheduleOwner) => {
+  try {
+    const response = await axios.post("http://localhost:3000/schedule/getScheduleData", {
+      scheduleOwner,
+    });
+
+    // Ensure the response contains the expected data
+    if (Array.isArray(response.data)) {
+      return response.data; // Return the data array directly
+    } else {
+      console.error("API did not return a valid schedule array:", response.data);
+      throw new Error("Invalid response format");
+    }
+  } catch (error) {
+    console.error("Error getting schedule data:", error);
+    throw new Error("Failed to fetch schedule data"); // Throwing an error so the caller handles it
+  }
+};
+
   
 
   export const deleteSchedule = async (scheduleId, scheduleOwner) => {
