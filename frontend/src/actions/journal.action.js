@@ -7,6 +7,24 @@ const baseApiResponse = (data, isSuccess) => {
   };
 };
 
+export const addJournal = async (username, title, content) => {
+  try {
+    const response = await axios.post('http://localhost:3000/journal/AddJournal', {
+      username: username,
+      title: title,
+      Content: content,
+    });
+
+    return baseApiResponse(response.data, true); // Format response using baseApiResponse
+  } catch (error) {
+    console.error("Error adding journal:", error);
+    return baseApiResponse(
+      error.response ? error.response.data : error.message,
+      false
+    );
+  }
+};
+
 // Fungsi untuk mengambil semua jurnal
 export const getAllJournal = async (username) => {
   try {

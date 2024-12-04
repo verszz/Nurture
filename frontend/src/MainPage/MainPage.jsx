@@ -8,6 +8,7 @@ import { getAllJournal } from "../actions/journal.action";
 import { deleteJournal } from "../actions/journal.action";
 import { getScheduleData } from "../actions/schedule.action"; // Import getScheduleData
 import { getStressData } from "../actions/schedule.action";
+import { addJournal } from "../actions/journal.action";
 import Sidebar from "../Sidebar/Sidebar";
 import { Line } from "react-chartjs-2";
 
@@ -45,6 +46,7 @@ const MainPage = () => {
   const [loadingStress, setLoadingStress] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isJournalModalOpen, setIsJournalModalOpen] = useState(false);
+  const [isAddJournalOpen, setIsAddJournalOpen] = useState(false);
   const [selectedJournal, setSelectedJournal] = useState(null);
   const [schedule, setSchedule] = useState([]); // User schedule data state
   const [currentClass, setCurrentClass] = useState(null); // Current class state
@@ -60,6 +62,10 @@ const MainPage = () => {
     sources: "",
     images: "",
   });
+
+const [addJournalTitle, setAddJournalTitle] = useState('');
+const [addJournalContent, setAddJournalContent] = useState('');
+
 
   useEffect(() => {
     const fetchWelcomeMessage = async () => {
@@ -119,6 +125,8 @@ const MainPage = () => {
       .join("");
     return initials;
   };
+  
+  
 
   useEffect(() => {
     const loadNews = async () => {
@@ -298,6 +306,24 @@ useEffect(() => {
     setSelectedJournal(journal);
     setIsModalOpen(true);
   };
+  const handleSaveAddJournal = async (e) => {
+    e.preventDefault();
+  
+    const title = addJournalTitle;
+    const content = addJournalContent;
+  
+    // Call the API
+    const result = await addJournal(username, title, content);
+  
+    if (result.success) {
+      alert("Journal added successfully!");
+      closeAddJournalModal();
+      // Optionally, refresh the journal list or update state
+    } else {
+      alert(`Error adding journal: ${result.message}`);
+    }
+  };
+  
 
   const closeModal = () => {
     setSelectedJournal(null);
@@ -311,6 +337,16 @@ useEffect(() => {
   const closeJournalModal = () => {
     setSelectedJournal(null);
     setIsJournalModalOpen(false); // Close Journal modal
+  };
+
+  const openAddJournalModal = (journal) => {
+    setSelectedJournal(journal);
+    setIsAddJournalOpen(true); // Open Journal modal
+  };
+  
+  const closeAddJournalModal = () => {
+    setSelectedJournal(null);
+    setIsAddJournalOpen(false); // Close Journal modal
   };
 
   const handleEdit = () => {
@@ -481,9 +517,24 @@ useEffect(() => {
         )}
   
         {/* Journal Section */}
+        
         <div className="box journal-container">
-          <h2>Journal</h2>
           <div className="journal">
+          <div className="header">
+          <h2>Journal</h2>
+          
+            <button
+              className="add-news"
+              onClick={() => setIsAddJournalOpen(true)}
+              style={{
+                marginLeft: "auto",
+                padding: "5px 10px",
+                cursor: "pointer",
+              }}
+            >
+              +
+            </button>
+        </div>
             {journal.length > 0 ? (
               journal.map((entry) => (
                 <div
@@ -519,6 +570,41 @@ useEffect(() => {
           </div>
         </Modal>
       )}
+      {/* Add Journal Modal */}
+      {isAddJournalOpen && (
+        <Modal
+          isOpen={openAddJournalModal}
+          onRequestClose={closeAddJournalModal}
+          contentLabel="Add Journal"
+          className="modal"
+          overlayClassName="modal-overlay-journal"
+        >
+          <h2>Add New Journal</h2>
+          <form onSubmit={handleSaveAddJournal}>
+              <input
+                type="text"
+                value={addJournalTitle}
+                onChange={(e) => setAddJournalTitle(e.target.value)}
+                placeholder="Enter journal title"
+                required
+              />
+              <textarea
+                value={addJournalContent}
+                onChange={(e) => setAddJournalContent(e.target.value)}
+                placeholder="Enter journal content"
+                rows="5"
+                required
+              />
+            <div className="modal-actions">
+              <button type="submit">Save</button>
+              <button type="button" onClick={closeAddJournalModal}>
+                Cancel
+              </button>
+            </div>
+          </form>
+        </Modal>
+      )}
+
 
         {/* Chatbot Section */}
         <div className="chatbot-container">
