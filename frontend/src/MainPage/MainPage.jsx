@@ -331,6 +331,10 @@ useEffect(() => {
     }
   };
 
+  const handleMoveToStress = () => {
+    navigate("/weeklyStress");
+  }
+
   const handleAddNews = async () => {
     if (!newArticle.title || !newArticle.content || !newArticle.sources) {
       alert("Title, content, and sources are required!");
@@ -552,9 +556,9 @@ useEffect(() => {
         </div>
 
         {/* Stress Level Section */}
-        <div className="box stress">
+        <div className="box stress" onClick={handleMoveToStress}>
           <h2>Stress Level</h2>
-          <div className="chart-container">
+          <div className="chart-container"> 
             {loadingStress ? (
               <p>Loading stress data...</p>
             ) : stressData ? (
