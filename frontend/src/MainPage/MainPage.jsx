@@ -394,6 +394,7 @@ useEffect(() => {
         <div className="box article-container">
         <div className="header">
           <h2>Articles</h2>
+          {username == "zik" &&(
             <button
               className="add-news"
               onClick={() => setIsModalOpen(true)}
@@ -405,7 +406,7 @@ useEffect(() => {
             >
               +
             </button>
-          
+            )}
         </div>
           <div className="journal">
             {articles.length > 0 ? (

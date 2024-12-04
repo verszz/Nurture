@@ -4,6 +4,7 @@ import './UniqueScheduleList.css';
 import { getScheduleDataforScheduleList } from '../actions/schedule.action';
 import { deleteSchedule } from '../actions/schedule.action';
 import Sidebar from '../Sidebar/Sidebar'; // Import Sidebar
+import AddSchedule from '../AddSchedule/AddSchedule';
 
 const UniqueScheduleList = () => {
   const [schedule, setSchedule] = useState([]);
@@ -11,6 +12,7 @@ const UniqueScheduleList = () => {
   const [error, setError] = useState('');
   const [isSidebarVisible, setSidebarVisible] = useState(false);
   const [username, setUsername] = useState(''); // State for the username
+  const [showModalScheduleList, setShowModalScheduleList] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,8 +36,13 @@ const UniqueScheduleList = () => {
       const data = await getScheduleDataforScheduleList(username); // Use username from state
       setSchedule(data);
     } catch (error) {
-      setError('Failed to load schedule data.');
-      console.error(error);
+      if ( error.message == "Failed to fetch schedule data"){
+        setShowModalScheduleList(true);
+      }
+      else {
+        setError("An unexpected error occurred");
+        console.error(error)
+      }
     } finally {
       setLoading(false);
     }
@@ -50,6 +57,10 @@ const UniqueScheduleList = () => {
       console.error('Error deleting schedule:', error);
       alert('Failed to delete schedule.');
     }
+  };
+
+  const handleAddSchedule = () => {
+    navigate("/addschedule");
   };
 
   const toggleSidebar = () => {
@@ -91,7 +102,7 @@ const UniqueScheduleList = () => {
         <div className="menu" onClick={toggleSidebar}>
           ☰
         </div>
-        <div className="title">Weekly Schedule</div>
+        <div className="title">Class Schedule</div>
         <div className="profile">{getInitials(username)}</div>
       </div>
       {/* Sidebar Component */}
@@ -104,6 +115,15 @@ const UniqueScheduleList = () => {
       <button className="add-schedule-button" onClick={() => navigate('/addSchedule')}>
         Add Schedule
       </button>
+      {showModalScheduleList && (
+        <div className="modal-ScheduleList">
+          <div className="modal-content-ScheduleList">
+            <h3>No Schedule Found</h3>
+            <p>You have not created any schedule yet. Please add a schedule to proceed.</p>
+            <button onClick={handleAddSchedule}>Add Schedule</button>
+          </div>
+        </div>
+        )}
       <div className="unique-day-cards">
         {Object.keys(groupedSchedule).map((day) => (
           <div className="unique-day-card" key={day}>

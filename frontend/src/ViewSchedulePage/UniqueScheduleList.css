@@ -73,3 +73,44 @@
     border: none;
     cursor: pointer;
   }
+
+  .modal-ScheduleList {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content-ScheduleList {
+    background: white;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-content-ScheduleList h3 {
+    margin-top: 0;
+  }
+  
+  .modal-content-ScheduleList button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .modal-content-ScheduleList button:hover {
+    background-color: #388e3c;
+  }
+  
