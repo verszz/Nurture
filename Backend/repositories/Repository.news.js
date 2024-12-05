@@ -56,14 +56,30 @@ const getNews = async (Title, username) => {
   }
 };
 
-const getAllNews = async (Title, username) => {
+const getAllNews = async () => {
   try {
-    const allNews = await pool.query(
-      'SELECT n.id, n.title, n.sources, n.Writer, n.content, n.modified_time, i.image_url FROM nurture_newsletter n LEFT JOIN nurture_newsletter_images i ON n.id = i.newsletter_id');
-    return allNews.rows
+    const allNews = await pool.query(`
+      SELECT 
+        n.id, 
+        n.title, 
+        n.sources, 
+        n.Writer, 
+        n.content, 
+        n.modified_time, 
+        ARRAY_AGG(i.image_url) AS images
+      FROM 
+        nurture_newsletter n
+      LEFT JOIN 
+        nurture_newsletter_images i 
+      ON 
+        n.id = i.newsletter_id
+      GROUP BY 
+        n.id, n.title, n.sources, n.Writer, n.content, n.modified_time;
+    `);
+    return allNews.rows;
   } catch (error) {
-    console.error('Error fetching news:', error); // Log the error for debugging
-        throw new Error('Error fetching news'); // Throw the error to be handled by the caller
+    console.error('Error fetching news:', error);
+    throw new Error('Error fetching news');
   }
 };
 
