@@ -9,6 +9,7 @@ import { deleteJournal } from "../actions/journal.action";
 import { getScheduleData } from "../actions/schedule.action"; // Import getScheduleData
 import { getStressData } from "../actions/schedule.action";
 import { addJournal } from "../actions/journal.action";
+import {addNews} from "../actions/news.action";
 import Sidebar from "../Sidebar/Sidebar";
 import { Line } from "react-chartjs-2";
 
@@ -391,7 +392,7 @@ useEffect(() => {
         { ...articleData, id: response.data },
       ]);
       alert("News added successfully!");
-      setModalOpen(false); // Tutup modal setelah sukses
+      setIsModalOpen(false); // Tutup modal setelah sukses
       setNewArticle({ title: "", content: "", sources: "", images: "" }); // Reset form
     } else {
       alert("Failed to add news!");
@@ -458,9 +459,9 @@ useEffect(() => {
                 >
                   <h3>{article.title}</h3>
                   <p>{article.content.slice(0, 100)}...</p>
-                  {article.image_url && (
+                  {article.images && (
                     <img
-                      src={article.image_url}
+                      src={article.images}
                       alt={article.title}
                       className="article-image"
                     />
