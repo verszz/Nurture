@@ -15,15 +15,54 @@ export const getStressData = async (scheduleOwner) => {
   
   export const getScheduleData = async (scheduleOwner) => {
     try {
-      const response = await axios.post(`http://localhost:3000/schedule/getScheduleData`, {
+      const response = await axios.post("http://localhost:3000/schedule/getScheduleData", {
         scheduleOwner,
       });
-      return response.data; // Returns the schedule data for the user
+  
+      // Check if the response contains the data directly
+      if (response.data) {
+        // If the backend returns the data directly, return it
+        return {
+          success: true,
+          data: response.data, // Schedule data
+        };
+      } else {
+        console.error("API did not return schedule data:", response.data);
+        return {
+          success: false,
+          message: "Failed to fetch schedule",
+        };
+      }
     } catch (error) {
-      console.error('Error getting schedule data:', error);
-      throw error; // Rethrow error to handle it in the component
+      console.error("Error getting schedule data:", error);
+      return {
+        success: false,
+        message: "Error fetching schedule data",
+      };
     }
   };
+
+export const getScheduleDataforScheduleList = async (scheduleOwner) => {
+  try {
+    const response = await axios.post("http://localhost:3000/schedule/getScheduleData", {
+      scheduleOwner,
+    });
+
+    // Ensure the response contains the expected data
+    if (Array.isArray(response.data)) {
+      return response.data; // Return the data array directly
+    } else {
+      console.error("API did not return a valid schedule array:", response.data);
+      throw new Error("Invalid response format");
+    }
+  } catch (error) {
+    console.error("Error getting schedule data:", error);
+    throw new Error("Failed to fetch schedule data"); // Throwing an error so the caller handles it
+  }
+};
+
+  
+
   export const deleteSchedule = async (scheduleId, scheduleOwner) => {
     try {
       const response = await axios.delete('http://localhost:3000/schedule/DeleteSchedule', {

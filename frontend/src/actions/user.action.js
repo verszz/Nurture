@@ -14,7 +14,7 @@ export const login = async (username, password) => {
         password: password
       });
       localStorage.setItem('token', response.data.token);
-      localStorage.setItem("username", response.data.username); // Pastikan username ada dalam respons API
+      localStorage.setItem("username", response.data.username); 
       return baseApiResponse(response.data, true);
     } catch (error) {
       console.error("Login failed!:", error);

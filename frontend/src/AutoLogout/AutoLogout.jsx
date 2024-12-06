@@ -15,7 +15,7 @@ const AutoLogout = ({ children }) => {
   // Fungsi untuk reset timer
   const resetLogoutTimer = () => {
     if (logoutTimer) clearTimeout(logoutTimer); // Reset timer jika ada
-    logoutTimer = setTimeout(handleLogout, 5 * 60 * 1000); // 5 menit
+    logoutTimer = setTimeout(handleLogout, 100 * 60 * 1000); // 5 menit
   };
 
   useEffect(() => {

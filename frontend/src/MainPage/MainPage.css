@@ -1,401 +1,612 @@
 #root {
-    padding: 0 !important;
-    width: 100%;
-    height: 100%;
-  }
+  padding: 0 !important;
+  width: 100%;
+  height: 100%;
+}
 
 .body {
-    font-family: Arial, sans-serif;
-    background-color: #ADDBC0;
-    padding: 20px;
-    height: 100%;
-    width:100%;
-    display: flex;
-    flex-direction: column;
+  font-family: Arial, sans-serif;
+  background-color: #ADDBC0;
+  padding: 20px;
+  height: 100%;
+  width:100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
-    display: grid;
-    padding-top: 15px;
-    background-color: #ADDBC0;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    margin-right: 10px;
-    margin-left: 10px;
-    gap: 10px; /* Memberikan sedikit celah antar grid */
-    flex-grow: 1;
+  display: grid;
+  padding-top: 15px;
+  background-color: #ADDBC0;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  margin-right: 10px;
+  margin-left: 10px;
+  gap: 10px; /* Memberikan sedikit celah antar grid */
+  flex-grow: 1;
 }
 
 .title{
-    color: #333;
+  color: #333;
 }
 
 .header {
-    grid-column: 1 / 4;
-    background-color: #F0E3C7;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-    margin-top: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    font-size: 24px;
-    font-weight: bold;
-    align-items: center;
+  grid-column: 1 / 4;
+  background-color: #F0E3C7;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  align-items: center;
 }
 
 .header .menu {
-    background-color: #2A494D;
-    padding: 10px;
-    border-radius: 5px;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
+  background-color: #2A494D;
+  padding: 10px;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 .header .profile {
-    background-color: #2A494D;
-    padding: 10px;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 24px;
+  background-color: #2A494D;
+  padding: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
 }
-  
+
 .box {
-    background-color: #DCCFA4;
-    border-radius: 15px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #DCCFA4;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .box h2 {
-    margin-bottom: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
 }
 
 .article-container {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .article-card {
-    padding-top: 0px;
-    padding-left: 10px;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 15px;
-    background-color: #DCCFA4;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .article-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  .article-image {
-    width: 97%;
-    height: auto;
-    border-radius: 5px;
-    margin-top: 0px;
-  }
-  
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.article-card {
+  padding-top: 0px;
+  padding-left: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  background-color: #DCCFA4;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.article-image {
+  width: 97%;
+  height: auto;
+  border-radius: 5px;
+  margin-top: 0px;
+}
+
 
 .article-card h3 {
-    margin-bottom: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
 }
 
 .article-card p {
-    font-size: 13px;
-    font-weight: normal;
-    color: #666;
-    line-height: 1.6;
+  font-size: 13px;
+  font-weight: normal;
+  color: #666;
+  line-height: 1.6;
 }
 
-.add-news {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  .add-news:hover {
-    background-color: #45a049;
-  }
-
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .modal {
-    background: #DCCFA4;
-    color:#333;
-    padding: 20px;
-    border-radius: 10px;
-    width: 400px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-  }
-  
-  .modal h2 {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .modal input,
-  .modal textarea {
-    width: 95%;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: black;
-  }
-  
-  .modal-buttons {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .modal-buttons button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .modal-buttons button:first-child {
-    background: #4caf50;
-    color: white;
-  }
-  
-  .modal-buttons button:last-child {
-    background: #f44336;
-    color: white;
-  }  
-  
 /* Chatbot Section */
 .chatbot-container {
-    display: flex;
-    flex-direction: column;
-    background-color: #FFF3CA;
-    color: #333;
-    padding: 20px;
-    grid-row: span 2; /* Memperpanjang jurnal ke bawah */
-    height: 89%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  background-color: #FFF3CA;
+  color: #333;
+  padding: 20px;
+  grid-row: span 2; /* Memperpanjang jurnal ke bawah */
+  height: 89%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .chatbot-container h2 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
 }
 
 .chat-bubble {
-    position: relative;
-    background-color: #e1ba89;
-    border-radius: 15px;
-    padding: 10px 20px;
-    max-width: 180px;
-    margin-bottom: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
-    text-align: right;
-    margin-left: auto;
+  position: relative;
+  background-color: #e1ba89;
+  border-radius: 15px;
+  padding: 10px 20px;
+  max-width: 180px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  text-align: right;
+  margin-left: auto;
 }
 
 .chat-bubble::after {
-    content: "";
-    position: absolute;
-    top: 10px;
-    right: -6px;
-    transform: rotate(0deg);
-    width: 0;
-    height: 0;
-    border-left: 10px solid #e1ba89;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: -6px;
+  transform: rotate(0deg);
+  width: 0;
+  height: 0;
+  border-left: 10px solid #e1ba89;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
 }
 
 .share-button {
-    display: block;
-    background-color: #99a98d;
-    padding: 10px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    cursor: pointer;
-    margin-top: 10px;
-    max-width: 180px;
-    margin-left: auto;
+  display: block;
+  background-color: #99a98d;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 10px;
+  max-width: 180px;
+  margin-left: auto;
 }
 
 /* Article Section */
 .article-container {
-    display: flex;
-    background-color: #FFF3CA;
-    flex-direction: column;
-    padding: 20px;
-    height: 100%;
-    max-height: 326px; /* Menentukan tinggi maksimum untuk scroll */
-    overflow-y: auto; /* Mengizinkan scroll */
+  display: flex;
+  background-color: #FFF3CA;
+  flex-direction: column;
+  padding: 20px;
+  height: 100%;
+  max-height: 326px; /* Menentukan tinggi maksimum untuk scroll */
+  overflow-y: auto; /* Mengizinkan scroll */
 }
 
 /* Journal Section */
 .journal-container {
-    display: flex;
-    flex-direction: column;
-    background-color: #FFF3CA;
-    color: #333;
-    padding: 20px;
-    max-height: 326px; /* Menentukan tinggi maksimum untuk scroll */
-    overflow-y: auto; /* Mengizinkan scroll */
+  display: flex;
+  flex-direction: column;
+  background-color: #FFF3CA;
+  color: #333;
+  padding: 20px;
+  max-height: 326px; /* Menentukan tinggi maksimum untuk scroll */
+  overflow-y: auto; /* Mengizinkan scroll */
 }
 
+.add-news {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.add-news:hover {
+  background-color: #45a049;
+}
+
+.modal-overlay-news {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-news {
+  background: #DCCFA4;
+  color:#333;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.modal-news h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modal-news input,
+.modal-news textarea {
+  width: 95%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: black;
+}
+
+.modal-buttons-news {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-buttons-news button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-buttons-news button:first-child {
+  background: #4caf50;
+  color: white;
+}
+
+.modal-buttons-news button:last-child {
+  background: #f44336;
+  color: white;
+}  
+
 .journal {
-    flex-grow: 1;
-    overflow-y: auto;
-    width: 96%;
-    display: flex;
-    flex-direction: column;
-    max-height: 83vh; /* Menentukan tinggi maksimal untuk scroll */
+  flex-grow: 1;
+  overflow-y: auto;
+  width: 96%;
+  display: flex;
+  flex-direction: column;
+  max-height: 83vh; /* Menentukan tinggi maksimal untuk scroll */
 }
 
 .journal .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
 }
 
 .journal h2 {
-    font-size: 18px;
-    font-weight: bold;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .add-journal {
-    background-color: #99a98d;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 24px;
-    color: white;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: #99a98d;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .journal-entry {
-    background-color: #DCCFA4;
-    padding: 15px;
-    margin:10px;
-    border-radius: 15px;
-    margin-bottom: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer; /* Change cursor on hover */
-    transition: transform 0.2s; /* Animation for hover */
+  background-color: #DCCFA4;
+  padding: 15px;
+  margin:10px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer; /* Change cursor on hover */
+  transition: transform 0.2s; /* Animation for hover */
 }
 .journal-entry:hover {
-    transform: scale(1.02); /* Scale effect on hover */
+  transform: scale(1.02); /* Scale effect on hover */
 }
 
 .journal-entry h2 {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 20px;
 }
 
 .journal-entry p {
-    font-size: 15px;
-    margin-top: 10px;
-    font-weight: normal;
+  font-size: 15px;
+  margin-top: 10px;
+  font-weight: normal;
 }
 
 /* Stress Level Section */
 .stress {
-    background-color: #FFF3CA;
-    grid-row: span 1; /* Mengatur tinggi kotak stress level */
-    gap: 20vh;
-    height:80%;
-    /* margin-bottom: 0px; */
+  background-color: #FFF3CA;
+  grid-row: span 1; /* Mengatur tinggi kotak stress level */
+  gap: 20vh;
+  height:80%;
+  /* margin-bottom: 0px; */
 }
 .chart-container {
-    position: relative;
-    width: 96%;
-    height: 300px; /* Adjust to fit the card */
-    padding: 10px;
-    margin-top: -130px;
-    margin-right: -10px;
-    background-color: #f5f5f5; /* Light background */
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Prevent leaks */
-    color:black;
-  }
-  
-  .schedule p {
-    font-family:Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 25px; /* Ensure consistent font size in the schedule list */
-    color: black; /* Set text color to black */
-  }
+  position: relative;
+  width: 96%;
+  height: 60%; /* Adjust to fit the card */
+  padding: 10px;
+  margin-top: -130px;
+  margin-right: -10px;
+  background-color: #f5f5f5; /* Light background */
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Prevent leaks */
+}
+
 
 /* Schedule Section */
+/* Schedule Section */
 .schedule {
-    background-color: #FFF3CA;
-    grid-row: span 1; /* Mengatur tinggi kotak schedule */
-    gap: 0vh;
-    /* margin-bottom: 0px; */
-    height:80%
+  background-color: #FFF3CA;
+  grid-row: span 1;
+  gap: 0vh;
+  height: 80%; /* Ensure that the schedule section has a fixed height */
+  overflow: hidden; /* Prevent overflowing content */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  color: black;
+}
+.class-cards-container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Enable scrolling only for class cards */
+  max-height: 100%; /* Ensures the container doesn't exceed schedule height */
+  gap: 15px;
+  padding-right: 5px; /* Small gap on the right side for scrollbar */
+}
+
+/* Class Card Styling */
+.class-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 95%; /* Ensures class-card takes up full width of the container */
+  height: 20%;
+  margin-left: -5px;
+  margin-bottom: 6px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.class-card h3 {
+  background-color: #f7f7f7;
+  color: #1d3c3f;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  
+}
+
+.class-card p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.class-card.no-class {
+  background-color: #DCCFA4;
+  text-align: center;
+  color: #888;
+}
+
+.class-card:hover {
+  transform: translateY(-5px);
+}
+
+.class-card strong {
+  font-weight: 600;
+}
+
+/* Media Query for Mobile - Adjusting layout and spacing */
+@media (max-width: 768px) {
+  .schedule {
+      padding: 10px;
+  }
+
+  .class-card {
+      padding: 15px;
+      margin-bottom: 15px;
+  }
 }
 
 /* Footer (optional) */
 footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #99a98d;
-    color: white;
-    margin-top: auto;
+  text-align: center;
+  padding: 10px;
+  background-color: #99a98d;
+  color: white;
+  margin-top: auto;
 }
-  
+.modal-overlay-journal {
+  position: fixed; /* Fix to screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
+  z-index: 1000; /* Ensure it's above other content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: visible; /* Ensure visibility when modal is open */
+  opacity: 1;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Modal Content */
+.modal {
+  background-color: #F0E3C7;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px; /* Limit max width */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1001; /* Make sure modal is on top of overlay */
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Modal Header */
+.modal h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Modal Content Paragraph */
+.modal p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Modal Actions (Buttons) */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  background-color: #2A494D;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.modal-actions button:hover {
+  background-color: #1d3c3f;
+}
+
+/* Close Modal Button */
+.modal-actions button:last-child {
+  background-color: #f44336; /* Red for close */
+}
+
+.modal-actions button:last-child:hover {
+  background-color: #d32f2f; /* Darker red for hover */
+}
+
+/* Modal Fade-in Animation */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+/* When modal is closed */
+.overlay.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+.modal-AddJournal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content-AddJournal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-actions-AddJournal {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+input[type="text"],
+textarea {
+  width: 95%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  font-family: 'Arial', sans-serif;
+}

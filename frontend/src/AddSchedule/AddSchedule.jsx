@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AddSchedule.css';
 import { addSchedule } from '../actions/schedule.action';
@@ -13,8 +13,19 @@ const AddSchedule = () => {
     sleepHours: '',
   });
 
+  const [username, setUsername] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  // Retrieve username from localStorage
+  useEffect(() => {
+    const storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+      setUsername(storedUsername);
+    } else {
+      setError('No username found. Please log in again.');
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +36,11 @@ const AddSchedule = () => {
     e.preventDefault();
 
     try {
-      const scheduleOwner = 'zik'; // Replace with dynamic user identification if needed
+      if (!username) {
+        setError('No username found. Please log in again.');
+        return;
+      }
+
       await addSchedule(
         form.className,
         form.day,
@@ -33,8 +48,9 @@ const AddSchedule = () => {
         form.classEndTime,
         form.taskDuration,
         form.sleepHours,
-        scheduleOwner
+        username // Use username from localStorage
       );
+
       navigate('/scheduleList'); // Navigate back to the schedule list after adding
     } catch (error) {
       setError('Failed to add schedule. Please try again.');

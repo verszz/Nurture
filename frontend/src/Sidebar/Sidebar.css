@@ -1,58 +1,57 @@
 /* Sidebar Styles */
 .sidebar {
-    position: fixed;
-    top: 0;
-    width: 250px;
-    height: 100%;
-    background-color: #e1ba89;
-    color: #2A494D;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    transform: translateX(-100%); /* Sembunyi dengan transformasi */
-    transition: transform 0.3s ease; /* Tambahkan transisi untuk animasi */
-  }
-  
-  .sidebar.visible {
-    transform: translateX(0); /* Geser ke posisi normal */
-  }
-  
-  .sidebar .close-btn {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    margin-bottom: 20px;
-    text-align: right;
-  }
-  
-  .sidebar ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .sidebar ul li {
-    padding: 10px 0;
-    cursor: pointer;
-    padding-left: 10px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    background-color: #F0E3C7;
-    border-bottom: 1px solid #444;
-  }
-  
-  .sidebar ul li:hover {
-    background-color: #FFF3CA;
-  }
+  position: fixed;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #e1ba89;
+  color: #2A494D;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  transform: translateX(-100%); /* Sembunyi dengan transformasi */
+  transition: transform 0.3s ease; /* Tambahkan transisi untuk animasi */
+}
 
-  /* Tambahkan styling khusus untuk tombol logout */
+.sidebar.visible {
+  transform: translateX(0); /* Geser ke posisi normal */
+}
+
+.sidebar .close-btn {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px 0;
+  cursor: pointer;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: #F0E3C7;
+  border-bottom: 1px solid #444;
+}
+
+.sidebar ul li:hover {
+  background-color: #FFF3CA;
+}
+
+/* Tambahkan styling khusus untuk tombol logout */
 .sidebar ul li.logout {
-    background-color: #FFD6D6; /* Warna default khusus Logout */
-    color: #8B0000; /* Warna teks lebih gelap untuk Logout */
-  }
-  
-  .sidebar ul li.logout:hover {
-    background-color: #FFB5B5; /* Warna saat di-hover untuk Logout */
-    color: #A00000; /* Warna teks lebih gelap saat hover */
-  }
-  
+  background-color: #FFD6D6; /* Warna default khusus Logout */
+  color: #8B0000; /* Warna teks lebih gelap untuk Logout */
+}
+
+.sidebar ul li.logout:hover {
+  background-color: #FFB5B5; /* Warna saat di-hover untuk Logout */
+  color: #A00000; /* Warna teks lebih gelap saat hover */
+}

@@ -145,7 +145,7 @@ const DailyStressPage = () => {
             marginRight: '30px',
             paddingLeft: '10px',
             paddingRight: '10px',
-            backgroundColor: '#cbefb0',
+            backgroundColor: '#F0E3C7',
           }}
         >
           <Line

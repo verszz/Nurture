@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Modal from "react-modal";
+
 import { logout } from "../actions/user.action";
 import { fetchNews } from "../actions/news.action"; // Import fetchNews
 import { getAllJournal } from "../actions/journal.action";
+import { deleteJournal } from "../actions/journal.action";
+import { getScheduleData } from "../actions/schedule.action"; // Import getScheduleData
 import { getStressData } from "../actions/schedule.action";
-import { addNews } from "../actions/news.action";
+import { addJournal } from "../actions/journal.action";
+import {addNews} from "../actions/news.action";
 import Sidebar from "../Sidebar/Sidebar";
 import { Line } from "react-chartjs-2";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -39,16 +45,28 @@ const MainPage = () => {
   const [journal, setJournal] = useState([]); // State untuk menyimpan data journal
   const [stressData, setStressData] = useState(null);
   const [loadingStress, setLoadingStress] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isJournalModalOpen, setIsJournalModalOpen] = useState(false);
+  const [isAddJournalOpen, setIsAddJournalOpen] = useState(false);
+  const [selectedJournal, setSelectedJournal] = useState(null);
+  const [schedule, setSchedule] = useState([]); // User schedule data state
+  const [currentClass, setCurrentClass] = useState(null); // Current class state
+  const [nextClass, setNextClass] = useState(null); // Next class state
+
   const navigate = useNavigate();
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
-  const [isModalOpen, setModalOpen] = useState(false); // State untuk kontrol modal
+
   const [newArticle, setNewArticle] = useState({
     title: "",
     content: "",
     sources: "",
     images: "",
   });
+
+const [addJournalTitle, setAddJournalTitle] = useState('');
+const [addJournalContent, setAddJournalContent] = useState('');
+
 
   useEffect(() => {
     const fetchWelcomeMessage = async () => {
@@ -108,6 +126,8 @@ const MainPage = () => {
       .join("");
     return initials;
   };
+  
+  
 
   useEffect(() => {
     const loadNews = async () => {
@@ -124,6 +144,7 @@ const MainPage = () => {
   const handleAlert = (message) => {
     alert(message);
   };
+
 
   useEffect(() => {
     const loadJournal = async () => {
@@ -142,6 +163,99 @@ const MainPage = () => {
   const handleJournalAlert = (message) => {
     alert(message);
   };
+
+  useEffect(() => {
+    const loadSchedule = async () => {
+        if (!username) {
+            console.error("Username is required to fetch schedule");
+            return;
+        }
+        try {
+            const response = await getScheduleData(username);
+            console.log("Schedule API response:", response); // Log the response for debugging
+            if (response.data && response.data) {
+                setSchedule(response.data); // Save the fetched schedule
+                console.log("Saved Data =", response.data);
+            } else {
+                console.error("Failed to load schedule:", response?.data || response?.message);
+            }
+        } catch (error) {
+            console.error("Error fetching schedule data:", error);
+        }
+    };
+
+    loadSchedule();
+}, [username]);
+
+useEffect(() => {
+  if (schedule.length > 0) {
+    const now = new Date();
+    const currentTimeInMinutes = now.getHours() * 60 + now.getMinutes(); // Current time in minutes
+    const currentDayIndex = now.getDay(); // Get the current day index (0-6, Sunday-Saturday)
+
+    // Map of days to week days index
+    const daysOfWeek = {
+      "Minggu": 0,
+      "Senin": 1,
+      "Selasa": 2,
+      "Rabu": 3,
+      "Kamis": 4,
+      "Jumat": 5,
+      "Sabtu": 6,
+    };
+
+    let currentClass = null;
+    let nextClass = null;
+
+    // Sort schedule by day and class start time (converted to minutes)
+    const sortedSchedule = schedule
+      .map((classItem) => {
+        const startTimeParts = classItem.class_start_time.split(':');
+        const startTimeInMinutes = parseInt(startTimeParts[0]) * 60 + parseInt(startTimeParts[1]);
+        const classDayIndex = daysOfWeek[classItem.day];
+        const endTimeParts = classItem.class_end_time.split(':');
+        const endTimeInMinutes = parseInt(endTimeParts[0]) * 60 + parseInt(endTimeParts[1]);
+
+        return {
+          ...classItem,
+          class_start_time_minutes: startTimeInMinutes,
+          class_end_time_minutes: endTimeInMinutes, // Add the class end time
+          class_day_index: classDayIndex, // Add the day index to compare
+        };
+      })
+      .filter((classItem) => classItem.class_day_index === currentDayIndex) // Only include classes for today
+      .sort((a, b) => {
+        // First, compare by start time
+        return a.class_start_time_minutes - b.class_start_time_minutes;
+      });
+
+    // Determine current and next class
+    for (let i = 0; i < sortedSchedule.length; i++) {
+      const classItem = sortedSchedule[i];
+      const classStartTime = classItem.class_start_time_minutes;
+      const classEndTime = classItem.class_end_time_minutes;
+
+      // Check if the current time is within the class time range
+      if (currentClass === null && classStartTime <= currentTimeInMinutes && currentTimeInMinutes <= classEndTime) {
+        currentClass = classItem;
+      }
+
+      // Check if this class is the next class
+      if (nextClass === null && classStartTime > currentTimeInMinutes) {
+        nextClass = classItem;
+        break; // Only need the first upcoming class
+      }
+    }
+
+    setCurrentClass(currentClass); // Set current class
+    setNextClass(nextClass); // Set next class
+
+    // Log the current and next class to the console
+    console.log("Current Class:", currentClass);
+    console.log("Next Class:", nextClass);
+  }
+}, [schedule]);
+
 
   useEffect(() => {
     const fetchStressData = async () => {
@@ -179,6 +293,85 @@ const MainPage = () => {
     alert("Berhasil logout!");
     navigate("/");
   };
+
+  const handleChatbot = () => {
+    navigate("/chatbot");
+  };
+
+  // Fungsi untuk toggle sidebar
+  const toggleSidebar = () => {
+    console.log("Sidebar toggle:", !isSidebarVisible);
+    setSidebarVisible(!isSidebarVisible);
+  };
+  const openModal = (journal) => {
+    setSelectedJournal(journal);
+    setIsModalOpen(true);
+  };
+  const handleSaveAddJournal = async (e) => {
+    e.preventDefault();
+  
+    const title = addJournalTitle;
+    const content = addJournalContent;
+  
+    // Call the API
+    const result = await addJournal(username, title, content);
+  
+    if (result.success) {
+      alert("Journal added successfully!");
+      closeAddJournalModal();
+      // Optionally, refresh the journal list or update state
+    } else {
+      alert(`Error adding journal: ${result.message}`);
+    }
+  };
+  
+
+  const closeModal = () => {
+    setSelectedJournal(null);
+    setIsModalOpen(false);
+  };
+  const openJournalModal = (journal) => {
+    setSelectedJournal(journal);
+    setIsJournalModalOpen(true); // Open Journal modal
+  };
+  
+  const closeJournalModal = () => {
+    setSelectedJournal(null);
+    setIsJournalModalOpen(false); // Close Journal modal
+  };
+
+  const openAddJournalModal = (journal) => {
+    setSelectedJournal(journal);
+    setIsAddJournalOpen(true); // Open Journal modal
+  };
+  
+  const closeAddJournalModal = () => {
+    setSelectedJournal(null);
+    setIsAddJournalOpen(false); // Close Journal modal
+  };
+
+  const handleEdit = () => {
+    navigate(`/editjournal/${selectedJournal.id}`);
+  };
+
+  const handleDelete = async () => {
+    if (!selectedJournal) return;
+    try {
+      await deleteJournal(selectedJournal.id);
+      setJournal((prev) =>
+        prev.filter((entry) => entry.id !== selectedJournal.id)
+      );
+      closeModal();
+      alert("Journal deleted successfully!");
+    } catch (error) {
+      console.error("Error deleting journal:", error);
+    }
+  };
+
+  const handleMoveToStress = () => {
+    navigate("/weeklyStress");
+  }
+
   const handleAddNews = async () => {
     if (!newArticle.title || !newArticle.content || !newArticle.sources) {
       alert("Title, content, and sources are required!");
@@ -199,24 +392,23 @@ const MainPage = () => {
         { ...articleData, id: response.data },
       ]);
       alert("News added successfully!");
-      setModalOpen(false); // Tutup modal setelah sukses
+      setIsModalOpen(false); // Tutup modal setelah sukses
       setNewArticle({ title: "", content: "", sources: "", images: "" }); // Reset form
     } else {
       alert("Failed to add news!");
     }
   };
-  
-  
-  // Fungsi untuk toggle sidebar
-  const toggleSidebar = () => {
-    console.log("Sidebar toggle:", !isSidebarVisible);
-    setSidebarVisible(!isSidebarVisible);
-  };
 
   const getCurrentDate = () => {
-    const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
-    return new Date().toLocaleDateString("en-US", options);
+    const options = { 
+      weekday: "long", 
+      year: "numeric", 
+      month: "long", 
+      day: "numeric" 
+    };
+    return new Date().toLocaleDateString("id-ID", options); // Use Indonesian locale (id-ID)
   };
+  
 
   return (
     <div>
@@ -243,10 +435,10 @@ const MainPage = () => {
         <div className="box article-container">
         <div className="header">
           <h2>Articles</h2>
-          {username === "zik" && (
+          {username == "zik" &&(
             <button
               className="add-news"
-              onClick={() => setModalOpen(true)}
+              onClick={() => setIsModalOpen(true)}
               style={{
                 marginLeft: "auto",
                 padding: "5px 10px",
@@ -255,7 +447,7 @@ const MainPage = () => {
             >
               +
             </button>
-          )}
+            )}
         </div>
           <div className="journal">
             {articles.length > 0 ? (
@@ -267,9 +459,9 @@ const MainPage = () => {
                 >
                   <h3>{article.title}</h3>
                   <p>{article.content.slice(0, 100)}...</p>
-                  {article.image_url && (
+                  {article.images && (
                     <img
-                      src={article.image_url}
+                      src={article.images}
                       alt={article.title}
                       className="article-image"
                     />
@@ -281,11 +473,10 @@ const MainPage = () => {
             )}
           </div>
         </div>
-
         {/* Modal */}
         {isModalOpen && (
-          <div className="modal-overlay">
-            <div className="modal">
+          <div className="modal-overlay-news">
+            <div className="modal-news">
               <h2>Add News</h2>
               <input
                 type="text"
@@ -318,30 +509,42 @@ const MainPage = () => {
                   setNewArticle((prev) => ({ ...prev, images: e.target.value }))
                 }
               />
-              <div className="modal-buttons">
+              <div className="modal-buttons-news">
                 <button onClick={handleAddNews}>Submit</button>
-                <button onClick={() => setModalOpen(false)}>Cancel</button>
+                <button onClick={() => setIsModalOpen(false)}>Cancel</button>
               </div>
             </div>
           </div>
         )}
-
+  
         {/* Journal Section */}
+        
         <div className="box journal-container">
-          <div className="header">
-            <h2>Journal</h2>
-            <div className="add-journal">+</div>
-          </div>
           <div className="journal">
-          {journal.length > 0 ? (
-              journal.map((journal) => (
+          <div className="header">
+          <h2>Journal</h2>
+          
+            <button
+              className="add-news"
+              onClick={() => setIsAddJournalOpen(true)}
+              style={{
+                marginLeft: "auto",
+                padding: "5px 10px",
+                cursor: "pointer",
+              }}
+            >
+              +
+            </button>
+        </div>
+            {journal.length > 0 ? (
+              journal.map((entry) => (
                 <div
                   className="journal-entry"
-                  key={journal.id}
-                  // onClick={() => window.open(article.sources, "_blank")}
+                  key={entry.id}
+                  onClick={() => openJournalModal(entry)}
                 >
-                  <h2>{journal.journal_title}</h2>
-                  <p>{journal.journal_content.slice(0, 100)}...</p>
+                  <h3>{entry.journal_title}</h3>
+                  <p>{entry.journal_content.slice(0, 100)}...</p>
                 </div>
               ))
             ) : (
@@ -349,6 +552,60 @@ const MainPage = () => {
             )}
           </div>
         </div>
+  
+      {/* Modal */}
+      {selectedJournal && (
+        <Modal
+          isOpen={openJournalModal}
+          onRequestClose={closeJournalModal}
+          contentLabel="Journal Details"
+          className="modal"
+          overlayClassName="modal-overlay-journal"
+        >
+          <h2>{selectedJournal.journal_title}</h2>
+          <p>{selectedJournal.journal_content}</p>
+          <div className="modal-actions">
+            <button onClick={handleEdit}>Edit</button>
+            <button onClick={handleDelete}>Delete</button>
+            <button onClick={closeModal}>Close</button>
+          </div>
+        </Modal>
+      )}
+      {/* Add Journal Modal */}
+      {isAddJournalOpen && (
+        <Modal
+          isOpen={openAddJournalModal}
+          onRequestClose={closeAddJournalModal}
+          contentLabel="Add Journal"
+          className="modal"
+          overlayClassName="modal-overlay-journal"
+        >
+          <h2>Add New Journal</h2>
+          <form onSubmit={handleSaveAddJournal}>
+              <input
+                type="text"
+                value={addJournalTitle}
+                onChange={(e) => setAddJournalTitle(e.target.value)}
+                placeholder="Enter journal title"
+                required
+              />
+              <textarea
+                value={addJournalContent}
+                onChange={(e) => setAddJournalContent(e.target.value)}
+                placeholder="Enter journal content"
+                rows="5"
+                required
+              />
+            <div className="modal-actions">
+              <button type="submit">Save</button>
+              <button type="button" onClick={closeAddJournalModal}>
+                Cancel
+              </button>
+            </div>
+          </form>
+        </Modal>
+      )}
+
 
         {/* Chatbot Section */}
         <div className="chatbot-container">
@@ -386,9 +643,9 @@ const MainPage = () => {
         </div>
 
         {/* Stress Level Section */}
-        <div className="box stress">
+        <div className="box stress" onClick={handleMoveToStress}>
           <h2>Stress Level</h2>
-          <div className="chart-container">
+          <div className="chart-container"> 
             {loadingStress ? (
               <p>Loading stress data...</p>
             ) : stressData ? (
@@ -414,20 +671,43 @@ const MainPage = () => {
             )}
           </div>
         </div>
-
-
         {/* Schedule Section */}
         <div className="box schedule">
-          <h2>Schedule</h2>
-          <p>({getCurrentDate()})</p>
-          <ul>
-            <li>9:00 AM - Meeting</li>
-            <li>11:00 AM - Workshop</li>
-            <li>2:00 PM - Presentation</li>
-          </ul>
+  <h2>Schedule</h2>
+  <p>({getCurrentDate()})</p>
+  <div class="class-cards-container">
+  <div className="schedule-card">
+    <div className="schedule-content">
+      {currentClass ? (
+        <div className="class-card">
+          <h3>Current Class</h3>
+          <p><strong>{currentClass.class_name}</strong></p>
+          <p>{currentClass.class_start_time} - {currentClass.class_end_time}</p>
         </div>
+      ) : (
+        <div className="class-card no-class">
+          <p>No class currently in session.</p>
+        </div>
+      )}
+
+      {nextClass ? (
+        <div className="class-card">
+          <h3>Next Class</h3>
+          <p><strong>{nextClass.class_name}</strong></p>
+          <p>{nextClass.class_start_time} - {nextClass.class_end_time}</p>
+        </div>
+      ) : (
+        <div className="class-card no-class">
+          <p>No upcoming class.</p>
+        </div>
+      )}
       </div>
     </div>
+  </div>
+</div>
+
+        </div>
+        </div>
   );
 };
 

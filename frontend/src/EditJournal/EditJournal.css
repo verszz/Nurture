@@ -1,0 +1,113 @@
+/* Edit Journal Page Styles */
+.edit-journal-page {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header */
+  .edit-journal-header {
+    background-color: #F0E3C7;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    align-items: center;
+  }
+  
+  .edit-journal-menu {
+    background-color: #2A494D;
+    padding: 10px;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .edit-journal-profile {
+    background-color: #2A494D;
+    padding: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+  }
+  
+  /* Edit Journal Container */
+  .edit-journal-container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .edit-journal-container h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Form Styles */
+  .edit-journal-form-group {
+    margin-bottom: 20px;
+  }
+  
+  .edit-journal-form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .edit-journal-form-group input,
+  .edit-journal-form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+  }
+  
+  .edit-journal-form-group textarea {
+    resize: vertical;
+  }
+  
+  /* Form Actions */
+  .edit-journal-form-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .edit-journal-form-actions button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .edit-journal-form-actions button:first-child {
+    background-color: #4caf50; /* Save button */
+  }
+  
+  .edit-journal-form-actions button:last-child {
+    background-color: #f44336; /* Cancel button */
+  }
+  
+  .edit-journal-form-actions button:hover {
+    opacity: 0.9;
+  }
+  

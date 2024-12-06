@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from './LoginPage/LoginPage';
 import RegisterPage from './RegisterPage/RegisterPage';
 import MainPage from './MainPage/MainPage';
+import ShowAllNews from './ShowAllNews/ShowAllNews';
 import Chatbot from './ChatBot/ChatBot';
 import WeeklyStressPage from './SchedulePage/ScheduleWeeklyPage';
 import DailyStressChart from './SchedulePage/ScheduleDailyPage';
@@ -11,6 +12,7 @@ import NewsPage from './NewsPage/NewsPage';
 import ScheduleList from './ViewSchedulePage/Schedule.List';
 import AddSchedule from './AddSchedule/AddSchedule';
 import AutoLogout from './AutoLogout/AutoLogout';
+import EditJournal from './EditJournal/EditJournal';
 import './App.css';
 
 function App() {
@@ -38,8 +40,13 @@ function App() {
           } />
         <Route path="/news" element={
         <ProtectedRoute>
-            <NewsPage/>
+            <ShowAllNews/>
         </ProtectedRoute>
+          } />
+          <Route path='/ShowAllNews' element={
+          <ProtectedRoute>
+            <ShowAllNews/>
+          </ProtectedRoute>
           } />
         <Route path='/dailyStress' element={
           <ProtectedRoute>
@@ -51,6 +58,11 @@ function App() {
             <ScheduleList/>
           </ProtectedRoute>
           } />
+        <Route path="/editjournal/:id" element={
+          <ProtectedRoute>
+            <EditJournal/>
+          </ProtectedRoute>
+        }/>
         <Route path='/addSchedule' element={
           <ProtectedRoute>
             <AddSchedule/>
