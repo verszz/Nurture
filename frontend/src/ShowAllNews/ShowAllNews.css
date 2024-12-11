@@ -1,7 +1,41 @@
 /* App.css */
 
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F0E3C7; /* Dark blue for header background */
+    color: white;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.showNews-title{
+  color: #333;
+  margin-left: 600px;
+}
+
+.menu {
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.profile {
+    background-color: #2A494D; /* Orange circle for initials */
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
 .journal-NewsAllView {
-    padding: 20px;
+    padding: 10px;
   }
   
   .article-grid-NewsAllView {
@@ -38,7 +72,6 @@
     font-size: 18px;
     color: #555;
   }
-  /* Other existing styles */
 
 .article-card-NewsAllView h3 {
     color: black; /* Sets the title text color to black */
@@ -51,4 +84,45 @@
     margin: 0; /* Optional: Remove default margin */
   }
   
-  
+  /* Search Icon Styles */
+.search-icon {
+  cursor: pointer;
+  font-size: 2rem;
+  margin-left: 500px;
+  background-color: #2A494D; /* Orange circle for initials */
+  color: white;
+  border-radius: 50%;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-right: -50px;
+}
+
+.search-icon:hover {
+  color: #F0E3C7;
+}
+
+/* Search Bar in Header */
+.search-bar-header {
+  width: 200px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  max-width: 20%;
+  margin-left: 180px;
+  margin-right: 10px;
+
+}
+
+.search-bar-header:focus {
+  width: 300px; /* Expand on focus */
+  outline: none;
+  border-color: #2A494D; /* Same as profile color */
+}
+

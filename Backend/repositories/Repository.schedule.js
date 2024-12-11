@@ -61,6 +61,7 @@ exports.addSchedule = async function (
   }
 };
 
+// Function to load schedule data for a specific user from the database
 exports.loadScheduleFromDatabase = async function (scheduleOwner) {
   const query = `
     SELECT * FROM Nurture_Schedule 
@@ -79,6 +80,7 @@ exports.loadScheduleFromDatabase = async function (scheduleOwner) {
   return res.rows;
 };
 
+// Function to create hourly stress data points
 exports.calculateHourlyStressData = async function (schedule) {
   const hourlyStressScores = {};
   const baseIdleStress = 2; // Starting idle stress value
@@ -93,7 +95,7 @@ exports.calculateHourlyStressData = async function (schedule) {
   }
    // Calculate stress decay for hours 19:00 to 21:00
    const startStress = baseIdleStress + (18 - 6) * idleStressGrowth; // Stress value at 18:00
-   const decayDuration = 6; // 6 hours for the decay
+   const decayDuration = 6; // 2 hours for the decay
    const decayPerHour = (startStress - baseIdleStress) / decayDuration; // Calculate the amount of decay per hour
  
    for (let hour = 19; hour <= 21; hour++) {

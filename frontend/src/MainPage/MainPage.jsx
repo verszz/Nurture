@@ -520,7 +520,6 @@ useEffect(() => {
         {/* Journal Section */}
         
         <div className="box journal-container">
-          <div className="journal">
           <div className="header">
           <h2>Journal</h2>
           
@@ -535,7 +534,9 @@ useEffect(() => {
             >
               +
             </button>
-        </div>
+          </div>
+          <div className="journal">
+          
             {journal.length > 0 ? (
               journal.map((entry) => (
                 <div
@@ -644,7 +645,9 @@ useEffect(() => {
 
         {/* Stress Level Section */}
         <div className="box stress" onClick={handleMoveToStress}>
+          <div className="header">
           <h2>Stress Level</h2>
+          </div>
           <div className="chart-container"> 
             {loadingStress ? (
               <p>Loading stress data...</p>
@@ -673,39 +676,39 @@ useEffect(() => {
         </div>
         {/* Schedule Section */}
         <div className="box schedule">
-  <h2>Schedule</h2>
-  <p>({getCurrentDate()})</p>
-  <div class="class-cards-container">
-  <div className="schedule-card">
-    <div className="schedule-content">
-      {currentClass ? (
-        <div className="class-card">
-          <h3>Current Class</h3>
-          <p><strong>{currentClass.class_name}</strong></p>
-          <p>{currentClass.class_start_time} - {currentClass.class_end_time}</p>
-        </div>
-      ) : (
-        <div className="class-card no-class">
-          <p>No class currently in session.</p>
-        </div>
-      )}
+          <div className="header">
+            <h2>Schedule</h2>
+            <p>({getCurrentDate()})</p></div>
+            <div class="class-cards-container">
+            <div className="schedule-card">
+              <div className="schedule-content">
+                {currentClass ? (
+                  <div className="class-card">
+                    <h3>Current Class</h3>
+                    <p><strong>{currentClass.class_name}</strong></p>
+                    <p>{currentClass.class_start_time} - {currentClass.class_end_time}</p>
+                  </div>
+                ) : (
+                  <div className="class-card no-class">
+                    <p>No class currently in session.</p>
+                  </div>
+                )}
 
-      {nextClass ? (
-        <div className="class-card">
-          <h3>Next Class</h3>
-          <p><strong>{nextClass.class_name}</strong></p>
-          <p>{nextClass.class_start_time} - {nextClass.class_end_time}</p>
-        </div>
-      ) : (
-        <div className="class-card no-class">
-          <p>No upcoming class.</p>
-        </div>
-      )}
-      </div>
-    </div>
-  </div>
-</div>
-
+                {nextClass ? (
+                  <div className="class-card">
+                    <h3>Next Class</h3>
+                    <p><strong>{nextClass.class_name}</strong></p>
+                    <p>{nextClass.class_start_time} - {nextClass.class_end_time}</p>
+                  </div>
+                ) : (
+                  <div className="class-card no-class">
+                    <p>No upcoming class.</p>
+                  </div>
+                )}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         </div>
   );
