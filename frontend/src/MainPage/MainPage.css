@@ -320,4 +320,93 @@ footer {
     color: white;
     margin-top: auto;
 }
-  
+  /* Modal Overlay */
+.overlay {
+    position: fixed; /* Fix to screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
+    z-index: 1000; /* Ensure it's above other content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: visible; /* Ensure visibility when modal is open */
+    opacity: 1;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Modal Content */
+.modal {
+    background-color: #FFF;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px; /* Limit max width */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1001; /* Make sure modal is on top of overlay */
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Modal Header */
+.modal h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Modal Content Paragraph */
+.modal p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Modal Actions (Buttons) */
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    padding: 10px 20px;
+    background-color: #2A494D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.modal-actions button:hover {
+    background-color: #1d3c3f;
+}
+
+/* Close Modal Button */
+.modal-actions button:last-child {
+    background-color: #f44336; /* Red for close */
+}
+
+.modal-actions button:last-child:hover {
+    background-color: #d32f2f; /* Darker red for hover */
+}
+
+/* Modal Fade-in Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* When modal is closed */
+.overlay.hidden {
+    visibility: hidden;
+    opacity: 0;
+}

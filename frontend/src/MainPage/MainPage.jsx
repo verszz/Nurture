@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Modal from "react-modal";
+
 import { logout } from "../actions/user.action";
 import { fetchNews } from "../actions/news.action"; // Import fetchNews
 import { getAllJournal } from "../actions/journal.action";
+import { deleteJournal } from "../actions/journal.action";
 import { getStressData } from "../actions/schedule.action";
 import Sidebar from "../Sidebar/Sidebar";
 import { Line } from "react-chartjs-2";
@@ -35,6 +38,8 @@ const MainPage = () => {
   const [articles, setArticles] = useState([]); // State untuk menyimpan data artikel
   const [journal, setJournal] = useState([]); // State untuk menyimpan data journal
   const [stressData, setStressData] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedJournal, setSelectedJournal] = useState(null);
   const [loadingStress, setLoadingStress] = useState(true);
   const navigate = useNavigate();
 
@@ -136,6 +141,33 @@ const MainPage = () => {
     setSidebarVisible(!isSidebarVisible);
   };
 
+  const openModal = (journal) => {
+    setSelectedJournal(journal);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedJournal(null);
+    setIsModalOpen(false);
+  };
+
+  const handleEdit = () => {
+    navigate(`/editjournal/${selectedJournal.id}`);
+  };
+
+  const handleDelete = async () => {
+    if (!selectedJournal) return;
+    try {
+      await deleteJournal(selectedJournal.id);
+      setJournal((prev) =>
+        prev.filter((entry) => entry.id !== selectedJournal.id)
+      );
+      closeModal();
+      alert("Journal deleted successfully!");
+    } catch (error) {
+      console.error("Error deleting journal:", error);
+    }
+  };
   const getCurrentDate = () => {
     const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
     return new Date().toLocaleDateString("en-US", options);
@@ -149,9 +181,9 @@ const MainPage = () => {
           ☰
         </div>
         <div>{username}</div>
-        <div className="profile">{getInitials(username)}</div> {/* Inisial */}
+        <div className="profile">{getInitials(username)}</div> {/* Initials */}
       </div>
-
+  
       {/* Sidebar */}
       <Sidebar
         isVisible={isSidebarVisible}
@@ -159,14 +191,12 @@ const MainPage = () => {
         navigate={navigate}
         handleLogout={handleLogout}
       />
-
+  
       {/* Main Content */}
       <div className="container">
         {/* Article Section */}
         <div className="box article-container">
-          <div className="header">
-            <h2>Articles</h2>
-          </div>
+          <h2>Articles</h2>
           <div className="journal">
             {articles.length > 0 ? (
               articles.map((article) => (
@@ -191,30 +221,29 @@ const MainPage = () => {
             )}
           </div>
         </div>
-
+  
         {/* Chatbot Section */}
-        <div className="chatbot-container">
+        <div className="box chatbot-container">
           <h2>Chatbot</h2>
           <div className="chat-bubble">Hello! Got a bad day</div>
-          <div className="share-button" onClick={handleChatbot}>Tell me your problem</div>
+          <div className="share-button" onClick={handleChatbot}>
+            Tell me your problem
+          </div>
         </div>
-
+  
         {/* Journal Section */}
         <div className="box journal-container">
-          <div className="header">
-            <h2>Journal</h2>
-            <div className="add-journal">+</div>
-          </div>
+          <h2>Journal</h2>
           <div className="journal">
-          {journal.length > 0 ? (
-              journal.map((journal) => (
+            {journal.length > 0 ? (
+              journal.map((entry) => (
                 <div
                   className="journal-entry"
-                  key={journal.id}
-                  // onClick={() => window.open(article.sources, "_blank")}
+                  key={entry.id}
+                  onClick={() => openModal(entry)}
                 >
-                  <h2>{journal.journal_title}</h2>
-                  <p>{journal.journal_content.slice(0, 100)}...</p>
+                  <h3>{entry.journal_title}</h3>
+                  <p>{entry.journal_content.slice(0, 100)}...</p>
                 </div>
               ))
             ) : (
@@ -222,51 +251,70 @@ const MainPage = () => {
             )}
           </div>
         </div>
-
-        {/* Stress Level Section */}
-        <div className="box stress">
-          <h2>Stress Level</h2>
-          <div className="chart-container">
-            {loadingStress ? (
-              <p>Loading stress data...</p>
-            ) : stressData ? (
-              <Line
-                data={stressData}
-                options={{
-                  responsive: true,
-                  maintainAspectRatio: false,
-                  plugins: {
-                    title: {
-                      display: true,
-                      text: "Weekly Stress Levels",
-                    },
-                  },
-                  scales: {
-                    x: { title: { display: true, text: "Days of the Week" } },
-                    y: { title: { display: true, text: "Stress Level" } },
-                  },
-                }}
-              />
-            ) : (
-              <p>No stress data available.</p>
-            )}
+  
+      {/* Modal */}
+      {selectedJournal && (
+        <Modal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          contentLabel="Journal Details"
+          className="modal"
+          overlayClassName="overlay"
+        >
+          <h2>{selectedJournal.journal_title}</h2>
+          <p>{selectedJournal.journal_content}</p>
+          <div className="modal-actions">
+            <button onClick={handleEdit}>Edit</button>
+            <button onClick={handleDelete}>Delete</button>
+            <button onClick={closeModal}>Close</button>
           </div>
-        </div>
-
-
-        {/* Schedule Section */}
-        <div className="box schedule">
-          <h2>Schedule</h2>
-          <p>({getCurrentDate()})</p>
-          <ul>
-            <li>9:00 AM - Meeting</li>
-            <li>11:00 AM - Workshop</li>
-            <li>2:00 PM - Presentation</li>
-          </ul>
+        </Modal>
+      )}
+  
+      {/* Stress Level Section */}
+      <div className="box stress">
+        <h2>Stress Level</h2>
+        <div className="chart-container">
+          {loadingStress ? (
+            <p>Loading stress data...</p>
+          ) : stressData ? (
+            <Line
+              data={stressData}
+              options={{
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  title: {
+                    display: true,
+                    text: "Weekly Stress Levels",
+                  },
+                },
+                scales: {
+                  x: { title: { display: true, text: "Days of the Week" } },
+                  y: { title: { display: true, text: "Stress Level" } },
+                },
+              }}
+            />
+          ) : (
+            <p>No stress data available.</p>
+          )}
         </div>
       </div>
+  
+      {/* Schedule Section */}
+      <div className="box schedule">
+        <h2>Schedule</h2>
+        <p>({getCurrentDate()})</p>
+        <ul>
+          <li>9:00 AM - Meeting</li>
+          <li>11:00 AM - Workshop</li>
+          <li>2:00 PM - Presentation</li>
+        </ul>
+      </div>
+    </div>
     </div>
   );
-};
+}  
 
 export default MainPage;
+

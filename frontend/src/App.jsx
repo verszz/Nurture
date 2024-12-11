@@ -11,6 +11,7 @@ import NewsPage from './NewsPage/NewsPage';
 import ScheduleList from './ViewSchedulePage/Schedule.List';
 import AutoLogout from './AutoLogout/AutoLogout';
 import AddSchedule from './AddSchedule/AddSchedule';
+import EditJournal from './EditJournal/EditJournal';
 
 import './App.css';
 
@@ -37,6 +38,13 @@ function App() {
             <WeeklyStressPage/>
         </ProtectedRoute>
           } />
+          <Route
+        path="/editjournal/:id"
+        element={
+          <ProtectedRoute>
+            <EditJournal />
+          </ProtectedRoute>
+        }/>
         <Route path="/news" element={
         <ProtectedRoute>
             <NewsPage/>

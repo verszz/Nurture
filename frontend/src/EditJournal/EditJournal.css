@@ -1,0 +1,78 @@
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .menu {
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+  
+  /* Edit Journal Container */
+  .edit-journal-container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Form Styles */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  /* Form Actions */
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:first-child {
+    background-color: #4caf50; /* Save button */
+  }
+  
+  button:last-child {
+    background-color: #f44336; /* Cancel button */
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  

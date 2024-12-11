@@ -34,3 +34,39 @@ axios.interceptors.request.use(
   },
   (error) => Promise.reject(error)
 );
+
+export const deleteJournal = async (id) => {
+  try {
+    const response = await axios.delete(`http://localhost:3000/journal/deleteJournal`, {
+      data: { id }, // Pass the `id` in the request body
+    });
+    if (response.status === 200) {
+      return true;
+    }
+    throw new Error("Failed to delete journal.");
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+export const editJournal = async (username, title, Content, new_title) => {
+  try {
+    const response = await axios.post('http://localhost:3000/journal/EditJournal', {
+      username,
+      title,
+      Content,
+      new_title,
+    });
+
+    // Return a successful API response
+    return baseApiResponse(response.data, true);
+  } catch (error) {
+    console.error("Error editing journal:", error);
+
+    // Return an error response using the baseApiResponse function
+    return baseApiResponse(
+      error.response ? error.response.data : error.message,
+      false
+    );
+  }
+};

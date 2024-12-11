@@ -66,7 +66,15 @@ exports.loadScheduleFromDatabase = async function (scheduleOwner) {
   const query = `
     SELECT * FROM Nurture_Schedule 
     WHERE schedule_owner = $1 
-    ORDER BY day, class_start_time
+    ORDER BY
+      CASE day
+        WHEN 'Senin' THEN 1
+        WHEN 'Selasa' THEN 2
+        WHEN 'Rabu' THEN 3
+        WHEN 'Kamis' THEN 4
+        WHEN 'Jumat' THEN 5
+      END,
+      class_start_time
   `;
   const res = await pool.query(query, [scheduleOwner]);
   return res.rows;
@@ -75,38 +83,71 @@ exports.loadScheduleFromDatabase = async function (scheduleOwner) {
 // Function to create hourly stress data points
 exports.calculateHourlyStressData = async function (schedule) {
   const hourlyStressScores = {};
+  const baseIdleStress = 2; // Starting idle stress value
+  const idleStressGrowth = 0.34; // Growth per hour
+  const eveningClassMultiplier = 1.7; // Multiplier for classes after 4 PM
+  const nightClassMultiplier = 2.1; // Multiplier for classes after 6 PM
+
+  // Initialize hourly stress scores with idle stress values
   for (let hour = 6; hour <= 21; hour++) {
-    hourlyStressScores[moment({ hour }).format("HH:mm")] = 0;
+    hourlyStressScores[moment({ hour }).format("HH:mm")] =
+      baseIdleStress + (hour - 6) * idleStressGrowth;
   }
+   // Calculate stress decay for hours 19:00 to 21:00
+   const startStress = baseIdleStress + (18 - 6) * idleStressGrowth; // Stress value at 18:00
+   const decayDuration = 6; // 2 hours for the decay
+   const decayPerHour = (startStress - baseIdleStress) / decayDuration; // Calculate the amount of decay per hour
+ 
+   for (let hour = 19; hour <= 21; hour++) {
+     const timeString = moment({ hour }).format("HH:mm");
+     hourlyStressScores[timeString] = startStress - decayPerHour * (hour - 19);
+   }
 
   schedule.forEach((entry) => {
     const classStartTime = moment(entry.class_start_time, "HH:mm:ss");
     const classEndTime = moment(entry.class_end_time, "HH:mm:ss");
-    const classDuration = moment
-      .duration(classEndTime.diff(classStartTime))
-      .asHours();
-    const classStress = 5 * classDuration; // Example stress calculation
+    const classDuration = moment.duration(classEndTime.diff(classStartTime)).asHours();
 
-    let currentTime = classStartTime;
-    while (currentTime.isBefore(classEndTime)) {
-      const timeString = currentTime.format("HH:mm");
-      if (hourlyStressScores[timeString] !== undefined) {
-        hourlyStressScores[timeString] = Math.max(
-          hourlyStressScores[timeString],
-          classStress
-        );
-      }
-      currentTime.add(30, "minutes");
+    // Calculate base stress value
+    let classStress = 5 * classDuration;
+
+    // Adjust class stress based on the class's start time or end time
+    if (classStartTime.hour() >= 18 || classEndTime.hour() >= 18) {
+      classStress *= nightClassMultiplier; // After 6 PM, apply night multiplier
+    } else if (classStartTime.hour() >= 16) {
+      classStress *= eveningClassMultiplier; // After 4 PM, apply evening multiplier
     }
 
-    // Add stress decay after class
-    let steadyEndTime = classEndTime
-      .clone()
-      .add(POST_CLASS_CONSTANT_DURATION, "minutes");
-    let currentStress = classStress;
-    const stressDropPerStep = classStress / 6; // Decay over 2 hours (6 steps)
+    let currentTime = classStartTime;
+    let incrementalStress = 0;
 
-    for (let i = 0; i <= 6; i++) {
+    // Loop through each hour of the class
+    while (currentTime.isBefore(classEndTime)) {
+      const timeString = currentTime.format("HH:mm");
+
+      // Determine the appropriate stress multiplier for this hour
+      let currentMultiplier = 1;
+      if (currentTime.hour() >= 18) {
+        currentMultiplier = nightClassMultiplier; // After 6 PM
+      } else if (currentTime.hour() >= 16) {
+        currentMultiplier = eveningClassMultiplier; // After 4 PM
+      }
+
+      // Calculate the base stress for this time and apply the multiplier
+      if (hourlyStressScores[timeString] !== undefined) {
+        incrementalStress += 1; // Increase stress for each hour
+        hourlyStressScores[timeString] += incrementalStress * currentMultiplier;
+      }
+
+      currentTime.add(1, "hour");
+    }
+
+    // Add stress decay after the class (4 hours to idle)
+    let steadyEndTime = classEndTime.clone();
+    let currentStressValue = classStress;
+    const stressDropPerStep = currentStressValue / 16; // Decay over 4 hours (12 steps)
+
+    for (let i = 0; i <= 12; i++) {
       const decayTime = steadyEndTime
         .clone()
         .add(i * 20, "minutes")
@@ -114,10 +155,10 @@ exports.calculateHourlyStressData = async function (schedule) {
       if (hourlyStressScores[decayTime] !== undefined) {
         hourlyStressScores[decayTime] = Math.max(
           hourlyStressScores[decayTime],
-          Math.max(0, currentStress)
+          Math.max(0, currentStressValue)
         );
       }
-      currentStress -= stressDropPerStep;
+      currentStressValue -= stressDropPerStep;
     }
   });
 
