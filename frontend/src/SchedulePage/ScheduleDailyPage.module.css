@@ -93,8 +93,17 @@ body, html {
     align-items: flex-start;
     color: black; /* Sets the default text color to black */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth transitions */
+
   }
   
+.side-card:hover {
+  transform: translateY(-8px); /* Slight lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+
   .side-card h3 {
     font-size: 20px;
     font-weight: bold;

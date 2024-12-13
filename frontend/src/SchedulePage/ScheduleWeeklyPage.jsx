@@ -164,11 +164,12 @@ const WeeklyStressPage = () => {
         navigate={navigate}
         handleLogout={handleLogout}
       />
-      <div className="main-content" style={{ display: "flex" }}>
+      <div className="main-content-week" style={{ display: "flex" }}>
         <div
           style={{
             flex: "3",
             marginRight: "20px",
+            marginLeft:"10px",
           }}
         >
           <div
@@ -245,16 +246,28 @@ const WeeklyStressPage = () => {
             <h3>Average Stress Level</h3>
             <div>
               The average stress level across the week is{" "}
-              <span className={styles['side-card-week-value']}>{averageStress}</span>.
-              </div>
+              <span className={styles["side-card-week-value"]}>
+                {averageStress}
+              </span>
+              .
+            </div>
           </div>
           <div className={styles["side-card-week"]}>
             <h3>Peak Stress Level</h3>
             <div>
               The peak stress level during the week is{" "}
-              <span className={styles['side-card-week-value']}>{peakStress.toFixed(2)}</span>.
-              </div>
+              <span className={styles["side-card-week-value"]}>
+                {peakStress.toFixed(2)}
+              </span>
+              .
           </div>
+          </div>
+            <button
+              className={styles["navigate-button-week"]}
+              onClick={() => navigate("/DailyStress")}
+            >
+              View Daily Stress Details
+            </button>
         </div>
       </div>
     </div>

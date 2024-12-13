@@ -55,7 +55,7 @@ body, html {
 }
 
 /* Main Content */
-.main-content {
+.main-content-week {
     margin-left: 25px; /* Adjust content margin when sidebar is visible */
     padding: 20px;
     width: 90%; /* Ensure the content takes up the remaining space */
@@ -85,6 +85,7 @@ body, html {
 
 .side-card-week {
     height: 30%;
+    margin-right: 2%;
     border-radius: 15px;
     background-color: #E6D5B8; /* Light red background for contrast */
     padding: 20px;
@@ -94,6 +95,8 @@ body, html {
     align-items: flex-start;
     color: black; /* Sets the default text color to black */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
+              box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   }
   
   .side-card-week h3 {
@@ -118,6 +121,10 @@ body, html {
     color: #d32f2f; /* Slightly darker red for emphasis */
     margin-top: 10px; /* Add some spacing from the surrounding text */
 }
+.side-card-week:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  }  
 
 /* Footer (optional) */
 footer {
@@ -128,3 +135,24 @@ footer {
     margin-top: auto;
     font-size: 0.9rem;
 }
+.navigate-button-week {
+    margin-top: 15px;
+    margin-right: 2%;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navigate-button-week:hover {
+    background-color: #0056b3;
+  }
+  
+  .navigate-button-week:focus {
+    outline: none;
+  }
