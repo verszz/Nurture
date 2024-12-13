@@ -82,6 +82,36 @@ body, html {
     transform: translateY(-5px); /* Slight lift on hover */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
+.side-card {
+    height: 300px;
+    border-radius: 15px;
+    background-color: #FFEBEE; /* Light red background for contrast */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: black; /* Sets the default text color to black */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .side-card h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333; /* Dark text for titles */
+    margin-bottom: 15px;
+  }
+  
+  .side-card div {
+    font-size: 16px;
+    color: #555; /* Medium text color for readability */
+    margin-bottom: 5px;
+  }
+  
+  .side-card strong {
+    color: #d32f2f; /* Slightly darker red for emphasis */
+  }
+  
 
 /* Footer (optional) */
 footer {
@@ -92,3 +122,24 @@ footer {
     margin-top: auto;
     font-size: 0.9rem;
 }
+/* Button Styles for Navigation */
+.navigate-Weekly {
+    width: 100%; /* Make the button take full width */
+    padding: 15px; /* Add padding for better clickability */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text color */
+    font-size: 1.1rem; /* Increase font size */
+    font-weight: bold; /* Make the text bold */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    margin-top: 20px; /* Space above the button */
+  }
+  
+  .navigate-Weekly:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-3px); /* Slight lift on hover */
+  }
+  
+  

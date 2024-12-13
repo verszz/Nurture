@@ -83,6 +83,42 @@ body, html {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
 
+.side-card-week {
+    height: 30%;
+    border-radius: 15px;
+    background-color: #E6D5B8; /* Light red background for contrast */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: black; /* Sets the default text color to black */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .side-card-week h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333; /* Dark text for titles */
+    margin-bottom: 15px;
+  }
+  
+  .side-card-week div {
+    font-size: 16px;
+    color: #555; /* Medium text color for readability */
+    margin-bottom: 5px;
+  }
+  
+  .side-card-week strong {
+    color: #d32f2f; /* Slightly darker red for emphasis */
+  }
+  .side-card-week-value {
+    font-size: 2rem; /* Large font size for the value */
+    font-weight: bold; /* Bold font */
+    color: #d32f2f; /* Slightly darker red for emphasis */
+    margin-top: 10px; /* Add some spacing from the surrounding text */
+}
+
 /* Footer (optional) */
 footer {
     text-align: center;

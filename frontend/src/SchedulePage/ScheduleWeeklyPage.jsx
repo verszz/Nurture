@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { logout } from '../actions/user.action';
-import { Line } from 'react-chartjs-2';
-import Sidebar from '../Sidebar/Sidebar'; // Import Sidebar
-import './ScheduleWeeklyPage.module.css';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { logout } from "../actions/user.action";
+import { Line } from "react-chartjs-2";
+import styles from "./ScheduleWeeklyPage.module.css";
+import Sidebar from "../Sidebar/Sidebar"; // Import Sidebar
+import "./ScheduleWeeklyPage.module.css"; // Ensure this includes the styles
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,8 +14,8 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
-import { getStressData } from '../actions/schedule.action'; // Ensure this is implemented correctly
+} from "chart.js";
+import { getStressData } from "../actions/schedule.action"; // Ensure this is implemented correctly
 
 // Register Chart.js components
 ChartJS.register(
@@ -30,18 +31,18 @@ ChartJS.register(
 // Utility to determine color for each day
 const getColorForDay = (day) => {
   switch (day) {
-    case 'Senin':
-      return 'rgba(54, 162, 235, 1)';
-    case 'Selasa':
-      return 'rgba(255, 99, 132, 1)';
-    case 'Rabu':
-      return 'rgba(255, 159, 64, 1)';
-    case 'Kamis':
-      return 'rgba(153, 102, 255, 1)';
-    case 'Jumat':
-      return 'rgba(75, 192, 192, 1)';
+    case "Senin":
+      return "rgba(54, 162, 235, 1)";
+    case "Selasa":
+      return "rgba(255, 99, 132, 1)";
+    case "Rabu":
+      return "rgba(255, 159, 64, 1)";
+    case "Kamis":
+      return "rgba(153, 102, 255, 1)";
+    case "Jumat":
+      return "rgba(75, 192, 192, 1)";
     default:
-      return 'rgba(201, 203, 207, 1)';
+      return "rgba(201, 203, 207, 1)";
   }
 };
 
@@ -49,28 +50,50 @@ const getColorForDay = (day) => {
 const calculateTotalStress = (dayData) =>
   Object.values(dayData).reduce((total, current) => total + current, 0);
 
+// Calculate average stress level
+const calculateAverageStress = (data) => {
+  const totalDays = Object.keys(data).length;
+  const totalStress = Object.values(data).reduce(
+    (sum, dayData) => sum + calculateTotalStress(dayData),
+    0
+  );
+  return totalDays ? parseFloat((totalStress / totalDays).toFixed(2)) : 0;
+};
+
+// Find peak stress level
+const calculatePeakStress = (data) => {
+  return Math.max(
+    ...Object.values(data).map((dayData) => calculateTotalStress(dayData))
+  );
+};
+
 const WeeklyStressPage = () => {
   const [chartData, setChartData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isSidebarVisible, setSidebarVisible] = useState(false);
-  const storedUsername = localStorage.getItem('username');
+  const [averageStress, setAverageStress] = useState(0);
+  const [peakStress, setPeakStress] = useState(0);
+
+  const storedUsername = localStorage.getItem("username");
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       if (!storedUsername) {
-        setError('No username found in localStorage.');
+        setError("No username found in localStorage.");
         setLoading(false);
         return;
       }
       try {
         const data = await getStressData(storedUsername);
+        setAverageStress(calculateAverageStress(data));
+        setPeakStress(calculatePeakStress(data));
         const preparedData = {
           labels: Object.keys(data),
           datasets: [
             {
-              label: 'Total Stress Level per Day',
+              label: "Total Stress Level per Day",
               data: Object.keys(data).map((day) =>
                 calculateTotalStress(data[day])
               ),
@@ -83,15 +106,15 @@ const WeeklyStressPage = () => {
                 getColorForDay(day)
               ),
               pointRadius: 5,
-              hoverBackgroundColor: 'rgba(0,0,0,0.3)',
+              hoverBackgroundColor: "rgba(0,0,0,0.3)",
             },
           ],
         };
         setChartData(preparedData);
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching stress data:', err);
-        setError('Error fetching stress data');
+        console.error("Error fetching stress data:", err);
+        setError("Error fetching stress data");
         setLoading(false);
       }
     };
@@ -100,11 +123,11 @@ const WeeklyStressPage = () => {
   }, [storedUsername]);
 
   const getInitials = (name) => {
-    if (!name) return 'NA';
+    if (!name) return "NA";
     const initials = name
-      .split(' ')
+      .split(" ")
       .map((word) => word[0]?.toUpperCase())
-      .join('');
+      .join("");
     return initials;
   };
 
@@ -114,8 +137,8 @@ const WeeklyStressPage = () => {
 
   const handleLogout = () => {
     logout();
-    alert('Berhasil logout!');
-    navigate('/');
+    alert("Berhasil logout!");
+    navigate("/");
   };
 
   if (loading) {
@@ -132,7 +155,7 @@ const WeeklyStressPage = () => {
         <div className="menu" onClick={toggleSidebar}>
           ☰
         </div>
-        <div className='title'>Weekly Stress Analysis</div>
+        <div className="title">Weekly Stress Analysis</div>
         <div className="profile">{getInitials(storedUsername)}</div>
       </div>
       <Sidebar
@@ -141,78 +164,100 @@ const WeeklyStressPage = () => {
         navigate={navigate}
         handleLogout={handleLogout}
       />
-      <div className="main-content">
-        {/* <div className="chart-card"> */}
+      <div className="main-content" style={{ display: "flex" }}>
         <div
+          style={{
+            flex: "3",
+            marginRight: "20px",
+          }}
+        >
+          <div
             style={{
-                height: '640px', // Tinggi chart
-                width: '97.4%',  // Lebar chart
-                borderRadius: '15px',
-                boxSizing: 'content-box',
-                marginLeft: '10px',
-                marginRight: '30px',
-                paddingLeft:'10px',
-                paddingRight:'10px',
-                backgroundColor: '#F0E3C7', // Warna latar belakang
+              height: "640px",
+              borderRadius: "15px",
+              backgroundColor: "#F0E3C7",
+              padding: "10px",
             }}
-            >
+          >
             <Line
-                data={chartData}
-                options={{
+              data={chartData}
+              options={{
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    title: {
+                  title: {
                     display: true,
-                    text: 'Weekly Stress Levels',
+                    text: "Weekly Stress Levels",
                     font: { size: 20 },
-                    color: 'black',
-                    },
-                    tooltip: {
+                    color: "black",
+                  },
+                  tooltip: {
                     callbacks: {
-                        label: (tooltipItem) =>
-                        `${tooltipItem.dataset.label}: ${tooltipItem.raw.toFixed(
-                            2
-                        )} stress units`,
+                      label: (tooltipItem) =>
+                        `${
+                          tooltipItem.dataset.label
+                        }: ${tooltipItem.raw.toFixed(2)} stress units`,
                     },
-                    },
+                  },
                 },
                 scales: {
-                    x: {
+                  x: {
                     grid: {
-                        color: 'rgba(0, 0, 0, 0.2)', // Warna grid horizontal
+                      color: "rgba(0, 0, 0, 0.2)",
                     },
                     title: {
-                        display: true,
-                        text: 'Day of the Week',
-                        color: 'black',
+                      display: true,
+                      text: "Day of the Week",
+                      color: "black",
                     },
                     ticks: {
-                        color: 'black',
+                      color: "black",
                     },
-                    },
-                    y: {
+                  },
+                  y: {
                     grid: {
-                        color: 'rgba(0, 0, 0, 0.2)', // Warna grid vertikal
+                      color: "rgba(0, 0, 0, 0.2)",
                     },
                     title: {
-                        display: true,
-                        text: 'Stress Level',
-                        color: 'black',
+                      display: true,
+                      text: "Stress Level",
+                      color: "black",
                     },
                     ticks: {
-                        color: 'black',
-                        stepSize: 1,
+                      color: "black",
+                      stepSize: 1,
                     },
-                    },
+                  },
                 },
-                }}
+              }}
             />
-            </div>
-
+          </div>
+        </div>
+        <div
+          style={{
+            flex: "1",
+            display: "flex",
+            flexDirection: "column",
+            gap: "20px",
+          }}
+        >
+          <div className={styles["side-card-week"]}>
+            <h3>Average Stress Level</h3>
+            <div>
+              The average stress level across the week is{" "}
+              <span className={styles['side-card-week-value']}>{averageStress}</span>.
+              </div>
+          </div>
+          <div className={styles["side-card-week"]}>
+            <h3>Peak Stress Level</h3>
+            <div>
+              The peak stress level during the week is{" "}
+              <span className={styles['side-card-week-value']}>{peakStress.toFixed(2)}</span>.
+              </div>
+          </div>
         </div>
       </div>
-    // </div>
+    </div>
   );
 };
 

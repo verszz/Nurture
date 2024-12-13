@@ -13,6 +13,7 @@ const Sidebar = ({ isVisible, toggleSidebar, navigate, handleLogout }) => {
         <li onClick={() => navigate("/news")}>News</li>
         <li onClick={() => navigate("/DailyStress")}>Daily Stress Tracker</li>
         <li onClick={() => navigate("/ScheduleList")}>Schedules</li>
+        <li onClick={() => navigate("/ShowAllJournal")}>All Journal</li>
         <li className="logout" onClick={handleLogout}>Logout</li>
       </ul>
     </div>
