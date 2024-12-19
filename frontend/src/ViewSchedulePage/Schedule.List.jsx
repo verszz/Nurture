@@ -1,27 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './UniqueScheduleList.css';
-import { getScheduleDataforScheduleList } from '../actions/schedule.action';
-import { deleteSchedule } from '../actions/schedule.action';
-import Sidebar from '../Sidebar/Sidebar'; // Import Sidebar
-import AddSchedule from '../AddSchedule/AddSchedule';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "./UniqueScheduleList.css";
+import { getScheduleDataforScheduleList } from "../actions/schedule.action";
+import { deleteSchedule } from "../actions/schedule.action";
+import Sidebar from "../Sidebar/Sidebar"; // Import Sidebar
+import AddSchedule from "../AddSchedule/AddSchedule";
+import { logout } from "../actions/user.action";
 
 const UniqueScheduleList = () => {
   const [schedule, setSchedule] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [isSidebarVisible, setSidebarVisible] = useState(false);
-  const [username, setUsername] = useState(''); // State for the username
+  const [username, setUsername] = useState(""); // State for the username
   const [showModalScheduleList, setShowModalScheduleList] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     // Retrieve username from localStorage
-    const storedUsername = localStorage.getItem('username');
+    const storedUsername = localStorage.getItem("username");
     if (storedUsername) {
       setUsername(storedUsername);
     } else {
-      setError('No username found in localStorage');
+      setError("No username found in localStorage");
     }
   }, []);
 
@@ -36,12 +37,11 @@ const UniqueScheduleList = () => {
       const data = await getScheduleDataforScheduleList(username); // Use username from state
       setSchedule(data);
     } catch (error) {
-      if ( error.message == "Failed to fetch schedule data"){
+      if (error.message == "Failed to fetch schedule data") {
         setShowModalScheduleList(true);
-      }
-      else {
+      } else {
         setError("An unexpected error occurred");
-        console.error(error)
+        console.error(error);
       }
     } finally {
       setLoading(false);
@@ -54,8 +54,8 @@ const UniqueScheduleList = () => {
       // Remove deleted schedule from the state
       setSchedule(schedule.filter((item) => item.id !== scheduleId));
     } catch (error) {
-      console.error('Error deleting schedule:', error);
-      alert('Failed to delete schedule.');
+      console.error("Error deleting schedule:", error);
+      alert("Failed to delete schedule.");
     }
   };
 
@@ -68,16 +68,17 @@ const UniqueScheduleList = () => {
   };
 
   const handleLogout = () => {
-    alert('Berhasil logout!');
-    navigate('/');
+    logout();
+    alert("Berhasil logout!");
+    navigate("/");
   };
 
   const getInitials = (name) => {
-    if (!name) return 'NA';
+    if (!name) return "NA";
     const initials = name
-      .split(' ')
+      .split(" ")
       .map((word) => word[0]?.toUpperCase())
-      .join('');
+      .join("");
     return initials;
   };
 
@@ -112,18 +113,18 @@ const UniqueScheduleList = () => {
         navigate={navigate}
         handleLogout={handleLogout}
       />
-      <button className="add-schedule-button" onClick={() => navigate('/addSchedule')}>
-        Add Schedule
-      </button>
       {showModalScheduleList && (
         <div className="modal-ScheduleList">
           <div className="modal-content-ScheduleList">
             <h3>No Schedule Found</h3>
-            <p>You have not created any schedule yet. Please add a schedule to proceed.</p>
+            <p>
+              You have not created any schedule yet. Please add a schedule to
+              proceed.
+            </p>
             <button onClick={handleAddSchedule}>Add Schedule</button>
           </div>
         </div>
-        )}
+      )}
       <div className="unique-day-cards">
         {Object.keys(groupedSchedule).map((day) => (
           <div className="unique-day-card" key={day}>
@@ -133,7 +134,8 @@ const UniqueScheduleList = () => {
                 <div className="unique-class-card" key={item.id}>
                   <h3>{item.class_name}</h3>
                   <p>
-                    <strong>Time:</strong> {item.class_start_time} - {item.class_end_time}
+                    <strong>Time:</strong> {item.class_start_time} -{" "}
+                    {item.class_end_time}
                   </p>
                   <p>
                     <strong>Task Duration:</strong> {item.task_duration} hrs
@@ -153,6 +155,12 @@ const UniqueScheduleList = () => {
           </div>
         ))}
       </div>
+      <button
+        className="add-schedule-button"
+        onClick={() => navigate("/addSchedule")}
+      >
+        Add Schedule
+      </button>
     </div>
   );
 };

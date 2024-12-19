@@ -51,8 +51,8 @@ const getNews = async (Title, username) => {
     );
     return News.rows
   } catch (error) {
-    console.error('Error fetching news:', error); // Log the error for debugging
-        throw new Error('Error fetching news'); // Throw the error to be handled by the caller
+    console.error('Error fetching news:', error); 
+        throw new Error('Error fetching news'); 
   }
 };
 

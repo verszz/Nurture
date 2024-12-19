@@ -1,8 +1,7 @@
 const { pool } = require("../config/db.config.js");
 const moment = require('moment');
 
-const POST_CLASS_CONSTANT_DURATION = 30; // in minutes
-
+const POST_CLASS_CONSTANT_DURATION = 30; // minutes
 
 exports.deleteSchedule = async function (scheduleId, scheduleOwner) {
   const client = await pool.connect();

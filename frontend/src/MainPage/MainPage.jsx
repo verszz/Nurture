@@ -74,7 +74,6 @@ const [addJournalContent, setAddJournalContent] = useState('');
             const response = await fetch("http://localhost:3000/chatbot", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: "Hello" }), // Kirim pesan kosong untuk mendapatkan pesan sapaan
             });
             const data = await response.json();
             const welcomeMessage = { sender: "bot", text: data.response };
@@ -606,7 +605,6 @@ useEffect(() => {
           </form>
         </Modal>
       )}
-
 
         {/* Chatbot Section */}
         <div className="chatbot-container">

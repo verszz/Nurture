@@ -42,7 +42,7 @@ exports.getAllJournal = async function (req, res) {
 
   try {
     const AllJournal = await pool.query(
-      "SELECT * FROM journal_nurture WHERE journal_owner = $1",
+      "SELECT * FROM journal_nurture WHERE journal_owner = $1 ORDER BY journal_date DESC",
       [username.trim()]
     );
     if (AllJournal.rowCount === 0) {
@@ -144,4 +144,3 @@ exports.EditJournalSpecific = async function (req, res) {
     res.status(500).send("Internal Server Error");
   }
 };
-

@@ -4,17 +4,30 @@ const cors = require('cors');
 const router = express.Router();
 
 router.post('/', async (req, res) => {
+    console.log("Received request:", req.body); // Debug log
+    const { message } = req.body;
+
+    if (!message || message.trim() === "") {
+        return res.json({ response: "Hello! How can I assist you today?" });
+    }
+
+    const payload = {
+        messages: [
+            { role: "user", content: message.trim() },
+            { role: "assistant", content: "Please avoid mentioning any names in the response." }
+        ]
+    };
+
     try {
-        const { message } = req.body;
+        const response = await axios.post('http://127.0.0.1:8000/v1/chat/completions', payload, {
+            headers: { 'Content-Type': 'application/json' }
+        });
 
-        // Send message to Python API
-        const response = await axios.post('http://127.0.0.1:5000/predict', { message });
-        const botResponse = response.data.response;
-
-        // Send response back to the frontend
+        const botResponse = response.data.choices[0]?.message?.content || "No response from AI.";
         res.json({ response: botResponse });
     } catch (error) {
-        res.status(500).json({ error: "Error communicating with the Python API" });
+        console.error("Error communicating with the AI:", error.message);
+        res.status(500).json({ error: "Error communicating with the AI" });
     }
 });
 

@@ -8,11 +8,12 @@ import Chatbot from './ChatBot/ChatBot';
 import WeeklyStressPage from './SchedulePage/ScheduleWeeklyPage';
 import DailyStressChart from './SchedulePage/ScheduleDailyPage';
 import ProtectedRoute from './ProtectedRoute';
-import NewsPage from './NewsPage/NewsPage';
 import ScheduleList from './ViewSchedulePage/Schedule.List';
 import AddSchedule from './AddSchedule/AddSchedule';
 import AutoLogout from './AutoLogout/AutoLogout';
 import EditJournal from './EditJournal/EditJournal';
+import ShowAllJournal from './ShowAllJournal/ShowAllJournal';
+
 import './App.css';
 
 function App() {
@@ -51,6 +52,11 @@ function App() {
         <Route path='/dailyStress' element={
           <ProtectedRoute>
             <DailyStressChart/>
+          </ProtectedRoute>
+          } />
+           <Route path='/ShowAllJournal' element={
+          <ProtectedRoute>
+            <ShowAllJournal/>
           </ProtectedRoute>
           } />
         <Route path='/scheduleList' element={

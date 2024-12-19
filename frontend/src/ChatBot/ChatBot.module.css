@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 90%;
+    height: 100%;
     background-color: #DCCFA4;
     width: 91%;
     padding: 10px;
@@ -15,7 +15,7 @@
 
 .chatWindow {
     width: 100%;
-    height: 75vh;
+    height: 90%;
     background-color: #F0E3C7;
     border-radius: 10px;
     display: flex;

@@ -2,7 +2,7 @@ const { pool } = require("../config/db.config.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const SECRET_KEY = "TES!@#$"; // Ganti dengan kunci rahasia yang aman
+const SECRET_KEY = "TES!@#$"; 
 
 // Signup Controller
 exports.signup = async function (req, res) {
