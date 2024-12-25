@@ -361,6 +361,13 @@
   height:80%;
   /* margin-bottom: 0px; */
 }
+.stress.no-schedule {
+  background-color: #FFF3CA;
+  grid-row: span 1; /* Mengatur tinggi kotak stress level */
+  gap: 20vh;
+  height:74%;
+  /* margin-bottom: 0px; */
+}
 .chart-container {
   position: relative;
   width: 96%;
@@ -380,6 +387,17 @@
   grid-row: span 1;
   gap: 0vh;
   height: 80%; /* Ensure that the schedule section has a fixed height */
+  overflow: hidden; /* Prevent overflowing content */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule.no-schedule{
+  background-color: #FFF3CA;
+  grid-row: span 1;
+  gap: 0vh;
+  height: 74%; /* Ensure that the schedule section has a fixed height */
   overflow: hidden; /* Prevent overflowing content */
   padding: 20px;
   display: flex;

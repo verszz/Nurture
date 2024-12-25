@@ -60,6 +60,7 @@ const MainPage = () => {
   const [newArticle, setNewArticle] = useState({
     title: "",
     content: "",
+    writer: "",
     sources: "",
     images: "",
   });
@@ -377,10 +378,9 @@ useEffect(() => {
       return;
     }
 
-    const writer = username || "Anonymous";
+    
     const articleData = {
       ...newArticle,
-      writer,
       images: newArticle.images.split(",").map((url) => url.trim()),
     };
 
@@ -392,7 +392,7 @@ useEffect(() => {
       ]);
       alert("News added successfully!");
       setIsModalOpen(false); // Tutup modal setelah sukses
-      setNewArticle({ title: "", content: "", sources: "", images: "" }); // Reset form
+      setNewArticle({ title: "", content: "", writer: "", sources: "", images: "" }); // Reset form
     } else {
       alert("Failed to add news!");
     }
@@ -457,6 +457,7 @@ useEffect(() => {
                   onClick={() => window.open(article.sources, "_blank")}
                 >
                   <h3>{article.title}</h3>
+                  <p>{article.writer}</p>
                   <p>{article.content.slice(0, 100)}...</p>
                   {article.images && (
                     <img
@@ -500,6 +501,14 @@ useEffect(() => {
                   setNewArticle((prev) => ({ ...prev, sources: e.target.value }))
                 }
               />
+              <input
+                type="text"
+                placeholder="Writer"
+                value={newArticle.writer}
+                onChange={(e) =>
+                  setNewArticle((prev) => ({ ...prev, writer: e.target.value }))
+                }
+              />              
               <input
                 type="text"
                 placeholder="Image URLs (comma-separated)"
@@ -642,7 +651,9 @@ useEffect(() => {
         </div>
 
         {/* Stress Level Section */}
-        <div className="box stress" onClick={handleMoveToStress}>
+        <div className={`box stress ${
+          !schedule || schedule.length === 0 ? "no-schedule" : ""
+          }`} onClick={handleMoveToStress}>
           <div className="header">
           <h2>Stress Level</h2>
           </div>
@@ -673,7 +684,9 @@ useEffect(() => {
           </div>
         </div>
         {/* Schedule Section */}
-        <div className="box schedule">
+        <div className={`box schedule ${
+          !schedule || schedule.length === 0 ? "no-schedule" : ""
+          }`}>
           <div className="header">
             <h2>Schedule</h2>
             <p>({getCurrentDate()})</p></div>
